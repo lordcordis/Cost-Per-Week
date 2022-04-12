@@ -37,46 +37,35 @@ class TableViewController: UITableViewController {
     
 
     override func viewDidLoad() {
-        
-
-        
         super.viewDidLoad()
+        
+        
+        // loading persisted data
         
         loadData()
         
         title = "Cost per week"
         view.backgroundColor = .systemGray6
         
+        
+        // configuring navigation controller
+        
         navigationController?.isToolbarHidden = true
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.tintColor = .systemPink
+        
+        
+        // configuring bar buttons
         
         let plusItem = UIBarButtonItem(image: .add, style: .done, target: self, action: #selector(createNewItem))
         
         let computeAllCostsItem = UIBarButtonItem(image: UIImage(systemName: "tray"), style: .plain, target: self, action: #selector(countItems))
         
+        
+        //MARK: adding bar buttons
+        
         navigationController?.navigationBar.topItem?.rightBarButtonItem = plusItem
         navigationController?.navigationBar.topItem?.leftBarButtonItem = computeAllCostsItem
-        
-        
-        
-        
-
-        // Uncomment the following line to preserve selection between presentations
-//         self.clearsSelectionOnViewWillAppear = true
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-//        self.view.backgroundColor = .lightGray
-//
-//        self.tableView.rowHeight = UITableView.automaticDimension
-//        self.tableView.estimatedRowHeight = 200
-        
-
-//        self.tableView.estimatedRowHeight = 100
-//        self.tableView.rowHeight = UITableView.automaticDimension
-//        
         
     }
 
@@ -99,11 +88,6 @@ class TableViewController: UITableViewController {
         
         self.tableView.register(ItemCellAnother.self, forCellReuseIdentifier: "itemCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemCellAnother
-
-//        cell.configure()
-//        let v = cell.contentView
-//        v.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-//
         cell.item = itemsForTableVC[indexPath.row]
         cell.configure()
         

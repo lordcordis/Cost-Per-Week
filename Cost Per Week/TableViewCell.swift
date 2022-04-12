@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemCell: UITableViewCell {
+class ItemCellAnother: UITableViewCell {
     
     var item: Item!
     
@@ -15,92 +15,63 @@ class ItemCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configure() {
-        //        self.backgroundColor = .yellow
-        initItemNameLabel()
-        initPurchasedDateLabel()
-        initCostPerWeekLabel()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        //        print(item ?? "what")
-    }
-    
-    
-    // init labels
+    // labels' initialisation
     
     let itemNameLabel = UILabel()
     let itemPurchasedDateLabel = UILabel()
     let itemCostPerWeekLabel = UILabel()
     
+    // initial configuration of the cell
     
-    func initItemNameLabel() {
-        self.addSubview(itemNameLabel)
+    func configure() {
         
-        itemNameLabel.text = "\(item.name)"
-        //        itemNameLabel.sizeToFit()
-        itemNameLabel.font = .systemFont(ofSize: 20, weight: .medium)
-        itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let constraintsForItemNameLabel: [NSLayoutConstraint] = [
+        // making labels ready for autolayout
+        
+        self.itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.itemPurchasedDateLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.itemCostPerWeekLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        // adding labels to subview
+        
+        addSubview(itemNameLabel)
+        addSubview(itemPurchasedDateLabel)
+        addSubview(itemCostPerWeekLabel)
+        
+        
+        //  configuring labels
+        
+        initConstraints()
+        fillLabelsWithInfo()
+    }
+    
+    
+    // laying out constraints
+    
+    func initConstraints() {
+        
+        let constraints: [NSLayoutConstraint] = [
+            
             itemNameLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
-            itemNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
-            
-        ]
-        NSLayoutConstraint.activate(constraintsForItemNameLabel)
-    }
-    
-    func initPurchasedDateLabel() {
-        self.addSubview(itemPurchasedDateLabel)
-        
-        itemPurchasedDateLabel.text = "\(item.dateAsString)"
-        //        itemPurchasedDateLabel.sizeToFit()
-        itemPurchasedDateLabel.font = .systemFont(ofSize: 20, weight: .regular)
-        itemPurchasedDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        let constraintsForPurchasedDateLabel: [NSLayoutConstraint] = [
+            itemNameLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             itemPurchasedDateLabel.topAnchor.constraint(equalTo: itemNameLabel.bottomAnchor, constant: 20),
-            itemPurchasedDateLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20)
-            
-        ]
-        NSLayoutConstraint.activate(constraintsForPurchasedDateLabel)
-    }
-    
-    func initCostPerWeekLabel() {
-        self.addSubview(itemCostPerWeekLabel)
-        itemCostPerWeekLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        itemCostPerWeekLabel.text = String(item.price)
-        itemCostPerWeekLabel.font = .systemFont(ofSize: 20, weight: .regular)
-        //        itemCostPerWeekLabel.sizeToFit()
-        
-        let constraintsForCostPerWeekLabel: [NSLayoutConstraint] = [
+            itemPurchasedDateLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             itemCostPerWeekLabel.topAnchor.constraint(equalTo: itemPurchasedDateLabel.bottomAnchor, constant: 20),
-            itemCostPerWeekLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            //            itemCostPerWeekLabel.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 20),
-            
-//            let heightForThisCell: CGFloat = 20 + itemNameLabel.heightAnchor + 20 + itemPurchasedDateLabel.heightAnchor + 20 + itemCostPerWeekLabel.heightAnchor + 20
-            
-            contentView.heightAnchor.constraint(equalToConstant: 250)
+            itemCostPerWeekLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            //            contentView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: itemCostPerWeekLabel.bottomAnchor, constant: -20),
+            contentView.heightAnchor.constraint(equalToConstant: 150),
         ]
-        NSLayoutConstraint.activate(constraintsForCostPerWeekLabel)
-        
-        
-        
-        
+        NSLayoutConstraint.activate(constraints)
+    
     }
     
-    //    func initLabel (label: UILabel, text: String, font: UIFont, constraints: [NSLayoutConstraint]) {
-    //        label.translatesAutoresizingMaskIntoConstraints = false
-    //        self.addSubview(label)
-    //        label.text = text
-    //        label.font = font
-    //        NSLayoutConstraint.activate(constraints)
-    //
-    //    }
     
+    // populating labels with info
     
-    
+    func fillLabelsWithInfo() {
+        itemNameLabel.text = item.name
+        itemPurchasedDateLabel.text = item.dateAsString
+        itemCostPerWeekLabel.text = "\(item.pricePerWeek) rubles per week"
+    }
 }

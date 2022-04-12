@@ -16,9 +16,7 @@
 		0045146927298F9800CB523A /* Persistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146827298F9800CB523A /* Persistency.swift */; };
 		0045146B27298FEE00CB523A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146A27298FEE00CB523A /* Item.swift */; };
 		005323CC272B463F008FAAD7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CB272B463F008FAAD7 /* TableViewController.swift */; };
-		005323CE272B4662008FAAD7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CD272B4662008FAAD7 /* TableViewCell.swift */; };
-		005323D0272B4844008FAAD7 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CF272B4844008FAAD7 /* Items.swift */; };
-		0087BBE627FC96F100EB9614 /* TableViewCellAnother.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087BBE527FC96F100EB9614 /* TableViewCellAnother.swift */; };
+		0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087BBE527FC96F100EB9614 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +31,7 @@
 		0045146827298F9800CB523A /* Persistency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistency.swift; sourceTree = "<group>"; };
 		0045146A27298FEE00CB523A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		005323CB272B463F008FAAD7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		005323CD272B4662008FAAD7 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		005323CF272B4844008FAAD7 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
-		0087BBE527FC96F100EB9614 /* TableViewCellAnother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAnother.swift; sourceTree = "<group>"; };
+		0087BBE527FC96F100EB9614 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,12 +68,10 @@
 				0045145627298F5A00CB523A /* SceneDelegate.swift */,
 				0045145827298F5A00CB523A /* ViewController.swift */,
 				005323CB272B463F008FAAD7 /* TableViewController.swift */,
-				0087BBE527FC96F100EB9614 /* TableViewCellAnother.swift */,
+				0087BBE527FC96F100EB9614 /* TableViewCell.swift */,
 				000D5912272F2FD700F978D5 /* DetailViewController.swift */,
-				005323CD272B4662008FAAD7 /* TableViewCell.swift */,
 				0045146827298F9800CB523A /* Persistency.swift */,
 				0045146A27298FEE00CB523A /* Item.swift */,
-				005323CF272B4844008FAAD7 /* Items.swift */,
 				0045145D27298F5C00CB523A /* Assets.xcassets */,
 				0045145F27298F5C00CB523A /* LaunchScreen.storyboard */,
 				0045146227298F5C00CB523A /* Info.plist */,
@@ -156,14 +150,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				000D5913272F2FD700F978D5 /* DetailViewController.swift in Sources */,
-				005323D0272B4844008FAAD7 /* Items.swift in Sources */,
 				005323CC272B463F008FAAD7 /* TableViewController.swift in Sources */,
-				0087BBE627FC96F100EB9614 /* TableViewCellAnother.swift in Sources */,
+				0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */,
 				0045146B27298FEE00CB523A /* Item.swift in Sources */,
 				0045145927298F5A00CB523A /* ViewController.swift in Sources */,
 				0045146927298F9800CB523A /* Persistency.swift in Sources */,
 				0045145527298F5A00CB523A /* AppDelegate.swift in Sources */,
-				005323CE272B4662008FAAD7 /* TableViewCell.swift in Sources */,
 				0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,13 +14,14 @@ class DetailViewController: UIViewController {
     var importedItem: Item?
     
     
-    // initialising UIKit items
+    //MARK: initialising UIKit items
     
     let nameTextField = UITextField()
     let priceTextField = UITextField()
     let datePicker = UIDatePicker()
     let saveButton = UIButton(configuration: .bordered(), primaryAction: nil)
     
+    //MARK: save data and exit from detailView
     
     @objc func saveAndExit() {
         
@@ -46,7 +47,6 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         nameTextField.delegate = self
         priceTextField.delegate = self
-//        saveButton.isUserInteractionEnabled = false
         self.view.backgroundColor = .systemGray6
         saveButton.tintColor = .systemPink
         
@@ -57,7 +57,7 @@ class DetailViewController: UIViewController {
             saveButton.alpha = 0.5
         }
         
-        // making anchors work
+        //MARK: making anchors work
         
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         priceTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +65,7 @@ class DetailViewController: UIViewController {
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         
         
-        // adding subbiews
+        //MARK: adding subbiews
         
         view.addSubview(nameTextField)
         view.addSubview(priceTextField)
@@ -73,13 +73,13 @@ class DetailViewController: UIViewController {
         view.addSubview(datePicker)
         
         
-        // saveButton config
+        //MARK: saveButton config
         
         saveButton.setTitle("Save", for: .normal)
         saveButton.configuration = .borderedProminent()
         
         
-        // nameTextField config
+        //MARK: nameTextField config
         
         let nameOfCurrentItem: String = importedItem?.name ?? ""
         
@@ -89,7 +89,7 @@ class DetailViewController: UIViewController {
         nameTextField.autocapitalizationType = .words
         nameTextField.autocorrectionType = .no
         
-        // priceTextField config
+        //MARK: priceTextField config
         
         priceTextField.borderStyle = .roundedRect
         priceTextField.autocapitalizationType = .none
@@ -107,12 +107,12 @@ class DetailViewController: UIViewController {
         priceTextField.text = priceOfCurrentItem
         
         
-        // datePicker config
+        //MARK: datePicker config
         
         datePicker.datePickerMode = .date
         datePicker.date = importedItem?.date ?? Date()
         
-        // constraints
+        //MARK: constraints for detailView
         
         let detailViewConstraints: [NSLayoutConstraint] = [
             
@@ -133,8 +133,6 @@ class DetailViewController: UIViewController {
             
             // datePicker constraints
             
-            //            datePicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            //            datePicker.widthAnchor.constraint(equalTo: priceTextField.widthAnchor),
             datePicker.heightAnchor.constraint(equalTo: priceTextField.heightAnchor),
             datePicker.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 30),
             datePicker.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
@@ -156,6 +154,8 @@ class DetailViewController: UIViewController {
 }
 
 
+//MARK: keyboard control
+
 extension DetailViewController: UITextFieldDelegate {
     
     
@@ -169,9 +169,7 @@ extension DetailViewController: UITextFieldDelegate {
         }
         
         
-        // checking if textfields are empty
-        
-//        let combinedTextFromStrings = "\(nameTextField.text!)" + "\(priceTextField.text!)"
+        // disable save button if both strings are empty
         
         let textFromBothStrings = "\(nameTextField.text!)\(priceTextField.text!)"
         
@@ -194,7 +192,7 @@ extension DetailViewController: UITextFieldDelegate {
         }
         
         
-        // making priceTextField numbers only
+        // making priceTextField numbers only (needs rework)
         
         if priceTextField.keyboardType == .numberPad {
             if CharacterSet(charactersIn: "0123456789").isSuperset(of: CharacterSet(charactersIn: string)) {
