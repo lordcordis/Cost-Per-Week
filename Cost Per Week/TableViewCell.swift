@@ -35,9 +35,9 @@ class ItemCellAnother: UITableViewCell {
         
         // adding labels to subview
         
-        addSubview(itemNameLabel)
-        addSubview(itemPurchasedDateLabel)
-        addSubview(itemCostPerWeekLabel)
+        contentView.addSubview(itemNameLabel)
+        contentView.addSubview(itemPurchasedDateLabel)
+        contentView.addSubview(itemCostPerWeekLabel)
         
         
         //  configuring labels
@@ -50,20 +50,37 @@ class ItemCellAnother: UITableViewCell {
     // laying out constraints
     
     func initConstraints() {
+        itemNameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        itemNameLabel.adjustsFontForContentSizeCategory = true
+        itemPurchasedDateLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        itemPurchasedDateLabel.adjustsFontForContentSizeCategory = true
+        itemCostPerWeekLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        itemCostPerWeekLabel.adjustsFontForContentSizeCategory = true
         
         let constraints: [NSLayoutConstraint] = [
             
-            itemNameLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
-            itemNameLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            itemPurchasedDateLabel.topAnchor.constraint(equalTo: itemNameLabel.bottomAnchor, constant: 20),
-            itemPurchasedDateLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            itemCostPerWeekLabel.topAnchor.constraint(equalTo: itemPurchasedDateLabel.bottomAnchor, constant: 20),
-            itemCostPerWeekLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            //            contentView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: itemCostPerWeekLabel.bottomAnchor, constant: -20),
-            contentView.heightAnchor.constraint(equalToConstant: 150),
+            // autolayout for labels using layoutMarginsGuide
+            
+            itemNameLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            itemNameLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            itemNameLabel.firstBaselineAnchor.constraint(equalToSystemSpacingBelow: contentView.layoutMarginsGuide.topAnchor, multiplier: 1),
+            
+            itemPurchasedDateLabel.leadingAnchor.constraint(equalTo: itemNameLabel.leadingAnchor),
+            itemPurchasedDateLabel.trailingAnchor.constraint(equalTo: itemNameLabel.trailingAnchor),
+            itemPurchasedDateLabel.firstBaselineAnchor.constraint(equalToSystemSpacingBelow: itemNameLabel.lastBaselineAnchor, multiplier: 2),
+            
+            itemCostPerWeekLabel.leadingAnchor.constraint(equalTo: itemNameLabel.leadingAnchor),
+            itemCostPerWeekLabel.trailingAnchor.constraint(equalTo: itemNameLabel.trailingAnchor),
+            itemCostPerWeekLabel.firstBaselineAnchor.constraint(equalToSystemSpacingBelow: itemPurchasedDateLabel.lastBaselineAnchor, multiplier: 1),
+            
+            
+            contentView.layoutMarginsGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: itemCostPerWeekLabel.lastBaselineAnchor, multiplier: 1)
+            
+            
+            
         ]
         NSLayoutConstraint.activate(constraints)
-    
+        
     }
     
     
