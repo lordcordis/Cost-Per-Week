@@ -17,6 +17,7 @@
 		0045146B27298FEE00CB523A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146A27298FEE00CB523A /* Item.swift */; };
 		005323CC272B463F008FAAD7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CB272B463F008FAAD7 /* TableViewController.swift */; };
 		0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087BBE527FC96F100EB9614 /* TableViewCell.swift */; };
+		00A96D552905A4FB0078D366 /* DetailViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0045146A27298FEE00CB523A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		005323CB272B463F008FAAD7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0087BBE527FC96F100EB9614 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				005323CB272B463F008FAAD7 /* TableViewController.swift */,
 				0087BBE527FC96F100EB9614 /* TableViewCell.swift */,
 				000D5912272F2FD700F978D5 /* DetailViewController.swift */,
+				00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */,
 				0045146827298F9800CB523A /* Persistency.swift */,
 				0045146A27298FEE00CB523A /* Item.swift */,
 				0045145D27298F5C00CB523A /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A96D552905A4FB0078D366 /* DetailViewController + Extension.swift in Sources */,
 				000D5913272F2FD700F978D5 /* DetailViewController.swift in Sources */,
 				005323CC272B463F008FAAD7 /* TableViewController.swift in Sources */,
 				0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */,
