@@ -31,7 +31,6 @@ class DetailViewController: UIViewController {
         let item = Item(name: nameOfRetrievedItem, price: priceOfRetrievedItem, date: datePicker.date)
         
         guard importedItem != nil else {
-            
             delegate?.addItemToList(item: item)
             dismiss(animated: true)
             return
@@ -47,14 +46,15 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         nameTextField.delegate = self
         priceTextField.delegate = self
-        self.view.backgroundColor = .systemGray6
+        self.view.backgroundColor = .systemBackground
         saveButton.tintColor = .systemPink
+        saveButton.isEnabled = false
         
         
         self.saveButton.addTarget(self, action: #selector(saveAndExit), for: .touchUpInside)
         
         if importedItem == nil {
-            saveButton.isUserInteractionEnabled = false
+            saveButton.isEnabled = false
             saveButton.alpha = 0.5
         }
         
@@ -84,11 +84,12 @@ class DetailViewController: UIViewController {
         
         let nameOfCurrentItem: String = importedItem?.name ?? ""
         
-        nameTextField.placeholder = "name"
+        nameTextField.placeholder = "Item name"
         nameTextField.text = nameOfCurrentItem
         nameTextField.borderStyle = .roundedRect
         nameTextField.autocapitalizationType = .words
         nameTextField.autocorrectionType = .no
+        nameTextField.clearButtonMode = .whileEditing
         
         //MARK: priceTextField config
         
@@ -97,6 +98,7 @@ class DetailViewController: UIViewController {
         priceTextField.autocorrectionType = .no
         priceTextField.keyboardType = .numberPad
         priceTextField.returnKeyType = .done
+        priceTextField.clearButtonMode = .whileEditing
         
         let priceOfCurrentItem: String = {
             guard let price = importedItem?.price else {return ""}
@@ -104,7 +106,7 @@ class DetailViewController: UIViewController {
         }()
         
         
-        priceTextField.placeholder = "price"
+        priceTextField.placeholder = "Price"
         priceTextField.text = priceOfCurrentItem
         
         
@@ -160,6 +162,27 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UITextFieldDelegate {
     
     
+    func checkIfButtonIsEnabled() {
+        if nameTextField.text?.isEmpty == true || priceTextField.text?.isEmpty == true {
+            saveButton.isEnabled = false
+        } else if nameTextField.text?.isEmpty == false && priceTextField.text?.isEmpty == false {
+            saveButton.isEnabled = true
+        } else { return }
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        checkIfButtonIsEnabled()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        checkIfButtonIsEnabled()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        checkIfButtonIsEnabled()
+    }
+    
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         
@@ -172,25 +195,28 @@ extension DetailViewController: UITextFieldDelegate {
         
         // disable save button if both strings are empty
         
-        let textFromBothStrings = "\(nameTextField.text!)\(priceTextField.text!)"
-        
-        let bothStringsAreNotEmpty: Bool = !nameTextField.text!.isEmpty && !priceTextField.text!.isEmpty
-        
-        print(textFromBothStrings)
-        print(bothStringsAreNotEmpty)
-        
-
-        if bothStringsAreNotEmpty {
-            saveButton.isUserInteractionEnabled = true
-            saveButton.alpha = 1.0
-        } else {
-            saveButton.isUserInteractionEnabled = false
-            saveButton.alpha = 0.5
-        }
-        
+//        let textFromBothStrings = "\(nameTextField.text!)\(priceTextField.text!)"
+//
+//        let bothStringsAreNotEmpty: Bool = !nameTextField.text!.isEmpty && !priceTextField.text!.isEmpty
+//
+//        print(textFromBothStrings)
+//        print(bothStringsAreNotEmpty)
+//
+//
+//        if bothStringsAreNotEmpty {
+//            saveButton.isUserInteractionEnabled = true
+//            saveButton.alpha = 1.0
+//        } else {
+//            saveButton.isUserInteractionEnabled = false
+//            saveButton.alpha = 0.5
+//        }
+//
         if nameTextField.keyboardType == .default {
             return true
         }
+        
+        
+
         
         
         // making priceTextField numbers only (needs rework)

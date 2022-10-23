@@ -89,6 +89,6 @@ class ItemCellAnother: UITableViewCell {
     func fillLabelsWithInfo() {
         itemNameLabel.text = item.name
         itemPurchasedDateLabel.text = item.dateAsString
-        itemCostPerWeekLabel.text = "\(item.pricePerWeek) rubles per week"
+        itemCostPerWeekLabel.text = "\(item.pricePerWeek)" + " " + "\(UserDefaults.standard.string(forKey: "currency") ?? "RUB") per week"
     }
 }

@@ -19,9 +19,26 @@ class TableViewController: UITableViewController {
         detailVC.delegate = self
         self.navigationController?.present(detailVC, animated: true)
     }
-
     
-    @objc func countItems(){
+    @objc func setCurrencyName() {
+        let alertController = UIAlertController(title: "Set currency name", message: nil, preferredStyle: .alert)
+        alertController.addTextField()
+        let saveCurrencyAction = UIAlertAction(title: "yes", style: .default) {_ in
+            
+            guard let currencyString = alertController.textFields?.first?.text else {return}
+            
+            UserDefaults.standard.setValue(NSString(string: currencyString), forKey: "currency")
+            print("currency string \(currencyString) is set")
+            print("\(UserDefaults.standard.string(forKey: "currency") ?? "error")")
+            self.tableView.reloadData()
+            
+        }
+        alertController.addAction(saveCurrencyAction)
+        present(alertController, animated: true)
+        
+    }
+    
+    @objc func countItems() {
         
         var currentSum = 0
         for item in itemsForTableVC{
@@ -61,25 +78,23 @@ class TableViewController: UITableViewController {
         
         let computeAllCostsItem = UIBarButtonItem(image: UIImage(systemName: "tray"), style: .plain, target: self, action: #selector(countItems))
         
+        let settingsItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(setCurrencyName))
+        
         
         //MARK: adding bar buttons
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = plusItem
-        navigationController?.navigationBar.topItem?.leftBarButtonItem = computeAllCostsItem
+        navigationController?.navigationBar.topItem?.leftBarButtonItems = [settingsItem, computeAllCostsItem]
         
     }
 
     // MARK: - Table view data source
     
-    
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return itemsForTableVC.count
     }
 
@@ -90,31 +105,9 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemCellAnother
         cell.item = itemsForTableVC[indexPath.row]
         cell.configure()
-        
-        // Configure the cell...
-
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -129,35 +122,6 @@ class TableViewController: UITableViewController {
     }
     
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-    
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-////        return UITableView.automaticDimension
-//        return 200
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
@@ -189,6 +153,4 @@ extension TableViewController: retrieveItemDegelate {
 //        print(itemsForTableVC)
         self.tableView.reloadData()
     }
-    
-    
 }
