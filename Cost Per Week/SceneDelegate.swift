@@ -23,10 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         
-        let mainVC = TableViewController()
+        let mainVC = ItemsTableViewController()
         let navController = UINavigationController(rootViewController: mainVC)
         
         self.window!.rootViewController = navController
+        self.window?.tintColor = UIColor.systemPink
         self.window!.makeKeyAndVisible()
         
         

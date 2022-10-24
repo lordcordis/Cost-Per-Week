@@ -16,7 +16,7 @@
 		0045146927298F9800CB523A /* Persistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146827298F9800CB523A /* Persistency.swift */; };
 		0045146B27298FEE00CB523A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146A27298FEE00CB523A /* Item.swift */; };
 		004766062905E5B500BCCCA1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 004766052905E5B500BCCCA1 /* Localizable.stringsdict */; };
-		005323CC272B463F008FAAD7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CB272B463F008FAAD7 /* TableViewController.swift */; };
+		005323CC272B463F008FAAD7 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */; };
 		0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087BBE527FC96F100EB9614 /* TableViewCell.swift */; };
 		00A96D552905A4FB0078D366 /* DetailViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,7 @@
 		0045146A27298FEE00CB523A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		004766042905E51F00BCCCA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		004766052905E5B500BCCCA1 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
-		005323CB272B463F008FAAD7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		0087BBE527FC96F100EB9614 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +72,7 @@
 			children = (
 				0045145427298F5A00CB523A /* AppDelegate.swift */,
 				0045145627298F5A00CB523A /* SceneDelegate.swift */,
-				005323CB272B463F008FAAD7 /* TableViewController.swift */,
+				005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */,
 				000CE8042907207F0085D7FF /* TableViewController + Extension.swift */,
 				0087BBE527FC96F100EB9614 /* TableViewCell.swift */,
 				000D5912272F2FD700F978D5 /* DetailViewController.swift */,
@@ -160,7 +160,7 @@
 			files = (
 				00A96D552905A4FB0078D366 /* DetailViewController + Extension.swift in Sources */,
 				000D5913272F2FD700F978D5 /* DetailViewController.swift in Sources */,
-				005323CC272B463F008FAAD7 /* TableViewController.swift in Sources */,
+				005323CC272B463F008FAAD7 /* ItemsTableViewController.swift in Sources */,
 				0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */,
 				0045146B27298FEE00CB523A /* Item.swift in Sources */,
 				0045146927298F9800CB523A /* Persistency.swift in Sources */,

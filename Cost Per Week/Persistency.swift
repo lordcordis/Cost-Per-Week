@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension TableViewController {
+extension ItemsTableViewController {
     func documentsFolder()-> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -38,7 +38,7 @@ extension TableViewController {
             let itemData = try plistDec.decode([Item].self, from: retrievedData)
             self.itemsForTableVC = itemData
             
-            print("data loaded")
+//            print("data loaded")
         } catch {
             print("error loading data")
         }

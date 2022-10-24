@@ -8,7 +8,7 @@
 import UIKit
 
 
-class TableViewController: UITableViewController, UITextFieldDelegate {
+class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     
     var alertController: UIAlertController?
     
@@ -106,13 +106,30 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @objc func countItemsAlertController() {
-        var currentSum = 0
+        var currentSumForSingleWeek = 0
+        var totalSum = 0
+        
         for item in itemsForTableVC{
-            let current = item.pricePerWeek
-            currentSum += current
+            let currentPriceForSingleWeek = item.pricePerWeek
+            let currentPrice = item.price
+            
+            currentSumForSingleWeek += currentPriceForSingleWeek
+            totalSum += currentPrice
         }
-        let alert = UIAlertController(title: "Total cost of all items per week:", message: "\(currentSum)" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")", preferredStyle: .alert)
-        let okActon = UIAlertAction(title: "ok honey", style: .cancel, handler: nil)
+        
+        
+        let pricePerWeekString = "Per week: " + "\(currentSumForSingleWeek)" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
+        let priceTotalString = "All items: " + "\(totalSum)" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
+        
+        let resultString = String("""
+        \n
+        \(pricePerWeekString) \n
+        \(priceTotalString)
+        \n
+        """)
+        
+        let alert = UIAlertController(title: "Total cost", message: resultString, preferredStyle: .alert)
+        let okActon = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okActon)
         present(alert, animated: true, completion: nil)
     }
@@ -126,7 +143,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         
         loadData()
         
-        title = "Cost per week"
+                title = "CPW"
         view.backgroundColor = .systemGray6
         
         
@@ -139,7 +156,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         
         // configuring bar buttons
         
-        let plusItem = UIBarButtonItem(image: .add, style: .done, target: self, action: #selector(createNewItem))
+        let plusItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .done, target: self, action: #selector(createNewItem))
         
         let computeAllCostsItem = UIBarButtonItem(image: UIImage(systemName: "tray"), style: .plain, target: self, action: #selector(countItemsAlertController))
         
@@ -200,7 +217,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     
 }
 
-extension TableViewController: retrieveItemDegelate {
+extension ItemsTableViewController: retrieveItemDegelate {
     func editItem(item: Item) {
         itemsForTableVC[indexPathSelected!.row] = item
         saveData()
