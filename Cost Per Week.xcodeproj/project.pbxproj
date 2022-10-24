@@ -10,11 +10,11 @@
 		000D5913272F2FD700F978D5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D5912272F2FD700F978D5 /* DetailViewController.swift */; };
 		0045145527298F5A00CB523A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145427298F5A00CB523A /* AppDelegate.swift */; };
 		0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145627298F5A00CB523A /* SceneDelegate.swift */; };
-		0045145927298F5A00CB523A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145827298F5A00CB523A /* ViewController.swift */; };
 		0045145E27298F5C00CB523A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0045145D27298F5C00CB523A /* Assets.xcassets */; };
 		0045146127298F5C00CB523A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0045145F27298F5C00CB523A /* LaunchScreen.storyboard */; };
 		0045146927298F9800CB523A /* Persistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146827298F9800CB523A /* Persistency.swift */; };
 		0045146B27298FEE00CB523A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146A27298FEE00CB523A /* Item.swift */; };
+		004766062905E5B500BCCCA1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 004766052905E5B500BCCCA1 /* Localizable.stringsdict */; };
 		005323CC272B463F008FAAD7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CB272B463F008FAAD7 /* TableViewController.swift */; };
 		0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087BBE527FC96F100EB9614 /* TableViewCell.swift */; };
 		00A96D552905A4FB0078D366 /* DetailViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */; };
@@ -25,12 +25,13 @@
 		0045145127298F5A00CB523A /* Cost Per Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cost Per Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0045145427298F5A00CB523A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0045145627298F5A00CB523A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0045145827298F5A00CB523A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0045145D27298F5C00CB523A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0045146027298F5C00CB523A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0045146227298F5C00CB523A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0045146827298F9800CB523A /* Persistency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistency.swift; sourceTree = "<group>"; };
 		0045146A27298FEE00CB523A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		004766042905E51F00BCCCA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		004766052905E5B500BCCCA1 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		005323CB272B463F008FAAD7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0087BBE527FC96F100EB9614 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController + Extension.swift"; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		0045144827298F5A00CB523A = {
 			isa = PBXGroup;
 			children = (
+				004766052905E5B500BCCCA1 /* Localizable.stringsdict */,
 				0045145327298F5A00CB523A /* Cost Per Week */,
 				0045145227298F5A00CB523A /* Products */,
 			);
@@ -68,7 +70,6 @@
 			children = (
 				0045145427298F5A00CB523A /* AppDelegate.swift */,
 				0045145627298F5A00CB523A /* SceneDelegate.swift */,
-				0045145827298F5A00CB523A /* ViewController.swift */,
 				005323CB272B463F008FAAD7 /* TableViewController.swift */,
 				0087BBE527FC96F100EB9614 /* TableViewCell.swift */,
 				000D5912272F2FD700F978D5 /* DetailViewController.swift */,
@@ -124,6 +125,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 0045144827298F5A00CB523A;
 			productRefGroup = 0045145227298F5A00CB523A /* Products */;
@@ -142,6 +144,7 @@
 			files = (
 				0045146127298F5C00CB523A /* LaunchScreen.storyboard in Resources */,
 				0045145E27298F5C00CB523A /* Assets.xcassets in Resources */,
+				004766062905E5B500BCCCA1 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +160,6 @@
 				005323CC272B463F008FAAD7 /* TableViewController.swift in Sources */,
 				0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */,
 				0045146B27298FEE00CB523A /* Item.swift in Sources */,
-				0045145927298F5A00CB523A /* ViewController.swift in Sources */,
 				0045146927298F9800CB523A /* Persistency.swift in Sources */,
 				0045145527298F5A00CB523A /* AppDelegate.swift in Sources */,
 				0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */,
@@ -171,6 +173,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0045146027298F5C00CB523A /* Base */,
+				004766042905E51F00BCCCA1 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -243,6 +247,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -304,11 +309,13 @@
 				DEVELOPMENT_TEAM = 7CQ436Z988;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cost Per Week/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cost Per Week";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,11 +339,13 @@
 				DEVELOPMENT_TEAM = 7CQ436Z988;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cost Per Week/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cost Per Week";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

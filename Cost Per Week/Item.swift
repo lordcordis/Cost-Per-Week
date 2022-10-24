@@ -8,9 +8,13 @@
 import Foundation
 
 struct Item: Codable {
+    
+    static let shared = Item(name: "Name", price: 100, date: Date())
+    
     var name: String
     var price: Int
     var date: Date
+    var additionalPrice: Int?
     
     var dateAsString: String {
         get {

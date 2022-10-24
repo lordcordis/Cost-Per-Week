@@ -13,7 +13,6 @@ class DetailViewController: UIViewController {
     
     var importedItem: Item?
     
-    
     //MARK: initialising UIKit items
     
     let nameTextField = UITextField()
@@ -53,10 +52,10 @@ class DetailViewController: UIViewController {
         
         self.saveButton.addTarget(self, action: #selector(saveAndExit), for: .touchUpInside)
         
-        if importedItem == nil {
-            saveButton.isEnabled = false
-            saveButton.alpha = 0.5
-        }
+//        if importedItem == nil {
+//            saveButton.isEnabled = false
+//            saveButton.alpha = 0.5
+//        }
         
         //MARK: making anchors work
         
