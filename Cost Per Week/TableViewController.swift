@@ -15,9 +15,9 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
     func checkTextField() {
         if let alertController = alertController {
             if alertController.textFields?.first?.text?.isEmpty == true {
-                alertController.actions[4].isEnabled = false
+                alertController.actions.last!.isEnabled = false
             } else {
-                alertController.actions[4].isEnabled = true
+                alertController.actions.last!.isEnabled = true
             }
         }
     }
@@ -85,12 +85,9 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
             guard let currencyString = choosePredefinedCurrencyAlertController.textFields?.first?.text else {return}
             setCurrencyIntoUserDefaults(currency: currencyString)
         }
-        saveCurrencyAction.isEnabled = true
+        
         
         //        Adding actions to alert controller
-        
-        //        saveCurrencyAction.isEnabled = false
-        
         
         choosePredefinedCurrencyAlertController.textFields?.first?.clearButtonMode = .whileEditing
         
@@ -101,17 +98,20 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         choosePredefinedCurrencyAlertController.addAction(setRubAsCurrencyAction)
         choosePredefinedCurrencyAlertController.addAction(setLariAsCurrencyAction)
         choosePredefinedCurrencyAlertController.addAction(saveCurrencyAction)
+        
+        //        Presenting alert controller
+        
         present(choosePredefinedCurrencyAlertController, animated: true)
         
     }
     
-    @objc func countItems() {
+    @objc func countItemsAlertController() {
         var currentSum = 0
         for item in itemsForTableVC{
             let current = item.pricePerWeek
             currentSum += current
         }
-        let alert = UIAlertController(title: "Total cost of all items per week:", message: "\(currentSum) RUR", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Total cost of all items per week:", message: "\(currentSum)" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")", preferredStyle: .alert)
         let okActon = UIAlertAction(title: "ok honey", style: .cancel, handler: nil)
         alert.addAction(okActon)
         present(alert, animated: true, completion: nil)
@@ -141,7 +141,7 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         
         let plusItem = UIBarButtonItem(image: .add, style: .done, target: self, action: #selector(createNewItem))
         
-        let computeAllCostsItem = UIBarButtonItem(image: UIImage(systemName: "tray"), style: .plain, target: self, action: #selector(countItems))
+        let computeAllCostsItem = UIBarButtonItem(image: UIImage(systemName: "tray"), style: .plain, target: self, action: #selector(countItemsAlertController))
         
         let settingsItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(setCurrencyName))
         
@@ -194,7 +194,6 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
         detailVC.importedItem = itemsForTableVC[indexPath.row]
         indexPathSelectedLast = indexPath.row
         indexPathSelected = indexPath
-        //        self.navigationController?.present(detailVC, animated: true, completion: nil)
         self.navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -203,8 +202,6 @@ class TableViewController: UITableViewController, UITextFieldDelegate {
 
 extension TableViewController: retrieveItemDegelate {
     func editItem(item: Item) {
-        //        print(indexPathSelectedLast! ?? "empty indexparthrow")
-        //        itemsForTableVC.insert(item, at: indexPathSelected!.row)
         itemsForTableVC[indexPathSelected!.row] = item
         saveData()
         tableView.reloadData()
@@ -215,7 +212,6 @@ extension TableViewController: retrieveItemDegelate {
         
         itemsForTableVC.append(item)
         saveData()
-        //        print(itemsForTableVC)
         self.tableView.reloadData()
     }
 }

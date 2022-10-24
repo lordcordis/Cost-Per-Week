@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000CE8052907207F0085D7FF /* TableViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CE8042907207F0085D7FF /* TableViewController + Extension.swift */; };
 		000D5913272F2FD700F978D5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D5912272F2FD700F978D5 /* DetailViewController.swift */; };
 		0045145527298F5A00CB523A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145427298F5A00CB523A /* AppDelegate.swift */; };
 		0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145627298F5A00CB523A /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		000CE8042907207F0085D7FF /* TableViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController + Extension.swift"; sourceTree = "<group>"; };
 		000D5912272F2FD700F978D5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0045145127298F5A00CB523A /* Cost Per Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cost Per Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0045145427298F5A00CB523A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				0045145427298F5A00CB523A /* AppDelegate.swift */,
 				0045145627298F5A00CB523A /* SceneDelegate.swift */,
 				005323CB272B463F008FAAD7 /* TableViewController.swift */,
+				000CE8042907207F0085D7FF /* TableViewController + Extension.swift */,
 				0087BBE527FC96F100EB9614 /* TableViewCell.swift */,
 				000D5912272F2FD700F978D5 /* DetailViewController.swift */,
 				00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */,
@@ -161,6 +164,7 @@
 				0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */,
 				0045146B27298FEE00CB523A /* Item.swift in Sources */,
 				0045146927298F9800CB523A /* Persistency.swift in Sources */,
+				000CE8052907207F0085D7FF /* TableViewController + Extension.swift in Sources */,
 				0045145527298F5A00CB523A /* AppDelegate.swift in Sources */,
 				0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */,
 			);
