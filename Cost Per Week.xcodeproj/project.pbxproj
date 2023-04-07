@@ -19,6 +19,7 @@
 		005323CC272B463F008FAAD7 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */; };
 		0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087BBE527FC96F100EB9614 /* TableViewCell.swift */; };
 		00A96D552905A4FB0078D366 /* DetailViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */; };
+		00DAC2D229E059B300F1849A /* DetailItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DAC2D129E059B300F1849A /* DetailItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		0087BBE527FC96F100EB9614 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController + Extension.swift"; sourceTree = "<group>"; };
+		00DAC2D129E059B300F1849A /* DetailItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,20 +72,53 @@
 		0045145327298F5A00CB523A /* Cost Per Week */ = {
 			isa = PBXGroup;
 			children = (
+				00DAC2D429E059D100F1849A /* Model */,
+				00DAC2D529E059EF00F1849A /* View */,
+				00DAC2D329E059CA00F1849A /* ViewModel */,
+				00DAC2D629E05B4A00F1849A /* Services */,
 				0045145427298F5A00CB523A /* AppDelegate.swift */,
 				0045145627298F5A00CB523A /* SceneDelegate.swift */,
-				005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */,
-				000CE8042907207F0085D7FF /* TableViewController + Extension.swift */,
-				0087BBE527FC96F100EB9614 /* TableViewCell.swift */,
-				000D5912272F2FD700F978D5 /* DetailViewController.swift */,
-				00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */,
-				0045146827298F9800CB523A /* Persistency.swift */,
-				0045146A27298FEE00CB523A /* Item.swift */,
 				0045145D27298F5C00CB523A /* Assets.xcassets */,
 				0045145F27298F5C00CB523A /* LaunchScreen.storyboard */,
 				0045146227298F5C00CB523A /* Info.plist */,
 			);
 			path = "Cost Per Week";
+			sourceTree = "<group>";
+		};
+		00DAC2D329E059CA00F1849A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				00DAC2D129E059B300F1849A /* DetailItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		00DAC2D429E059D100F1849A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0045146A27298FEE00CB523A /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00DAC2D529E059EF00F1849A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */,
+				000CE8042907207F0085D7FF /* TableViewController + Extension.swift */,
+				000D5912272F2FD700F978D5 /* DetailViewController.swift */,
+				00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */,
+				0087BBE527FC96F100EB9614 /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00DAC2D629E05B4A00F1849A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0045146827298F9800CB523A /* Persistency.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +195,7 @@
 			files = (
 				00A96D552905A4FB0078D366 /* DetailViewController + Extension.swift in Sources */,
 				000D5913272F2FD700F978D5 /* DetailViewController.swift in Sources */,
+				00DAC2D229E059B300F1849A /* DetailItemViewModel.swift in Sources */,
 				005323CC272B463F008FAAD7 /* ItemsTableViewController.swift in Sources */,
 				0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */,
 				0045146B27298FEE00CB523A /* Item.swift in Sources */,

@@ -13,6 +13,8 @@ class DetailViewController: UIViewController {
     
     var importedItem: Item?
     
+    var viewModel: DetailItemViewModel?
+    
     //MARK: initialising UIKit items
     
     let nameTextField = UITextField()
@@ -113,6 +115,7 @@ class DetailViewController: UIViewController {
         
         datePicker.datePickerMode = .date
         datePicker.date = importedItem?.date ?? Date()
+        datePicker.maximumDate = Date()
         
         //MARK: constraints for detailView
         
