@@ -29,19 +29,8 @@ struct Item: Codable {
             interval.start = date
             interval.end = Date()
             let secondsSince = interval.duration.rounded()
-            let minutes = secondsSince / 60
-            let hours = minutes / 60
-            let days = hours / 24
-            let weeks = days/7
-            let weeksRounded = Int(weeks.rounded())
-            var pricePerWeek: Int {
-                switch weeksRounded {
-                case 0: return price
-                default: return price/weeksRounded
-                }
-            }
-            
-            
+            let weeksFromPurchase = Int(secondsSince / 604800)
+            let pricePerWeek = Int(price / weeksFromPurchase)
             return pricePerWeek
         }
     }

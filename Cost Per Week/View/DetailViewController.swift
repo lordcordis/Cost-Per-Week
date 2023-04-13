@@ -27,9 +27,10 @@ class DetailViewController: UIViewController {
     @objc func saveAndExit() {
         
         let nameOfRetrievedItem = String(nameTextField.text ?? "no value")
-        let priceOfRetrievedItem = Int(priceTextField.text!) ?? 0
         
-        let item = Item(name: nameOfRetrievedItem, price: priceOfRetrievedItem, date: datePicker.date)
+        guard let stringFromPriceTextField = priceTextField.text, let priceOfRetrievedItem = Double(stringFromPriceTextField) else {return}
+        
+        let item = Item(name: nameOfRetrievedItem, price: Int(priceOfRetrievedItem), date: datePicker.date)
         
         guard importedItem != nil else {
             delegate?.addItemToList(item: item)
@@ -44,6 +45,7 @@ class DetailViewController: UIViewController {
     
     
     override func viewDidLoad() {
+//        self.navigationController?.navigationBar.backgroundColor = .systemBackground
         super.viewDidLoad()
         nameTextField.delegate = self
         priceTextField.delegate = self
@@ -97,7 +99,7 @@ class DetailViewController: UIViewController {
         priceTextField.borderStyle = .roundedRect
         priceTextField.autocapitalizationType = .none
         priceTextField.autocorrectionType = .no
-        priceTextField.keyboardType = .numberPad
+        priceTextField.keyboardType = .decimalPad
         priceTextField.returnKeyType = .done
         priceTextField.clearButtonMode = .whileEditing
         
@@ -126,7 +128,7 @@ class DetailViewController: UIViewController {
             
             nameTextField.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             nameTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 90),
             
             
             // priceTextField constraints

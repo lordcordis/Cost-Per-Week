@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 
 class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
@@ -43,6 +44,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     
     @objc func createNewItem () {
         let detailVC = DetailViewController()
+        detailVC.navigationController?.isNavigationBarHidden = false
         detailVC.delegate = self
         self.navigationController?.present(detailVC, animated: true)
     }
@@ -199,7 +201,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         if (editingStyle == .delete) {
             itemsForTableVC.remove(at: indexPath.row)
             saveData()
-            tableView.reloadData()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
