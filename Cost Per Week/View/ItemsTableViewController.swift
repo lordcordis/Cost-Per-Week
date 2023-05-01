@@ -42,10 +42,48 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     var indexPathSelectedLast: Int?
     var indexPathSelected: IndexPath?
     
+    
+//    func showMyViewControllerInACustomizedSheet() {
+//
+//
+//
+//
+//
+//        let viewControllerToPresent = DetailViewControllerNew(style: .insetGrouped)
+////        viewControllerToPresent.delegate = self
+//        if let sheet = viewControllerToPresent.sheetPresentationController {
+////            sheet.presentedViewController.navigationController?.navigationBar.backgroundColor = .systemPink
+//            sheet.detents = [.medium(), .large()]
+//            sheet.largestUndimmedDetentIdentifier = .none
+//            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+//            sheet.prefersEdgeAttachedInCompactHeight = true
+//            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+//            sheet.prefersGrabberVisible = true
+//            sheet.preferredCornerRadius = 20
+//        }
+//        present(viewControllerToPresent, animated: true, completion: nil)
+//    }
+    
     @objc func createNewItem () {
+        
+//        showMyViewControllerInACustomizedSheet()
+        
+        
+
         let detailVC = DetailViewController()
         detailVC.navigationController?.isNavigationBarHidden = false
         detailVC.delegate = self
+
+//
+//
+//        let sheet = UISheetPresentationController(presentedViewController: self, presenting: detailVC)
+//        self.navigationController?.present(sheet, animated: true)
+//
+//
+//
+//        let detailVC = DetailViewController()
+//        detailVC.navigationController?.isNavigationBarHidden = false
+//        detailVC.delegate = self
         self.navigationController?.present(detailVC, animated: true)
     }
     
@@ -130,7 +168,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         \n
         """)
         
-        let alert = UIAlertController(title: "Total cost", message: resultString, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Total cost", message: resultString, preferredStyle: .actionSheet)
         let okActon = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okActon)
         present(alert, animated: true, completion: nil)
@@ -189,6 +227,49 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemCellAnother
         cell.item = itemsForTableVC[indexPath.row]
         cell.configure()
+        
+        
+        // porting cell contents to SwiftUI (to do)
+        
+        
+//        cell.contentConfiguration = UIHostingConfiguration {
+//
+//
+//            VStack(alignment: .leading) {
+//                HeartRateTitleView()
+//                Spacer()
+//                HeartRateBPMView()
+//            }
+//
+//        }
+        
+        
+//        struct HeartRateBPMView: View {
+//            var body: some View {
+//                HStack(alignment: .firstTextBaseline) {
+//                    Text("90")
+//                        .font(.system(.title, weight: .semibold))
+//                    Text("rubles per week")
+//                        .foregroundStyle(.secondary)
+//                        .font(.system(.subheadline, weight: .bold))
+//                }
+//            }
+//        }
+
+//        struct HeartRateTitleView: View {
+//            var body: some View {
+//                HStack {
+//                    Label("Macbook M2", systemImage: "laptopcomputer")
+//                        .foregroundStyle(.pink)
+//                        .font(.system(.subheadline, weight: .bold))
+//                    Spacer()
+//                    Text(Date(), style: .date)
+//                        .foregroundStyle(.secondary)
+//                        .font(.footnote)
+//                }
+//            }
+//        }
+        
         return cell
     }
     

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		000CE8052907207F0085D7FF /* TableViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000CE8042907207F0085D7FF /* TableViewController + Extension.swift */; };
 		000D5913272F2FD700F978D5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D5912272F2FD700F978D5 /* DetailViewController.swift */; };
+		002A05C929E979F7004E745B /* DetailViewControllerNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A05C829E979F7004E745B /* DetailViewControllerNew.swift */; };
+		002A05CB29E9956E004E745B /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A05CA29E9956E004E745B /* TextFieldTableViewCell.swift */; };
 		0045145527298F5A00CB523A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145427298F5A00CB523A /* AppDelegate.swift */; };
 		0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145627298F5A00CB523A /* SceneDelegate.swift */; };
 		0045145E27298F5C00CB523A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0045145D27298F5C00CB523A /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		000CE8042907207F0085D7FF /* TableViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController + Extension.swift"; sourceTree = "<group>"; };
 		000D5912272F2FD700F978D5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		002A05C829E979F7004E745B /* DetailViewControllerNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerNew.swift; sourceTree = "<group>"; };
+		002A05CA29E9956E004E745B /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		0045145127298F5A00CB523A /* Cost Per Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cost Per Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0045145427298F5A00CB523A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0045145627298F5A00CB523A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				000D5912272F2FD700F978D5 /* DetailViewController.swift */,
 				00A96D542905A4FB0078D366 /* DetailViewController + Extension.swift */,
 				0087BBE527FC96F100EB9614 /* TableViewCell.swift */,
+				002A05C829E979F7004E745B /* DetailViewControllerNew.swift */,
+				002A05CA29E9956E004E745B /* TextFieldTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,11 +202,13 @@
 				00A96D552905A4FB0078D366 /* DetailViewController + Extension.swift in Sources */,
 				000D5913272F2FD700F978D5 /* DetailViewController.swift in Sources */,
 				00DAC2D229E059B300F1849A /* DetailItemViewModel.swift in Sources */,
+				002A05CB29E9956E004E745B /* TextFieldTableViewCell.swift in Sources */,
 				005323CC272B463F008FAAD7 /* ItemsTableViewController.swift in Sources */,
 				0087BBE627FC96F100EB9614 /* TableViewCell.swift in Sources */,
 				0045146B27298FEE00CB523A /* Item.swift in Sources */,
 				0045146927298F9800CB523A /* Persistency.swift in Sources */,
 				000CE8052907207F0085D7FF /* TableViewController + Extension.swift in Sources */,
+				002A05C929E979F7004E745B /* DetailViewControllerNew.swift in Sources */,
 				0045145527298F5A00CB523A /* AppDelegate.swift in Sources */,
 				0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */,
 			);

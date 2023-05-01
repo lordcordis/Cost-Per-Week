@@ -49,7 +49,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         nameTextField.delegate = self
         priceTextField.delegate = self
-        self.view.backgroundColor = .systemBackground
+        self.view.backgroundColor = .systemGroupedBackground
         saveButton.tintColor = .systemPink
         saveButton.isEnabled = false
         
