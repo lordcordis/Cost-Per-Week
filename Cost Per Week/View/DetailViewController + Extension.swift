@@ -51,4 +51,16 @@ extension DetailViewController: UITextFieldDelegate {
         
         return true
     }
+    
+    
+    func addAbilityToDelete() {
+        let deleteTabButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteItem))
+        navigationItem.rightBarButtonItem = deleteTabButton
+    }
+    
+    @objc func deleteItem() {
+        guard let item = importedItem else {return}
+        delegate?.deleteItem(item: item)
+        navigationController?.popViewController(animated: true)
+    }
 }

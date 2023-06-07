@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -23,7 +24,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         
-        let mainVC = ItemsTableViewController()
+
+        let model = ItemsTableViewControllerViewModel()
+        let mainVC = ItemsTableViewController(model: model)
+//        let mainVC = FormViewController()
+//        let mainVC = UIHostingController(rootView: ContentView())
         let navController = UINavigationController(rootViewController: mainVC)
         
         self.window!.rootViewController = navController

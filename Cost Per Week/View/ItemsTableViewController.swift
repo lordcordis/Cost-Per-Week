@@ -6,187 +6,214 @@
 //
 
 import UIKit
+import Combine
 import SwiftUI
 
 
-class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
+class ItemsTableViewController: UITableViewController, UITextFieldDelegate{
+    
+    //    Initialisation
+    
+    init(model: ItemsTableViewControllerViewModel) {
+        self.viewModel = model
+        self.isErrorViewShown = viewModel.isEmpty()
+        self.tableViewIsEmptyView = viewModel.generateEmptyListView()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    //    Initialising datasource, view model and alert controller
+    
+    private var dataSource: UITableViewDiffableDataSource <Int, Item>!
+    
+    var viewModel: ItemsTableViewControllerViewModel
     
     var alertController: UIAlertController?
     
-    func checkTextField() {
-        if let alertController = alertController {
-            if alertController.textFields?.first?.text?.isEmpty == true {
-                alertController.actions.last!.isEnabled = false
-            } else {
-                alertController.actions.last!.isEnabled = true
+    var tableViewIsEmptyView: UIView
+    
+    var isErrorViewShown: Bool {
+        didSet{
+            switch isErrorViewShown {
+            case false: deleteEmptyMessage()
+            case true: showEmptyMessage()
             }
         }
     }
     
+    // Setting up diffable data source and cells
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        checkTextField()
+    func setupDataSource() {
+        
+        let currency = "\(UserDefaults.standard.value(forKey: "currency") ?? "RUR")"
+        
+        
+        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, item in
+            //            let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.id) as! ItemCell
+            //            cell.item = item
+            //            cell.configure()
+            //            return cell
+            
+            
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.id)
+            
+            
+            // porting cell contents to SwiftUI (to do)
+            
+            
+            cell?.contentConfiguration = UIHostingConfiguration {
+                ItemView(item: item, currency: currency)
+            }
+            
+//            
+//            struct ItemView: View {
+//                
+//                var item: Item
+//                var body: some View {
+//                    VStack(alignment: .leading) {
+//                        HeartRateTitleView(item: item)
+//                        Spacer()
+//                        HeartRateBPMView(item: item)
+//                    }
+//                }
+//            }
+//            
+//            
+//            struct HeartRateBPMView: View {
+//                var item: Item
+//                var body: some View {
+//                    HStack(alignment: .firstTextBaseline) {
+//                        Text(String(item.pricePerWeek))
+//                            .font(.system(.title, weight: .semibold))
+//                        Text("rubles per week")
+//                            .foregroundStyle(.secondary)
+//                            .font(.system(.subheadline, weight: .bold))
+//                    }
+//                }
+//            }
+//            
+//            struct HeartRateTitleView: View {
+//                var item: Item
+//                var body: some View {
+//                    HStack {
+//                        Label(item.name, systemImage: "iphone")
+//                            .foregroundStyle(.pink)
+//                            .font(.system(.subheadline, weight: .bold))
+//                        Spacer()
+//                        Text(item.date, style: .date)
+//                            .foregroundStyle(.secondary)
+//                            .font(.footnote)
+//                    }
+//                }
+//            }
+            
+            
+            
+            
+            return cell
+        })
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        checkTextField()
+    
+    
+    func updateDataSource() {
+        var snapshot = NSDiffableDataSourceSnapshot <Int, Item>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(viewModel.allItems(), toSection: 0)
+        dataSource.apply(snapshot)
     }
     
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        checkTextField()
-    }
     
     
-    var itemsForTableVC = [Item]()
     
-    var indexPathSelectedLast: Int?
-    var indexPathSelected: IndexPath?
-    
-    
-//    func showMyViewControllerInACustomizedSheet() {
-//
-//
-//
-//
-//
-//        let viewControllerToPresent = DetailViewControllerNew(style: .insetGrouped)
-////        viewControllerToPresent.delegate = self
-//        if let sheet = viewControllerToPresent.sheetPresentationController {
-////            sheet.presentedViewController.navigationController?.navigationBar.backgroundColor = .systemPink
-//            sheet.detents = [.medium(), .large()]
-//            sheet.largestUndimmedDetentIdentifier = .none
-//            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-//            sheet.prefersEdgeAttachedInCompactHeight = true
-//            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-//            sheet.prefersGrabberVisible = true
-//            sheet.preferredCornerRadius = 20
-//        }
-//        present(viewControllerToPresent, animated: true, completion: nil)
-//    }
     
     @objc func createNewItem () {
         
-//        showMyViewControllerInACustomizedSheet()
+        //        showMyViewControllerInACustomizedSheet()
         
         
-
+        
         let detailVC = DetailViewController()
-        detailVC.navigationController?.isNavigationBarHidden = false
         detailVC.delegate = self
-
-//
-//
-//        let sheet = UISheetPresentationController(presentedViewController: self, presenting: detailVC)
-//        self.navigationController?.present(sheet, animated: true)
-//
-//
-//
-//        let detailVC = DetailViewController()
-//        detailVC.navigationController?.isNavigationBarHidden = false
-//        detailVC.delegate = self
+        
+        //
+        //
+        //        let sheet = UISheetPresentationController(presentedViewController: self, presenting: detailVC)
+        //        self.navigationController?.present(sheet, animated: true)
+        //
+        //
+        //
+        //        let detailVC = DetailViewController()
+        //        detailVC.navigationController?.isNavigationBarHidden = false
+        //        detailVC.delegate = self
+        
+        
         self.navigationController?.present(detailVC, animated: true)
     }
     
     
-    @objc func setCurrencyName() {
-        let choosePredefinedCurrencyAlertController = UIAlertController(title: "Choose currency", message: "or write below", preferredStyle: .alert)
-        choosePredefinedCurrencyAlertController.addTextField()
-        self.alertController = choosePredefinedCurrencyAlertController
-        
-        func setCurrencyIntoUserDefaults(currency: String) {
-            UserDefaults.standard.setValue(NSString(string: currency), forKey: "currency")
-            self.tableView.reloadData()
-        }
-        
-        //        Init action buttons with currencies
-        
-        let setDollarsAsCurrencyAction = UIAlertAction(title: "US Dollars", style: .default) { _ in
-            setCurrencyIntoUserDefaults(currency: "dollars")
-        }
-        setDollarsAsCurrencyAction.setValue(UIImage(systemName: "dollarsign.circle"), forKey: "image")
-        
-        let setEuroAsCurrencyAction = UIAlertAction(title: "Euro", style: .default) { _ in
-            setCurrencyIntoUserDefaults(currency: "euro")
-        }
-        setEuroAsCurrencyAction.setValue(UIImage(systemName: "eurosign.circle"), forKey: "image")
-        
-        let setRubAsCurrencyAction = UIAlertAction(title: "Russian Ruble", style: .default) { _ in
-            setCurrencyIntoUserDefaults(currency: "rubles")
-        }
-        setRubAsCurrencyAction.setValue(UIImage(systemName: "rublesign.circle"), forKey: "image")
-        
-        let setLariAsCurrencyAction = UIAlertAction(title: "Lari", style: .default) { _ in
-            setCurrencyIntoUserDefaults(currency: "lari")
-        }
-        setLariAsCurrencyAction.setValue(UIImage(systemName: "larisign.circle"), forKey: "image")
-        
-        
-        let saveCurrencyAction = UIAlertAction(title: "Confirm", style: .default) { _ in
-            guard let currencyString = choosePredefinedCurrencyAlertController.textFields?.first?.text else {return}
-            setCurrencyIntoUserDefaults(currency: currencyString)
-        }
-        
-        
-        //        Adding actions to alert controller
-        
-        choosePredefinedCurrencyAlertController.textFields?.first?.clearButtonMode = .whileEditing
-        
-        choosePredefinedCurrencyAlertController.textFields?.first?.delegate = self
-        
-        choosePredefinedCurrencyAlertController.addAction(setDollarsAsCurrencyAction)
-        choosePredefinedCurrencyAlertController.addAction(setEuroAsCurrencyAction)
-        choosePredefinedCurrencyAlertController.addAction(setRubAsCurrencyAction)
-        choosePredefinedCurrencyAlertController.addAction(setLariAsCurrencyAction)
-        choosePredefinedCurrencyAlertController.addAction(saveCurrencyAction)
-        
-        //        Presenting alert controller
-        
-        present(choosePredefinedCurrencyAlertController, animated: true)
-        
-    }
     
-    @objc func countItemsAlertController() {
-        var currentSumForSingleWeek = 0
-        var totalSum = 0
-        
-        for item in itemsForTableVC{
-            let currentPriceForSingleWeek = item.pricePerWeek
-            let currentPrice = item.price
-            
-            currentSumForSingleWeek += currentPriceForSingleWeek
-            totalSum += currentPrice
-        }
-        
-        
-        let pricePerWeekString = "Per week: " + "\(currentSumForSingleWeek)" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
-        let priceTotalString = "All items: " + "\(totalSum)" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
-        
-        let resultString = String("""
-        \n
-        \(pricePerWeekString) \n
-        \(priceTotalString)
-        \n
-        """)
-        
-        let alert = UIAlertController(title: "Total cost", message: resultString, preferredStyle: .actionSheet)
-        let okActon = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okActon)
-        present(alert, animated: true, completion: nil)
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkIfItemsListIsEmpty()
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(ItemCell.self, forCellReuseIdentifier: ItemCell.id)
+        tableView.delegate = self
+        setupDataSource()
+        updateDataSource()
+        //        check()
+        //        addToolbar()
+        
+        
+        
+        //        tableView.isHidden = true
+        
+        
+        
+        
+        //        let label = UILabel()
+        //        label.text = "sample"
+        //        tableView.isHidden = true
+        //        label.frame = tableView.bounds
+        //        tableView.addSubview(label)
+        //        view.backgroundColor = .systemBlue
         
         
         // loading persisted data
         
-        loadData()
+        //        loadData()
         
-                title = "CPW"
+        title = viewModel.viewTitle()
         view.backgroundColor = .systemGray6
+        configureNavigationController()
         
         
+        
+    }
+    
+    //    func check() {
+    //        let snapshot = dataSource.snapshot()
+    ////        printContent(snapshot.itemIdentifiers)
+    //        if snapshot.itemIdentifiers.isEmpty {
+    //            print("empty")
+    //        }
+    //
+    //    }
+    
+    
+    
+    func configureNavigationController() {
         // configuring navigation controller
         
         navigationController?.isToolbarHidden = true
@@ -203,6 +230,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         let settingsItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(setCurrencyName))
         
         
+        
         //MARK: adding bar buttons
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = plusItem
@@ -212,65 +240,13 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsForTableVC.count
-    }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        self.tableView.register(ItemCellAnother.self, forCellReuseIdentifier: "itemCell")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemCellAnother
-        cell.item = itemsForTableVC[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.id, for: indexPath) as! ItemCell
+        cell.item = viewModel.itemForIndexPath(indexpath: indexPath)
         cell.configure()
-        
-        
-        // porting cell contents to SwiftUI (to do)
-        
-        
-//        cell.contentConfiguration = UIHostingConfiguration {
-//
-//
-//            VStack(alignment: .leading) {
-//                HeartRateTitleView()
-//                Spacer()
-//                HeartRateBPMView()
-//            }
-//
-//        }
-        
-        
-//        struct HeartRateBPMView: View {
-//            var body: some View {
-//                HStack(alignment: .firstTextBaseline) {
-//                    Text("90")
-//                        .font(.system(.title, weight: .semibold))
-//                    Text("rubles per week")
-//                        .foregroundStyle(.secondary)
-//                        .font(.system(.subheadline, weight: .bold))
-//                }
-//            }
-//        }
-
-//        struct HeartRateTitleView: View {
-//            var body: some View {
-//                HStack {
-//                    Label("Macbook M2", systemImage: "laptopcomputer")
-//                        .foregroundStyle(.pink)
-//                        .font(.system(.subheadline, weight: .bold))
-//                    Spacer()
-//                    Text(Date(), style: .date)
-//                        .foregroundStyle(.secondary)
-//                        .font(.footnote)
-//                }
-//            }
-//        }
-        
         return cell
+        
     }
     
     
@@ -278,40 +254,95 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        print("\(indexPath) is editing Y")
+        
+        
         if (editingStyle == .delete) {
-            itemsForTableVC.remove(at: indexPath.row)
-            saveData()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            //            viewModel.removeItem(at: indexPath)
+            //            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            print("\(indexPath) is editing")
+            
+            
         }
     }
     
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else {return}
         let detailVC = DetailViewController()
         detailVC.delegate = self
-        detailVC.importedItem = itemsForTableVC[indexPath.row]
-        indexPathSelectedLast = indexPath.row
-        indexPathSelected = indexPath
+        detailVC.importedItem = item
         self.navigationController?.pushViewController(detailVC, animated: true)
+        print(item)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
 
-extension ItemsTableViewController: retrieveItemDegelate {
+extension ItemsTableViewController: ItemDelegate {
+    
+    
+    func deleteItem(item: Item) {
+        viewModel.removeItemDiff(item: item)
+        var snapshot = dataSource.snapshot()
+        snapshot.deleteItems([item])
+        dataSource.apply(snapshot)
+        checkIfItemsListIsEmpty()
+    }
+    
+    
     func editItem(item: Item) {
-        itemsForTableVC[indexPathSelected!.row] = item
-        saveData()
-        tableView.reloadData()
+        viewModel.updateItemDiff(item: item)
+        var snapshot = dataSource.snapshot()
+        snapshot.deleteAllItems()
+        snapshot.appendSections([0])
+        snapshot.appendItems(viewModel.allItems())
+        dataSource.apply(snapshot)
+        checkIfItemsListIsEmpty()
+        
     }
     
     
     func addItemToList(item: Item) {
-        
-        itemsForTableVC.append(item)
-        saveData()
-        self.tableView.reloadData()
+        viewModel.appendItem(item: item)
+        var snapshot = dataSource.snapshot()
+        snapshot.appendItems([item])
+        dataSource.apply(snapshot)
+        checkIfItemsListIsEmpty()
     }
+    
+    
+    
+    
+    
+    
+    //    func showMyViewControllerInACustomizedSheet() {
+    //
+    //
+    //
+    //
+    //
+    //        let viewControllerToPresent = DetailViewControllerNew(style: .insetGrouped)
+    ////        viewControllerToPresent.delegate = self
+    //        if let sheet = viewControllerToPresent.sheetPresentationController {
+    ////            sheet.presentedViewController.navigationController?.navigationBar.backgroundColor = .systemPink
+    //            sheet.detents = [.medium(), .large()]
+    //            sheet.largestUndimmedDetentIdentifier = .none
+    //            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+    //            sheet.prefersEdgeAttachedInCompactHeight = true
+    //            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+    //            sheet.prefersGrabberVisible = true
+    //            sheet.preferredCornerRadius = 20
+    //        }
+    //        present(viewControllerToPresent, animated: true, completion: nil)
+    //    }
 }
+

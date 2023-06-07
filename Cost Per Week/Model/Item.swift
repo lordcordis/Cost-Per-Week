@@ -7,12 +7,33 @@
 
 import Foundation
 
-struct Item: Codable {
+//class ItemViewModel: Identifiable, ObservableObject {
+//    
+//    init(item: Item) {
+//        self.name = item.name
+//        self.price = String(item.price)
+//        self.id = item.id
+//    }
+//    
+//    @Published var name: String
+//    @Published var price: String
+//    var id: UUID
+//    
+//}
+
+struct Item: Codable, Hashable {
     
-    var name: String
-    var price: Int
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    var name: String = ""
+    var price: Int = 0
     var date: Date
     var additionalPrice: Int?
+    var itemType: ItemType?
+    var id = UUID()
     
     var dateAsString: String {
         get {
@@ -23,14 +44,22 @@ struct Item: Codable {
         }
     }
     
+    var pricePerDay: Int {
+        return self.pricePerWeek / 7
+    }
+    
     var pricePerWeek: Int {
         get {
             var interval = DateInterval()
             interval.start = date
             interval.end = Date()
-            let secondsSince = interval.duration.rounded()
-            let weeksFromPurchase = Int(secondsSince / 604800)
-            let pricePerWeek = Int(price / weeksFromPurchase)
+            let secondsSincePurchase = interval.duration.rounded()
+            let weeksFromPurchase = Int(secondsSincePurchase / 604800)
+            let pricePerWeek: Int = {
+                guard weeksFromPurchase != 0 else { return price}
+                return Int(price / weeksFromPurchase)
+            }()
+            
             return pricePerWeek
         }
     }

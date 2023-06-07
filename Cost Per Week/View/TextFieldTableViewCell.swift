@@ -19,13 +19,12 @@ class TextFieldTableViewCell: UITableViewCell {
     
     func configure() {
         
-        textField.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).isActive = true
         textField.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor).isActive = true
         textField.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor).isActive = true
         textField.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor).isActive = true
-        
         textField.placeholder = "sample"
         
         

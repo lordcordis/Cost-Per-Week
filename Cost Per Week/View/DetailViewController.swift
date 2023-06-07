@@ -7,13 +7,11 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     
-    var delegate: retrieveItemDegelate?
+    var delegate: ItemDelegate?
     
     var importedItem: Item?
-    
-    var viewModel: DetailItemViewModel?
     
     //MARK: initialising UIKit items
     
@@ -30,14 +28,20 @@ class DetailViewController: UIViewController {
         
         guard let stringFromPriceTextField = priceTextField.text, let priceOfRetrievedItem = Double(stringFromPriceTextField) else {return}
         
-        let item = Item(name: nameOfRetrievedItem, price: Int(priceOfRetrievedItem), date: datePicker.date)
-        
-        guard importedItem != nil else {
-            delegate?.addItemToList(item: item)
+        guard var item = importedItem else {
+
+            print("new item")
+            
+            let newItem = Item(name: nameOfRetrievedItem, price: Int(priceOfRetrievedItem), date: datePicker.date)
+            delegate?.addItemToList(item: newItem)
             dismiss(animated: true)
             return
+            
         }
-        
+        print("imported item")
+        item.name = nameOfRetrievedItem
+        item.price = Int(priceOfRetrievedItem)
+        item.date = datePicker.date
         delegate?.editItem(item: item)
         navigationController?.popViewController(animated: true)
     }
@@ -52,6 +56,7 @@ class DetailViewController: UIViewController {
         self.view.backgroundColor = .systemGroupedBackground
         saveButton.tintColor = .systemPink
         saveButton.isEnabled = false
+        addAbilityToDelete()
         
         
         self.saveButton.addTarget(self, action: #selector(saveAndExit), for: .touchUpInside)
@@ -61,12 +66,7 @@ class DetailViewController: UIViewController {
 //            saveButton.alpha = 0.5
 //        }
         
-        //MARK: making anchors work
-        
-        nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        priceTextField.translatesAutoresizingMaskIntoConstraints = false
-        saveButton.translatesAutoresizingMaskIntoConstraints = false
-        datePicker.translatesAutoresizingMaskIntoConstraints = false
+
         
         
         //MARK: adding subbiews
@@ -75,6 +75,13 @@ class DetailViewController: UIViewController {
         view.addSubview(priceTextField)
         view.addSubview(saveButton)
         view.addSubview(datePicker)
+        
+        //MARK: making anchors work
+        
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        priceTextField.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
         
         
         //MARK: saveButton config
@@ -168,7 +175,8 @@ class DetailViewController: UIViewController {
 
 
 
-protocol retrieveItemDegelate {
+protocol ItemDelegate {
     func addItemToList (item: Item)
     func editItem(item: Item)
+    func deleteItem(item: Item)
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ItemsTableViewController {
+class Persistency {
     func documentsFolder()-> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -17,31 +17,82 @@ extension ItemsTableViewController {
         return documentsFolder().appendingPathComponent("data.plist")
     }
     
+    func retreveData() -> [Item]? {
+        do {
+            let retrievedData = try Data(contentsOf: savePath())
+            let plistDec = PropertyListDecoder()
+            let itemData = try plistDec.decode([Item].self, from: retrievedData)
+            return itemData
+        } catch {
+            print("error loading data from plist")
+            return nil
+        }
+    }
     
-    
-    func saveData(){
+    func saveData(items: [Item]){
         do {
             let plistEnc = PropertyListEncoder()
-            let savedata = try plistEnc.encode(itemsForTableVC)
+            let savedata = try plistEnc.encode(items)
             try savedata.write(to: savePath())
             print("data saved")
         } catch {
             print("error saving data")
         }
     }
-    
-    func loadData(){
-        
-        do {
-            let retrievedData = try Data(contentsOf: savePath())
-            let plistDec = PropertyListDecoder()
-            let itemData = try plistDec.decode([Item].self, from: retrievedData)
-            self.itemsForTableVC = itemData
-            
-//            print("data loaded")
-        } catch {
-            print("error loading data")
-        }
-        
-    }
 }
+
+
+
+
+
+
+//extension ItemsTableViewController {
+//    func documentsFolder()-> URL {
+//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        return paths[0]
+//    }
+//
+//    func savePath()-> URL {
+//        return documentsFolder().appendingPathComponent("data.plist")
+//    }
+//
+//
+//
+//    func saveData(){
+//        do {
+//            let plistEnc = PropertyListEncoder()
+//            let savedata = try plistEnc.encode(viewModel.allItems())
+//            try savedata.write(to: savePath())
+//            print("data saved")
+//        } catch {
+//            print("error saving data")
+//        }
+//    }
+//
+//    func retreveData() -> [Item]? {
+//        do {
+//            let retrievedData = try Data(contentsOf: savePath())
+//            let plistDec = PropertyListDecoder()
+//            let itemData = try plistDec.decode([Item].self, from: retrievedData)
+//            return itemData
+//        } catch {
+//            print("error loading data")
+//            return nil
+//        }
+//    }
+//
+//    func loadData(){
+//
+//        do {
+//            let retrievedData = try Data(contentsOf: savePath())
+//            let plistDec = PropertyListDecoder()
+//            let itemData = try plistDec.decode([Item].self, from: retrievedData)
+//            viewModel = ItemsTableViewControllerViewModel()
+//
+////            print("data loaded")
+//        } catch {
+//            print("error loading data")
+//        }
+//
+//    }
+//}

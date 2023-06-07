@@ -8,14 +8,11 @@
 import Foundation
 
 protocol DetailItemViewModelProtocol {
-    
+    func name() -> String
 }
 
 
 struct DetailItemViewModel: DetailItemViewModelProtocol {
-    
-
-    
     
     private var nameString: String
     private var dateString: String

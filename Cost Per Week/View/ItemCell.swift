@@ -7,9 +7,12 @@
 
 import UIKit
 
-class ItemCellAnother: UITableViewCell {
+class ItemCell: UITableViewCell {
+    
+    static let id = "ItemCell"
     
     var item: Item!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,18 +29,20 @@ class ItemCellAnother: UITableViewCell {
     func configure() {
         
         
-        // making labels ready for autolayout
-        
-        self.itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.itemPurchasedDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.itemCostPerWeekLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         
         // adding labels to subview
         
         contentView.addSubview(itemNameLabel)
         contentView.addSubview(itemPurchasedDateLabel)
         contentView.addSubview(itemCostPerWeekLabel)
+        
+        
+        
+        // making labels ready for autolayout
+        
+        self.itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.itemPurchasedDateLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.itemCostPerWeekLabel.translatesAutoresizingMaskIntoConstraints = false
         
         
         //  configuring labels
