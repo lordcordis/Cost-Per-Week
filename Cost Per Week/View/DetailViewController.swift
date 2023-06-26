@@ -9,7 +9,7 @@ import UIKit
 
 final class DetailViewController: UIViewController {
     
-    var delegate: ItemDelegate?
+    weak var delegate: ItemDelegate?
     
     var importedItem: Item?
     
@@ -175,7 +175,7 @@ final class DetailViewController: UIViewController {
 
 
 
-protocol ItemDelegate {
+protocol ItemDelegate: AnyObject {
     func addItemToList (item: Item)
     func editItem(item: Item)
     func deleteItem(item: Item)
