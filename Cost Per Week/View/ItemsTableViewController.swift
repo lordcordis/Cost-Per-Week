@@ -14,6 +14,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate{
     
     //    Initialisation
     
+    
     init(model: ItemsTableViewControllerViewModel) {
         self.viewModel = model
         self.isErrorViewShown = viewModel.isEmpty()
@@ -45,75 +46,23 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate{
         }
     }
     
+    var currency = "\(UserDefaults.standard.value(forKey: "currency") ?? "RUR")"
+    
+    
     // Setting up diffable data source and cells
     
     func setupDataSource() {
         
-        let currency = "\(UserDefaults.standard.value(forKey: "currency") ?? "RUR")"
-        
-        
         dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, item in
-            //            let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.id) as! ItemCell
-            //            cell.item = item
-            //            cell.configure()
-            //            return cell
-            
-            
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.id)
             
             
-            // porting cell contents to SwiftUI (to do)
+            // creating cell contents with SwiftUI
             
             
             cell?.contentConfiguration = UIHostingConfiguration {
-                ItemView(item: item, currency: currency)
+                ItemView(item: item, currency: self.currency)
             }
-            
-//            
-//            struct ItemView: View {
-//                
-//                var item: Item
-//                var body: some View {
-//                    VStack(alignment: .leading) {
-//                        HeartRateTitleView(item: item)
-//                        Spacer()
-//                        HeartRateBPMView(item: item)
-//                    }
-//                }
-//            }
-//            
-//            
-//            struct HeartRateBPMView: View {
-//                var item: Item
-//                var body: some View {
-//                    HStack(alignment: .firstTextBaseline) {
-//                        Text(String(item.pricePerWeek))
-//                            .font(.system(.title, weight: .semibold))
-//                        Text("rubles per week")
-//                            .foregroundStyle(.secondary)
-//                            .font(.system(.subheadline, weight: .bold))
-//                    }
-//                }
-//            }
-//            
-//            struct HeartRateTitleView: View {
-//                var item: Item
-//                var body: some View {
-//                    HStack {
-//                        Label(item.name, systemImage: "iphone")
-//                            .foregroundStyle(.pink)
-//                            .font(.system(.subheadline, weight: .bold))
-//                        Spacer()
-//                        Text(item.date, style: .date)
-//                            .foregroundStyle(.secondary)
-//                            .font(.footnote)
-//                    }
-//                }
-//            }
-            
-            
-            
             
             return cell
         })

@@ -34,6 +34,7 @@ extension ItemsTableViewController {
     
     @objc func setCurrencyName() {
         
+        
         struct Currency {
             var currencyTitle: String
             var currencyString: String
@@ -46,6 +47,7 @@ extension ItemsTableViewController {
         
         func setCurrencyIntoUserDefaults(currency: String) {
             UserDefaults.standard.setValue(NSString(string: currency), forKey: "currency")
+            self.currency = currency
             self.tableView.reloadData()
         }
         
@@ -71,6 +73,8 @@ extension ItemsTableViewController {
         
         let saveCurrencyAction = UIAlertAction(title: "Confirm", style: .default) { _ in
             guard let currencyString = choosePredefinedCurrencyAlertController.textFields?.first?.text else {return}
+            self.tableView.reloadData()
+            print("currency saved")
             setCurrencyIntoUserDefaults(currency: currencyString)
         }
         
