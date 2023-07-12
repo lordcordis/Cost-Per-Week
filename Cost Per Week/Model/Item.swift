@@ -7,22 +7,9 @@
 
 import Foundation
 
-//class ItemViewModel: Identifiable, ObservableObject {
-//    
-//    init(item: Item) {
-//        self.name = item.name
-//        self.price = String(item.price)
-//        self.id = item.id
-//    }
-//    
-//    @Published var name: String
-//    @Published var price: String
-//    var id: UUID
-//    
-//}
-
 struct Item: Codable, Hashable {
     
+    static let sampleItem = Item(name: "Smasnug", price: 160000, date: Date(), additionalPrice: nil, itemType: .phone)
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -32,7 +19,7 @@ struct Item: Codable, Hashable {
     var price: Int = 0
     var date: Date
     var additionalPrice: Int?
-    var itemType: ItemType?
+    var itemType: ItemType
     var id = UUID()
     
     var dateAsString: String {

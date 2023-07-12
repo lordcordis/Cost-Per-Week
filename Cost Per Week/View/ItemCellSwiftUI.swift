@@ -7,16 +7,26 @@
 
 import SwiftUI
 
-struct ItemView: View {
+struct ItemCell: View {
+    
+    static let id = "ItemCellId"
     
     var item: Item
     var currency: String
+    var delegate: ItemDelegate
     
     var body: some View {
         VStack(alignment: .leading) {
             HeartRateTitleView(item: item)
             Spacer()
             HeartRateBPMView(item: item, currency: currency)
+        }.swipeActions {
+            Button {
+                delegate.deleteItem(item: item)
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+            .tint(.red)
         }
     }
 }
@@ -41,7 +51,7 @@ struct HeartRateTitleView: View {
     var item: Item
     var body: some View {
         HStack {
-            Label(item.name, systemImage: "iphone")
+            Label(item.name, systemImage: item.itemType?.SystemImageName() ?? "ellipsis")
                 .foregroundStyle(.pink)
                 .font(.system(.subheadline, weight: .bold))
             Spacer()

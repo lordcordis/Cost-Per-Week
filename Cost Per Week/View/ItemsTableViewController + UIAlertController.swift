@@ -34,7 +34,6 @@ extension ItemsTableViewController {
     
     @objc func setCurrencyName() {
         
-        
         struct Currency {
             var currencyTitle: String
             var currencyString: String
@@ -82,9 +81,7 @@ extension ItemsTableViewController {
         //        Adding actions to alert controller
         
         choosePredefinedCurrencyAlertController.textFields?.first?.clearButtonMode = .whileEditing
-        
         choosePredefinedCurrencyAlertController.textFields?.first?.delegate = self
-        
         
         currencyList.forEach { currency in
             choosePredefinedCurrencyAlertController.addAction(makeCurrencyAction(currency: currency))
@@ -99,32 +96,9 @@ extension ItemsTableViewController {
     }
     
     @objc func countItemsAlertController() {
-//        var currentSumForSingleWeek = 0
-//        var totalSum = 0
-//
-//        for item in itemsForTableVC{
-//            let currentPriceForSingleWeek = item.pricePerWeek
-//            let currentPrice = item.price
-//
-//            currentSumForSingleWeek += currentPriceForSingleWeek
-//            totalSum += currentPrice
-//        }
-//
-//
-//        let pricePerWeekString = "Per week: " + "\(currentSumForSingleWeek)" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
-//        let priceTotalString = "All items: " + "\(totalSum)" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
-//
-//        let resultString = String("""
-//        \n
-//        \(pricePerWeekString) \n
-//        \(priceTotalString)
-//        \n
-//        """)
         
-        let totalPriceAlert = UIAlertController(title: "Total cost", message: viewModel.resultString(), preferredStyle: .actionSheet)
-        let okActon = UIAlertAction(title: "OK", style: .default, handler: nil)
-        totalPriceAlert.addAction(okActon)
-        present(totalPriceAlert, animated: true, completion: nil)
+        showSheetView(message: viewModel.resultString())
+        
     }
     
 }

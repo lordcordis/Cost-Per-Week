@@ -32,7 +32,7 @@ final class DetailViewController: UIViewController {
 
             print("new item")
             
-            let newItem = Item(name: nameOfRetrievedItem, price: Int(priceOfRetrievedItem), date: datePicker.date)
+            let newItem = Item(name: nameOfRetrievedItem, price: Int(priceOfRetrievedItem), date: datePicker.date, itemType: .undefined)
             delegate?.addItemToList(item: newItem)
             dismiss(animated: true)
             return
