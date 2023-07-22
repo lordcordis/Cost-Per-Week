@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Combine
 import SwiftUI
 
 
@@ -46,20 +45,19 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    var currency = "\(UserDefaults.standard.value(forKey: "currency") ?? "RUR")"
-    
+    var currency: String = Currency.currencyString()
     
     // Setting up diffable data source and cells
     
     func setupDataSource() {
         
-        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, item in
+        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { [self] tableView, indexPath, item in
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.id)
             
             // creating cell contents with SwiftUI
             // TODO: Implement CellViewModel
             cell?.contentConfiguration = UIHostingConfiguration {
-                ItemCell(item: item, currency: self.currency, delegate: self)
+                ItemCell(item: item, currency: self.currency, delegate: self, weekOrDayBool: viewModel.weekOrDayBool)
             }
             return cell
         })
@@ -73,17 +71,14 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @objc func createNewItem () {
-//        let detailVC = DetailViewController()
-//        detailVC.delegate = self
-//        self.navigationController?.present(detailVC, animated: true)
-        
-        
         showDetailView(indexPath: nil)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         checkIfItemsListIsEmpty()
+        title = viewModel.viewTitle()
+        print("view will appear")
     }
     
     override func viewDidLoad() {
@@ -92,28 +87,21 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         tableView.delegate = self
         setupDataSource()
         updateDataSource()
-        title = viewModel.viewTitle()
+//        title = viewModel.viewTitle()
         view.backgroundColor = .systemGray6
         configureNavigationController()
 
     }
     
-    
     // MARK: - Providing swiftUI Detail View in a UIHostingController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        guard let item = dataSource.itemIdentifier(for: indexPath) else {return}
-//        var rootView = DetailView(item: item)
-//        rootView.delegate = self
-//        rootView.dismissDelegate = self
-//        let detailVC = UIHostingController(rootView: rootView)
-//        self.navigationController?.pushViewController(detailVC, animated: true)
-//        tableView.deselectRow(at: indexPath, animated: true)
-        
         showDetailView(indexPath: indexPath)
         
     }
+    
+//    showing empty or filled detail view (if indexPath is present)
     
     func showDetailView(indexPath: IndexPath?) {
         
@@ -121,6 +109,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
             var rootView = DetailView(item: item)
             rootView.delegate = self
             rootView.dismissDelegate = self
+            rootView.systemCurrencyIconString = viewModel.currencyStringIntoSystemImageName()
             let detailVC = UIHostingController(rootView: rootView)
             self.navigationController?.pushViewController(detailVC, animated: true)
             tableView.deselectRow(at: indexPath, animated: true)
@@ -128,6 +117,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
             var rootView = DetailView()
             rootView.delegate = self
             rootView.dismissDelegate = self
+            rootView.systemCurrencyIconString = viewModel.currencyStringIntoSystemImageName()
             let detailVC = UIHostingController(rootView: rootView)
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
@@ -138,13 +128,13 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     }
 }
 
-//MARK: - realisation of ItemDelegate protocol
+//MARK: - realisation of ItemDelegate protocol: deleting, editing, adding items
 
 extension ItemsTableViewController: ItemDelegate {
     
     
     func deleteItem(item: Item) {
-        viewModel.removeItemDiff(item: item)
+        viewModel.removeItem(item: item)
         var snapshot = dataSource.snapshot()
         snapshot.deleteItems([item])
         dataSource.apply(snapshot)
@@ -153,7 +143,7 @@ extension ItemsTableViewController: ItemDelegate {
     
     
     func editItem(item: Item) {
-        viewModel.updateItemDiff(item: item)
+        viewModel.updateItem(item: item)
         var snapshot = dataSource.snapshot()
         snapshot.deleteAllItems()
         snapshot.appendSections([0])
@@ -173,7 +163,7 @@ extension ItemsTableViewController: ItemDelegate {
     }
 }
 
-//MARK: - Realisation of DismissDelegate protocol
+//MARK: - Realisation of DismissDelegate protocol: ability to pop view from navigation controller from swiftui view
 
 extension ItemsTableViewController: DismissDelegate {
     
@@ -181,3 +171,9 @@ extension ItemsTableViewController: DismissDelegate {
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+//protocol ItemDelegate: AnyObject {
+//    func addItemToList (item: Item)
+//    func editItem(item: Item)
+//    func deleteItem(item: Item)
+//}

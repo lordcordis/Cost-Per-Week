@@ -8,10 +8,6 @@
 import SwiftUI
 
 struct DetailView: View {
-
-    var delegate: ItemDelegate?
-    var item: Item?
-    var dismissDelegate: DismissDelegate?
     
     init(item: Item? = nil) {
         
@@ -21,12 +17,22 @@ struct DetailView: View {
         
     }
     
+    var delegate: ItemDelegate?
+    var item: Item?
+    var dismissDelegate: DismissDelegate?
+    var systemCurrencyIconString: String?
+    
+
+    
     private func priceIsValid(price: String) -> Bool {
         Int(price) != nil ? true : false
     }
     
     
     func saveItem() {
+        
+        
+        
         
         if item == nil {
             guard !name.isEmpty, !price.isEmpty, priceIsValid(price: price) else {
@@ -35,13 +41,14 @@ struct DetailView: View {
             }
             let itemToExport = Item(name: name, price: Int(price)!, date: currentDate, itemType: deviceType)
             delegate?.addItemToList(item: itemToExport)
+            
         } else {
             guard priceIsValid(price: price), let id = item?.id else {return}
             let itemToExport = Item(name: name, price: Int(price)!, date: currentDate, additionalPrice: nil, itemType: deviceType, id: id)
             delegate?.editItem(item: itemToExport)
         }
         
-
+        
     }
     
     func shouldAllowSavingCheck() {
@@ -49,11 +56,8 @@ struct DetailView: View {
         withAnimation {
             toggle = !name.isEmpty && !price.isEmpty && priceIsValid(price: price)
         }
-        
-        
-            
     }
-
+    
     @State var deviceType: ItemType = .undefined
     @State var name = ""
     @State var currentDate = Date()
@@ -66,15 +70,23 @@ struct DetailView: View {
             Form {
                 Section("Product info") {
                     TextField("Product name", text: $name).onChange(of: name) { newValue in
-//                        nameSubject.send(newValue)
                         shouldAllowSavingCheck()
                     }
-                    TextField("Enter price", text: $price)
-                        .keyboardType(.numberPad)
-                        .onChange(of: price) { newValue in
-//                            priceSubject.send(newValue)
-                            shouldAllowSavingCheck()
-                        }
+//                    TextField("Enter price", text: $price)
+//                        .keyboardType(.numberPad)
+//                        .onChange(of: price) { newValue in
+//                            shouldAllowSavingCheck()
+//                        }
+                    
+                    HStack{
+                        Image(systemName: systemCurrencyIconString ?? "banknote").foregroundColor(Color.secondary)
+                        TextField("Enter price", text: $price)
+                            .keyboardType(.numberPad)
+                            .onChange(of: price) { newValue in
+                                shouldAllowSavingCheck()
+                            }
+                    }
+                    
                     DatePicker("Purchase date", selection: $currentDate, displayedComponents: [.date]).datePickerStyle(.compact).tint(Color(uiColor: UIColor.systemPink))
                     
                     Picker("Purchase type", selection: $deviceType) {
@@ -85,17 +97,11 @@ struct DetailView: View {
                                 Image(systemName: deviceType.SystemImageName())
                             }.tint(Color(uiColor: .systemPink))
                         }
-                    }.pickerStyle(.navigationLink).tint(Color(UIColor.systemPink))
-                    
-                    
-                    
-                    
+                    }.pickerStyle(.navigationLink).tint(Color(UIColor.systemPink)) 
                 }
-//                Toggle("Repairs", isOn: $repairs).tint(Color(uiColor: UIColor.systemPink))
+                //                Toggle("Repairs", isOn: $repairs).tint(Color(uiColor: UIColor.systemPink))
                 
-                
-                
-                
+    
             }.onAppear {
                 
                 if let item = item {
@@ -106,51 +112,24 @@ struct DetailView: View {
                     if deviceType == .undefined {
                         deviceType = item.itemType
                     }
-                    
-                    
-                    
                 }
-                
-                
-                print("onappear")
-            }.onDisappear {
-                print("ondisappear")
             }
-            
             
             if toggle {
-
-                    Button(action: {
-                        saveItem()
-                        dismissDelegate?.dismiss()
-                    }) {
-                        Text("Save")
-                    }.buttonStyle(.borderedProminent)
-                        .transition(.move(edge: .bottom))
-                        .padding(.all)
-                        .tint(Color(uiColor: .systemPink))
                 
-                
-                
-                
-
+                Button(action: {
+                    saveItem()
+                    dismissDelegate?.dismiss()
+                }) {
+                    Text("Save")
+                }.buttonStyle(.borderedProminent)
+                    .transition(.move(edge: .bottom))
+                    .padding(.all)
+                    .tint(Color(uiColor: .systemPink))
             }
-            
-
         }
-        
-        
     }
-    
-    
-    
 }
-
-protocol DismissDelegate {
-    func dismiss()
-}
-
-
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {

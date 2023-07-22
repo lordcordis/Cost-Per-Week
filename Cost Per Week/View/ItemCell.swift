@@ -13,16 +13,17 @@ struct ItemCell: View {
     
     var item: Item
     var currency: String
-    var delegate: ItemDelegate
+    var delegate: ItemDelegate?
+    let weekOrDayBool: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
-            HeartRateTitleView(item: item)
+            ProductTitleView(item: item)
             Spacer()
-            HeartRateBPMView(item: item, currency: currency)
+            ProductPriceView(item: item, currency: currency, weekOrDayBool: weekOrDayBool)
         }.swipeActions {
             Button {
-                delegate.deleteItem(item: item)
+                delegate?.deleteItem(item: item)
             } label: {
                 Label("Delete", systemImage: "trash")
             }
@@ -32,22 +33,35 @@ struct ItemCell: View {
 }
 
 
-struct HeartRateBPMView: View {
+struct ProductPriceView: View {
     var item: Item
     var currency: String
+    let weekOrDayBool: Bool
     
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            Text(String(item.pricePerWeek))
-                .font(.system(.title, weight: .semibold))
-            Text("\(currency) per week")
-                .foregroundStyle(.secondary)
-                .font(.system(.subheadline, weight: .bold))
+            
+            if weekOrDayBool {
+                Text(String(item.pricePerWeek))
+                    .font(.system(.title, weight: .semibold))
+                Text("\(currency) per week")
+                    .foregroundStyle(.secondary)
+                    .font(.system(.subheadline, weight: .bold))
+            } else {
+                Text(String(item.pricePerDay))
+                    .font(.system(.title, weight: .semibold))
+                Text("\(currency) per day")
+                    .foregroundStyle(.secondary)
+                    .font(.system(.subheadline, weight: .bold))
+            }
+            
+            
+
         }
     }
 }
 
-struct HeartRateTitleView: View {
+struct ProductTitleView: View {
     var item: Item
     var body: some View {
         HStack {
@@ -59,5 +73,11 @@ struct HeartRateTitleView: View {
                 .foregroundStyle(.secondary)
                 .font(.footnote)
         }
+    }
+}
+
+struct ItemCell_Previews: PreviewProvider {
+    static var previews: some View {
+        ItemCell(item: Item.sampleItem, currency: "USD", delegate: nil, weekOrDayBool: false)
     }
 }

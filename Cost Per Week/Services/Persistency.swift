@@ -39,60 +39,9 @@ class Persistency {
             print("error saving data")
         }
     }
+    
+    
+    enum KeysForUserDefaults: String {
+        case currency, pricePerWeekIfTrue
+    }
 }
-
-
-
-
-
-
-//extension ItemsTableViewController {
-//    func documentsFolder()-> URL {
-//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        return paths[0]
-//    }
-//
-//    func savePath()-> URL {
-//        return documentsFolder().appendingPathComponent("data.plist")
-//    }
-//
-//
-//
-//    func saveData(){
-//        do {
-//            let plistEnc = PropertyListEncoder()
-//            let savedata = try plistEnc.encode(viewModel.allItems())
-//            try savedata.write(to: savePath())
-//            print("data saved")
-//        } catch {
-//            print("error saving data")
-//        }
-//    }
-//
-//    func retreveData() -> [Item]? {
-//        do {
-//            let retrievedData = try Data(contentsOf: savePath())
-//            let plistDec = PropertyListDecoder()
-//            let itemData = try plistDec.decode([Item].self, from: retrievedData)
-//            return itemData
-//        } catch {
-//            print("error loading data")
-//            return nil
-//        }
-//    }
-//
-//    func loadData(){
-//
-//        do {
-//            let retrievedData = try Data(contentsOf: savePath())
-//            let plistDec = PropertyListDecoder()
-//            let itemData = try plistDec.decode([Item].self, from: retrievedData)
-//            viewModel = ItemsTableViewControllerViewModel()
-//
-////            print("data loaded")
-//        } catch {
-//            print("error loading data")
-//        }
-//
-//    }
-//}

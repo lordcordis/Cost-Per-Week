@@ -11,23 +11,46 @@ struct ItemsTableViewControllerViewModel {
     
     let persistency = Persistency()
     
+    var weekOrDayBool: Bool {
+        didSet{
+            print(weekOrDayBool)
+        }
+    }
+    
+//    var currency = Currency.getCurrency
+    
     private var items: [Item] {
         didSet {
             persistency.saveData(items: items)
         }
     }
     
-    func viewTitle() -> String {
-        return "Cost per week"
+    mutating func viewTitle() -> String {
+        
+        weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+        
+        
+        switch weekOrDayBool {
+            
+        case true:
+            return "Cost per week"
+        case false:
+            return "Cost per day"
+        }
+        
+        
+        
+//        return "Cost per week"
     }
     
     
-    mutating func removeItemDiff(item: Item) {
+    
+    mutating func removeItem(item: Item) {
         guard let index = items.firstIndex(of: item) else {return}
         items.remove(at: index)
     }
     
-    mutating func updateItemDiff (item: Item) {
+    mutating func updateItem (item: Item) {
         for (ind, itemInside) in items.enumerated() {
             if itemInside.id == item.id {
                 print("updateItemDiff success")
@@ -53,19 +76,34 @@ struct ItemsTableViewControllerViewModel {
         }
     }
     
-    var pricePerWeekString: String {
-        return "Per week: " + "\(totalCostForSingleWeek())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
+    func totalCostForSingleDay() -> Int {
+        return items.reduce(0) { partialResult, item in
+            partialResult + item.pricePerDay
+        }
     }
     
-    var totalPricePerWeekString: String {
+    var pricePerWeekOrDayString: String {
+        
+        switch weekOrDayBool {
+            
+        case true:
+            return "Per week: " + "\(totalCostForSingleWeek())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
+        case false:
+            return "Per day: " + "\(totalCostForSingleDay())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
+        }
+        
+        
+    }
+    
+    var totalPriceString: String {
         return "All items: " + "\(calculateTotalCost())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
     }
     
     func resultString() -> String {
         guard !items.isEmpty else {return "there are no items"}
         return String("""
-        \(pricePerWeekString)\n
-        \(totalPricePerWeekString)
+        \(pricePerWeekOrDayString)\n
+        \(totalPriceString)
         """)
     }
     
@@ -78,6 +116,8 @@ struct ItemsTableViewControllerViewModel {
     }
     
     init() {
+        weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+
         if let itemsRetrieved = persistency.retreveData() {
             items = itemsRetrieved
         } else {
@@ -88,5 +128,21 @@ struct ItemsTableViewControllerViewModel {
     func shouldPresentEmptyListView() -> Bool {
         if items.isEmpty {return true}
         else {return false}
+    }
+    
+    func currencyStringIntoSystemImageName() -> String {
+        
+        var output = ""
+        
+        let currencyString = Currency.currencyString()
+        if let selectedCurrencyFromUserDefaults = CurrencyList.allCases.first(where: {
+            currencyY
+            in
+            currencyY.returnCurrency().currencyString == currencyString
+        }) {
+            output = selectedCurrencyFromUserDefaults.returnCurrency().imageSystamName
+        }
+        
+        return output
     }
 }

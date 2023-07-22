@@ -7,25 +7,56 @@
 
 import SwiftUI
 
-extension ItemsTableViewController {
+extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
+    
+    
+    func refreshCurrency(currencyString: String) {
+        self.currency = currencyString
+    }
+    
+    func refreshTitle() {
+        title = viewModel.viewTitle()
+        tableView.reloadData()
+        print("refreshTitle")
+    }
+    
+    func showSettingsView() {
+        
+        var viewToPresent = SettingsView(weekOrDay: viewModel.weekOrDayBool)
+        viewToPresent.delegate = self
+        
+        let sheetController = UIHostingController(rootView: viewToPresent)
+        
+        let viewControllerToPresent = sheetController
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.largestUndimmedDetentIdentifier = .none
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 20
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
+    }
     
     
     func showSheetView(message: String) {
-    
-            let sheetController = UIHostingController(rootView: SheetView(message: message))
-    
-            let viewControllerToPresent = sheetController
-            if let sheet = viewControllerToPresent.sheetPresentationController {
-                sheet.detents = [.medium()]
-                sheet.largestUndimmedDetentIdentifier = .none
-                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-                sheet.prefersEdgeAttachedInCompactHeight = true
-                sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-                sheet.prefersGrabberVisible = true
-                sheet.preferredCornerRadius = 20
-            }
-            present(viewControllerToPresent, animated: true, completion: nil)
+        
+        let sheetController = UIHostingController(rootView: SheetView(message: message))
+        
+        let viewControllerToPresent = sheetController
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.largestUndimmedDetentIdentifier = .none
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 20
         }
+        present(viewControllerToPresent, animated: true, completion: nil)
+    }
 }
 
 struct SheetView: View {

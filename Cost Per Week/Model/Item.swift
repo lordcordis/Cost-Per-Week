@@ -19,6 +19,7 @@ struct Item: Codable, Hashable {
     var price: Int = 0
     var date: Date
     var additionalPrice: Int?
+    var addons: [ItemAddon]?
     var itemType: ItemType
     var id = UUID()
     
@@ -49,6 +50,12 @@ struct Item: Codable, Hashable {
             
             return pricePerWeek
         }
+    }
+    
+    enum pricePerWeekOrDay: String, Identifiable, Codable, CaseIterable {
+        var id: Self { self }
+        
+        case week, day
     }
     
 }
