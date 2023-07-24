@@ -22,7 +22,7 @@ struct DetailView: View {
     var dismissDelegate: DismissDelegate?
     var systemCurrencyIconString: String?
     
-
+    
     
     private func priceIsValid(price: String) -> Bool {
         Int(price) != nil ? true : false
@@ -69,17 +69,22 @@ struct DetailView: View {
         VStack {
             Form {
                 Section("Product info") {
-                    TextField("Product name", text: $name).onChange(of: name) { newValue in
+                    TextField("Product name", text: $name).onChange(of: name) {
+                        
+                        newValue in
                         shouldAllowSavingCheck()
+                        
+                        print(ItemType.stringToItemType(productNameString: newValue))
+                        
+                        deviceType = ItemType.stringToItemType(productNameString: newValue)
+                        
+                        
                     }
-//                    TextField("Enter price", text: $price)
-//                        .keyboardType(.numberPad)
-//                        .onChange(of: price) { newValue in
-//                            shouldAllowSavingCheck()
-//                        }
                     
                     HStack{
+                        
                         Image(systemName: systemCurrencyIconString ?? "banknote").foregroundColor(Color.secondary)
+                        
                         TextField("Enter price", text: $price)
                             .keyboardType(.numberPad)
                             .onChange(of: price) { newValue in
@@ -91,17 +96,19 @@ struct DetailView: View {
                     
                     Picker("Purchase type", selection: $deviceType) {
                         ForEach(ItemType.allCases) { deviceType in
+                            
                             Label {
                                 Text(deviceType.description())
                             } icon: {
                                 Image(systemName: deviceType.SystemImageName())
                             }.tint(Color(uiColor: .systemPink))
                         }
-                    }.pickerStyle(.navigationLink).tint(Color(UIColor.systemPink)) 
+                    }.pickerStyle(.navigationLink).tint(Color(UIColor.systemPink))
                 }
-                //                Toggle("Repairs", isOn: $repairs).tint(Color(uiColor: UIColor.systemPink))
                 
-    
+//                Toggle("Additions", isOn: $repairs).tint(Color(uiColor: UIColor.systemPink))
+                
+                
             }.onAppear {
                 
                 if let item = item {
@@ -126,6 +133,7 @@ struct DetailView: View {
                     .transition(.move(edge: .bottom))
                     .padding(.all)
                     .tint(Color(uiColor: .systemPink))
+                    .animation(.easeIn, value: 20)
             }
         }
     }

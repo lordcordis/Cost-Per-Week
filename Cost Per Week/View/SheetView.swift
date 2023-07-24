@@ -67,7 +67,7 @@ struct SheetView: View {
     var body: some View {
         
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.white, Color.init(uiColor: UIColor.systemGroupedBackground)]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [Color.white, Color.init(uiColor: UIColor.systemGroupedBackground)]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
             
             VStack {
                 Text("Total Cost").font(.title).padding(.all).fontWeight(.semibold)

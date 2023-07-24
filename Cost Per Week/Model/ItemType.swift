@@ -19,7 +19,7 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
     }
     
     var id: Self { self }
-    case phone, notebook, headphones, tv, monitor, console, computer, laptop, iphone, airpods, ipad, car, undefined
+    case phone, laptop, headphones, tv, monitor, console, computer, macbook, iphone, airpods, ipad, car, undefined
     
     func description() -> String {
         switch self {
@@ -33,6 +33,8 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
             return "AirPods"
         case .ipad:
             return "iPad"
+        case .macbook:
+            return "MacBook"
         default:
             return self.rawValue.capitalized
         }
@@ -42,7 +44,7 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
         switch self {
         case .phone:
             return "candybarphone"
-        case .notebook:
+        case .laptop:
             return "laptopcomputer"
         case .headphones:
             return "headphones"
@@ -58,7 +60,7 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
             return "display"
         case .computer:
             return "desktopcomputer"
-        case .laptop:
+        case .macbook:
             return "laptopcomputer"
         case .ipad:
             return "ipad"
@@ -67,5 +69,105 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
         case .undefined:
             return "ellipsis"
         }
+    }
+    
+    static func stringToItemType(productNameString: String) -> ItemType {
+        
+//        phone, laptop, headphones, tv, monitor, console, computer, macbook, iphone, airpods, ipad, car
+        
+        
+        let productNameStringLoweracased = productNameString.lowercased()
+        var output = ItemType.undefined
+    
+//        phone
+        
+        let phoneList = ["galaxy", "xiaomi", "oneplus", "oppo"]
+        
+        for itemName in phoneList {
+            if productNameStringLoweracased.contains(itemName) {
+                output = .phone
+            }
+        }
+        
+//        laptop
+        
+        let laptopList = ["lenovo"]
+        
+        for itemName in laptopList {
+            if productNameStringLoweracased.contains(itemName) {
+                output = .headphones
+            }
+        }
+        
+        
+//        headphones
+        
+        let headphonesList = ["sennheiser", "beats", "audiotechnica"]
+        
+        for itemName in headphonesList {
+            if productNameStringLoweracased.contains(itemName) {
+                output = .headphones
+            }
+        }
+        
+//        tv
+        
+//        monitor
+        
+        let monitorList = ["viewsonic", "acer", "asus", "aoc, "]
+        
+        for itemName in monitorList {
+            if productNameStringLoweracased.contains(itemName) {
+                output = .monitor
+            }
+        }
+        
+//        console
+        
+        let consolesList = ["xbox", "switch", "playstation", "nintendo"]
+        
+        for itemName in consolesList {
+            if productNameStringLoweracased.contains(itemName) {
+                output = .console
+            }
+        }
+        
+//        computer
+        
+//        macbook
+        
+        if productNameStringLoweracased.contains("macbook") {
+            output = .macbook
+        }
+        
+//        iphone
+        
+        if productNameStringLoweracased.contains("iphone") {
+            output = .iphone
+        }
+        
+//        airpods
+        
+        if productNameStringLoweracased.contains("airpods") {
+            output = .airpods
+        }
+        
+//        ipad
+        
+        if productNameStringLoweracased.contains("ipad") {
+            output = .ipad
+        }
+        
+//        car
+        
+        let carsList = ["toyota", "nissan", "ford", "honda", "bmw"]
+        
+        for itemName in carsList {
+            if productNameStringLoweracased.contains(itemName) {
+                output = .car
+            }
+        }
+
+        return output
     }
 }
