@@ -11,11 +11,7 @@ struct ItemsTableViewControllerViewModel {
     
     let persistency = Persistency()
     
-    var weekOrDayBool: Bool {
-        didSet{
-            print(weekOrDayBool)
-        }
-    }
+    var weekOrDayBool: Bool
     
 //    var currency = Currency.getCurrency
     
@@ -53,7 +49,6 @@ struct ItemsTableViewControllerViewModel {
     mutating func updateItem (item: Item) {
         for (ind, itemInside) in items.enumerated() {
             if itemInside.id == item.id {
-                print("updateItemDiff success")
                 items[ind] = item
             }
         }
@@ -134,8 +129,8 @@ struct ItemsTableViewControllerViewModel {
         
         var output = ""
         
-        let currencyString = Currency.currencyString()
-        if let selectedCurrencyFromUserDefaults = CurrencyList.allCases.first(where: {
+        let currencyString = CurrencyObject.currencyString()
+        if let selectedCurrencyFromUserDefaults = Currency.allCases.first(where: {
             currencyY
             in
             currencyY.returnCurrency().currencyString == currencyString

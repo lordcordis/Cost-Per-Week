@@ -8,6 +8,15 @@
 import Foundation
 import UIKit
 extension ItemsTableViewController {
+    
+    @objc func showSettings() {
+        showSettingsView()
+    }
+    
+    @objc func countItemsAlertController() {
+        showSheetView(message: viewModel.resultString())
+    }
+    
     func configureNavigationController() {
         
         // configuring navigation controller
@@ -23,7 +32,7 @@ extension ItemsTableViewController {
         
         let computeAllCostsItem = UIBarButtonItem(image: UIImage(systemName: "tray"), style: .plain, target: self, action: #selector(countItemsAlertController))
         
-        let settingsItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(setCurrencyName))
+        let settingsItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showSettings))
         
         
         //MARK: adding bar buttons to navigation bar

@@ -11,10 +11,9 @@
 		002F63592A0D07070036D6B5 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F63582A0D07070036D6B5 /* ItemType.swift */; };
 		002F635B2A0D0BE80036D6B5 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F635A2A0D0BE80036D6B5 /* LaunchScreen.swift */; };
 		002F635D2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F635C2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift */; };
-		002F635F2A0D37990036D6B5 /* ItemsTableViewController + UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F635E2A0D37990036D6B5 /* ItemsTableViewController + UIAlertController.swift */; };
 		002FE3642A5F2840002BB472 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FE3632A5F2840002BB472 /* SettingsView.swift */; };
 		002FE3662A5F2906002BB472 /* ItemAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FE3652A5F2906002BB472 /* ItemAddon.swift */; };
-		002FE3682A5F2B22002BB472 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FE3672A5F2B22002BB472 /* Currency.swift */; };
+		002FE3682A5F2B22002BB472 /* CurrencyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FE3672A5F2B22002BB472 /* CurrencyObject.swift */; };
 		0045145527298F5A00CB523A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145427298F5A00CB523A /* AppDelegate.swift */; };
 		0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145627298F5A00CB523A /* SceneDelegate.swift */; };
 		0045145E27298F5C00CB523A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0045145D27298F5C00CB523A /* Assets.xcassets */; };
@@ -22,11 +21,13 @@
 		0045146927298F9800CB523A /* Persistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146827298F9800CB523A /* Persistency.swift */; };
 		0045146B27298FEE00CB523A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146A27298FEE00CB523A /* Item.swift */; };
 		004766062905E5B500BCCCA1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 004766052905E5B500BCCCA1 /* Localizable.stringsdict */; };
-		0049977A2A6EC3670075540A /* DetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004997792A6EC3670075540A /* DetailViewViewModel.swift */; };
+		0049977A2A6EC3670075540A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004997792A6EC3670075540A /* DetailViewModel.swift */; };
 		004F99232A571D580081365F /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004F99222A571D580081365F /* SheetView.swift */; };
-		004F99252A57393D0081365F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004F99242A57393D0081365F /* DetailView.swift */; };
 		005323CC272B463F008FAAD7 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */; };
+		0062827F2A7D4961005D5F61 /* ItemAddonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062827E2A7D4961005D5F61 /* ItemAddonView.swift */; };
+		00AF38462A84300C007D72FB /* ItemAddonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AF38452A84300C007D72FB /* ItemAddonViewModel.swift */; };
 		00B008A22A6AAFAA0096EA7D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B008A12A6AAFAA0096EA7D /* Protocols.swift */; };
+		00B47CFC2A7C1F0600B01E52 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47CFB2A7C1F0600B01E52 /* DetailView.swift */; };
 		00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */; };
 		00CA40842A30C9A600845AC7 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA40832A30C9A600845AC7 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
@@ -36,10 +37,9 @@
 		002F63582A0D07070036D6B5 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		002F635A2A0D0BE80036D6B5 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		002F635C2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewControllerViewModel.swift; sourceTree = "<group>"; };
-		002F635E2A0D37990036D6B5 /* ItemsTableViewController + UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsTableViewController + UIAlertController.swift"; sourceTree = "<group>"; };
 		002FE3632A5F2840002BB472 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		002FE3652A5F2906002BB472 /* ItemAddon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddon.swift; sourceTree = "<group>"; };
-		002FE3672A5F2B22002BB472 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		002FE3672A5F2B22002BB472 /* CurrencyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyObject.swift; sourceTree = "<group>"; };
 		0045145127298F5A00CB523A /* Cost Per Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cost Per Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0045145427298F5A00CB523A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0045145627298F5A00CB523A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,11 +50,13 @@
 		0045146A27298FEE00CB523A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		004766042905E51F00BCCCA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		004766052905E5B500BCCCA1 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
-		004997792A6EC3670075540A /* DetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewViewModel.swift; sourceTree = "<group>"; };
+		004997792A6EC3670075540A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		004F99222A571D580081365F /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
-		004F99242A57393D0081365F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
+		0062827E2A7D4961005D5F61 /* ItemAddonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddonView.swift; sourceTree = "<group>"; };
+		00AF38452A84300C007D72FB /* ItemAddonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddonViewModel.swift; sourceTree = "<group>"; };
 		00B008A12A6AAFAA0096EA7D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		00B47CFB2A7C1F0600B01E52 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsTableViewController + EmptyView.swift"; sourceTree = "<group>"; };
 		00CA40832A30C9A600845AC7 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,11 +105,22 @@
 			path = "Cost Per Week";
 			sourceTree = "<group>";
 		};
+		00B47CFA2A7C1C4B00B01E52 /* ItemsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */,
+				0023B3FC2A59BD6200FDE61C /* ItemsTableViewController + Navigation.swift */,
+				00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */,
+			);
+			path = ItemsTableViewController;
+			sourceTree = "<group>";
+		};
 		00DAC2D329E059CA00F1849A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				002F635C2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift */,
-				004997792A6EC3670075540A /* DetailViewViewModel.swift */,
+				004997792A6EC3670075540A /* DetailViewModel.swift */,
+				00AF38452A84300C007D72FB /* ItemAddonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -118,7 +131,7 @@
 				0045146A27298FEE00CB523A /* Item.swift */,
 				002F63582A0D07070036D6B5 /* ItemType.swift */,
 				002FE3652A5F2906002BB472 /* ItemAddon.swift */,
-				002FE3672A5F2B22002BB472 /* Currency.swift */,
+				002FE3672A5F2B22002BB472 /* CurrencyObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,12 +139,10 @@
 		00DAC2D529E059EF00F1849A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */,
-				0023B3FC2A59BD6200FDE61C /* ItemsTableViewController + Navigation.swift */,
-				00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */,
-				002F635E2A0D37990036D6B5 /* ItemsTableViewController + UIAlertController.swift */,
+				00B47CFA2A7C1C4B00B01E52 /* ItemsTableViewController */,
 				004F99222A571D580081365F /* SheetView.swift */,
-				004F99242A57393D0081365F /* DetailView.swift */,
+				00B47CFB2A7C1F0600B01E52 /* DetailView.swift */,
+				0062827E2A7D4961005D5F61 /* ItemAddonView.swift */,
 				002FE3632A5F2840002BB472 /* SettingsView.swift */,
 				00CA40832A30C9A600845AC7 /* ItemCell.swift */,
 				002F635A2A0D0BE80036D6B5 /* LaunchScreen.swift */,
@@ -220,25 +231,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002FE3682A5F2B22002BB472 /* Currency.swift in Sources */,
+				002FE3682A5F2B22002BB472 /* CurrencyObject.swift in Sources */,
 				002F635B2A0D0BE80036D6B5 /* LaunchScreen.swift in Sources */,
 				002F635D2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift in Sources */,
 				00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */,
-				002F635F2A0D37990036D6B5 /* ItemsTableViewController + UIAlertController.swift in Sources */,
 				0023B3FD2A59BD6200FDE61C /* ItemsTableViewController + Navigation.swift in Sources */,
 				002F63592A0D07070036D6B5 /* ItemType.swift in Sources */,
 				00CA40842A30C9A600845AC7 /* ItemCell.swift in Sources */,
 				005323CC272B463F008FAAD7 /* ItemsTableViewController.swift in Sources */,
+				00AF38462A84300C007D72FB /* ItemAddonViewModel.swift in Sources */,
 				002FE3662A5F2906002BB472 /* ItemAddon.swift in Sources */,
-				0049977A2A6EC3670075540A /* DetailViewViewModel.swift in Sources */,
+				0049977A2A6EC3670075540A /* DetailViewModel.swift in Sources */,
 				0045146B27298FEE00CB523A /* Item.swift in Sources */,
 				0045146927298F9800CB523A /* Persistency.swift in Sources */,
 				004F99232A571D580081365F /* SheetView.swift in Sources */,
-				004F99252A57393D0081365F /* DetailView.swift in Sources */,
 				0045145527298F5A00CB523A /* AppDelegate.swift in Sources */,
 				0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */,
 				00B008A22A6AAFAA0096EA7D /* Protocols.swift in Sources */,
+				00B47CFC2A7C1F0600B01E52 /* DetailView.swift in Sources */,
 				002FE3642A5F2840002BB472 /* SettingsView.swift in Sources */,
+				0062827F2A7D4961005D5F61 /* ItemAddonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +411,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wheatley.Cost-Per-Week";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -429,6 +444,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wheatley.Cost-Per-Week";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

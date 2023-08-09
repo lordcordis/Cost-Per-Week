@@ -45,7 +45,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    var currency: String = Currency.currencyString()
+    var currency: String = CurrencyObject.currencyString()
     
     // Setting up diffable data source and cells
     
@@ -78,7 +78,6 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         checkIfItemsListIsEmpty()
         title = viewModel.viewTitle()
-        print("view will appear")
     }
     
     override func viewDidLoad() {
@@ -106,31 +105,36 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     func showDetailView(indexPath: IndexPath?) {
         
         if let indexPath = indexPath, let item = dataSource.itemIdentifier(for: indexPath) {
-            var rootView = DetailView(item: item)
-            rootView.delegate = self
-            rootView.dismissDelegate = self
-            rootView.systemCurrencyIconString = viewModel.currencyStringIntoSystemImageName()
+            //            var rootView = DetailView(item: item)
+            //            rootView.delegate = self
+            //            rootView.dismissDelegate = self
+            //            rootView.systemCurrencyIconString = viewModel.currencyStringIntoSystemImageName()
+            
+            let viewModel = DetailViewModel(item: item, delegate: self, dismissDelegate: self, systemCurrencyString: viewModel.currencyStringIntoSystemImageName())
+            let rootView = DetailView(viewModel: viewModel)
+
             let detailVC = UIHostingController(rootView: rootView)
             self.navigationController?.pushViewController(detailVC, animated: true)
             tableView.deselectRow(at: indexPath, animated: true)
         } else {
-            var rootView = DetailView()
-            rootView.delegate = self
-            rootView.dismissDelegate = self
-            rootView.systemCurrencyIconString = viewModel.currencyStringIntoSystemImageName()
+            //            var rootView = DetailView()
+            //            rootView.delegate = self
+            //            rootView.dismissDelegate = self
+            //            rootView.systemCurrencyIconString = viewModel.currencyStringIntoSystemImageName()
+      
+            
+            let viewModel = DetailViewModel(item: nil, delegate: self, dismissDelegate: self, systemCurrencyString: viewModel.currencyStringIntoSystemImageName())
+            let rootView = DetailView(viewModel: viewModel)
+            
             let detailVC = UIHostingController(rootView: rootView)
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
-            
-            
-            
-
     }
 }
 
 //MARK: - realisation of ItemDelegate protocol: deleting, editing, adding items
 
-extension ItemsTableViewController: ItemDelegate {
+extension ItemsTableViewController: ItemTableViewDelegate {
     
     
     func deleteItem(item: Item) {

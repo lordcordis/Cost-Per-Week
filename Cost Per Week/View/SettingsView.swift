@@ -22,9 +22,9 @@ struct SettingsView: View {
     
     var delegate: ChangeWeekOrDayInItemsTableViewDelegate?
     
-    let currencyAllCases = CurrencyList.allCases
+    let currencyAllCases = Currency.allCases
     @State var weekOrDayBool: Item.pricePerWeekOrDay = .week
-    @State private var selectedCurrency = CurrencyList.dollar
+    @State private var selectedCurrency = Currency.dollar
     
     var body: some View {
         Form {
@@ -53,7 +53,7 @@ struct SettingsView: View {
             Section() {
                 
                 Picker("Select a currency:", selection: $selectedCurrency) {
-                    ForEach(CurrencyList.allCases, id: \.self) { currency in
+                    ForEach(Currency.allCases, id: \.self) { currency in
                         Label {
                             Text(currency.returnCurrency().currencyFullTitle)
                         } icon: {
@@ -64,8 +64,7 @@ struct SettingsView: View {
                 .pickerStyle(.inline)
                 .onChange(of: selectedCurrency) { newValue in
                     
-                    Currency.saveCurrencyAsDefault(currency: newValue.returnCurrency())
-                    print("new currency saved")
+                    CurrencyObject.saveCurrencyAsDefault(currency: newValue.returnCurrency())
                     delegate?.refreshCurrency(currencyString: newValue.returnCurrency().currencyString)
                     delegate?.refreshTitle()
                 }
@@ -74,8 +73,8 @@ struct SettingsView: View {
         }.onAppear {
             
 //            let currencyString = Currency.currency
-            let currencyString = Currency.currencyString()
-            if let selectedCurrencyFromUserDefaults = CurrencyList.allCases.first(where: {
+            let currencyString = CurrencyObject.currencyString()
+            if let selectedCurrencyFromUserDefaults = Currency.allCases.first(where: {
                 currencyY
                 in
                 currencyY.returnCurrency().currencyString == currencyString

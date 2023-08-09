@@ -13,7 +13,7 @@ struct ItemCell: View {
     
     var item: Item
     var currency: String
-    var delegate: ItemDelegate?
+    var delegate: ItemTableViewDelegate?
     let weekOrDayBool: Bool
     
     var body: some View {

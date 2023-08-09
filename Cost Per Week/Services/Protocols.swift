@@ -16,7 +16,7 @@ protocol ChangeWeekOrDayInItemsTableViewDelegate {
     func refreshTitle()
 }
 
-protocol ItemDelegate: AnyObject {
+protocol ItemTableViewDelegate: AnyObject {
     func addItemToList (item: Item)
     func editItem(item: Item)
     func deleteItem(item: Item)
