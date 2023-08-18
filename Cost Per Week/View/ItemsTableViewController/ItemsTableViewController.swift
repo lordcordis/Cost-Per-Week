@@ -45,7 +45,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    var currency: String = CurrencyObject.currencyString()
+//    var currency: String = CurrencyObject.currencyString()
     
     // Setting up diffable data source and cells
     
@@ -55,9 +55,11 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.id)
             
             // creating cell contents with SwiftUI
-            // TODO: Implement CellViewModel
+            
+            let viewModel = ItemCellViewModel(item: item, delegate: self, weekOrDay: viewModel.weekOrDayBool)
+            
             cell?.contentConfiguration = UIHostingConfiguration {
-                ItemCell(item: item, currency: self.currency, delegate: self, weekOrDayBool: viewModel.weekOrDayBool)
+                ItemCell(viewModel: viewModel)
             }
             return cell
         })
@@ -78,6 +80,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         checkIfItemsListIsEmpty()
         title = viewModel.viewTitle()
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {

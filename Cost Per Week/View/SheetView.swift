@@ -11,18 +11,21 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
     
     
     func refreshCurrency(currencyString: String) {
-        self.currency = currencyString
+        let currency = Currency.stringIntoCurrencyObject(currencyString: currencyString)
+        viewModel.setCurrency(currency)
     }
     
     func refreshTitle() {
         title = viewModel.viewTitle()
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     func showSettingsView() {
         
-        var viewToPresent = SettingsView(weekOrDay: viewModel.weekOrDayBool)
-        viewToPresent.delegate = self
+        
+        let viewModel = SettingsViewModel(weekOrDay: viewModel.weekOrDayBool, delegate: self)
+        let viewToPresent = SettingsView(viewModel: viewModel)
+//        viewToPresent.delegate = self
         
         let sheetController = UIHostingController(rootView: viewToPresent)
         

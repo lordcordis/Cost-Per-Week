@@ -9,21 +9,18 @@ import SwiftUI
 
 struct ItemCell: View {
     
-    static let id = "ItemCellId"
+    var viewModel: ItemCellViewModel
     
-    var item: Item
-    var currency: String
-    var delegate: ItemTableViewDelegate?
-    let weekOrDayBool: Bool
+    static let id = "ItemCellId"
     
     var body: some View {
         VStack(alignment: .leading) {
-            ProductTitleView(item: item)
+            ProductTitleView(viewModel: viewModel)
             Spacer()
-            ProductPriceView(item: item, currency: currency, weekOrDayBool: weekOrDayBool)
+            ProductPriceView(viewModel: viewModel)
         }.swipeActions {
             Button {
-                delegate?.deleteItem(item: item)
+                viewModel.deleteCurrentItem()
             } label: {
                 Label("Delete", systemImage: "trash")
             }
@@ -34,42 +31,40 @@ struct ItemCell: View {
 
 
 struct ProductPriceView: View {
-    var item: Item
-    var currency: String
-    let weekOrDayBool: Bool
+
+    let viewModel: ItemCellViewModel
     
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             
-            if weekOrDayBool {
-                Text(String(item.pricePerWeek))
+            if viewModel.weekOrDay() {
+                Text(viewModel.pricePerWeek())
                     .font(.system(.title, weight: .semibold))
-                Text("\(currency) per week")
+                Text("\(viewModel.currencyString()) per week")
                     .foregroundStyle(.secondary)
                     .font(.system(.subheadline, weight: .bold))
             } else {
-                Text(String(item.pricePerDay))
+                Text(viewModel.pricePerDay())
                     .font(.system(.title, weight: .semibold))
-                Text("\(currency) per day")
+                Text("\(viewModel.currencyString()) per day")
                     .foregroundStyle(.secondary)
                     .font(.system(.subheadline, weight: .bold))
             }
-            
-            
-
         }
     }
 }
 
 struct ProductTitleView: View {
-    var item: Item
+    
+    let viewModel: ItemCellViewModel
+    
     var body: some View {
         HStack {
-            Label(item.name, systemImage: item.itemType.SystemImageName())
+            Label(viewModel.name(), systemImage: viewModel.systemImageName())
                 .foregroundStyle(.pink)
                 .font(.system(.subheadline, weight: .bold))
             Spacer()
-            Text(item.date, style: .date)
+            Text(viewModel.dateString())
                 .foregroundStyle(.secondary)
                 .font(.footnote)
         }
@@ -78,6 +73,6 @@ struct ProductTitleView: View {
 
 struct ItemCell_Previews: PreviewProvider {
     static var previews: some View {
-        ItemCell(item: Item.sampleItem, currency: "USD", delegate: nil, weekOrDayBool: false)
+        ItemCell(viewModel: ItemCellViewModel(item: Item.sampleItem, delegate: nil, weekOrDay: false))
     }
 }

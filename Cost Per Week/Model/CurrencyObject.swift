@@ -26,7 +26,7 @@ struct CurrencyObject: Hashable, Identifiable, Equatable {
     
     let currencyFullTitle: String
     let currencyString: String
-    let imageSystamName: String
+    let imageSystemName: String
 }
 
 enum Currency: String, CaseIterable, Hashable, Identifiable {
@@ -34,24 +34,38 @@ enum Currency: String, CaseIterable, Hashable, Identifiable {
     
     case dollar, euro, ruble, lari, yen, sterling, lira, rupee
     
+    
+    static func stringIntoCurrencyObject(currencyString: String) -> Currency {
+        
+        if let selectedCurrencyFromUserDefaults = Currency.allCases.first(where: {
+            currencyY
+            in
+            currencyY.returnCurrency().currencyString == currencyString
+        }) {
+            return selectedCurrencyFromUserDefaults
+        } else {
+            return Currency.dollar
+        }
+    }
+    
     func returnCurrency() -> CurrencyObject {
         switch self {
         case .dollar:
-            return CurrencyObject(currencyFullTitle: "US Dollar", currencyString: "USD", imageSystamName: "dollarsign")
+            return CurrencyObject(currencyFullTitle: "US Dollar", currencyString: "USD", imageSystemName: "dollarsign")
         case .euro:
-            return CurrencyObject(currencyFullTitle: "Euro", currencyString: "EUR", imageSystamName: "eurosign")
+            return CurrencyObject(currencyFullTitle: "Euro", currencyString: "EUR", imageSystemName: "eurosign")
         case .ruble:
-            return CurrencyObject(currencyFullTitle: "Russian Ruble", currencyString: "RUR", imageSystamName: "rublesign")
+            return CurrencyObject(currencyFullTitle: "Russian Ruble", currencyString: "RUR", imageSystemName: "rublesign")
         case .lari:
-            return CurrencyObject(currencyFullTitle: "Georgian Lari", currencyString: "GEL", imageSystamName: "larisign")
+            return CurrencyObject(currencyFullTitle: "Georgian Lari", currencyString: "GEL", imageSystemName: "larisign")
         case .yen:
-            return CurrencyObject(currencyFullTitle: "Japanese Yen", currencyString: "JPY", imageSystamName: "yensign")
+            return CurrencyObject(currencyFullTitle: "Japanese Yen", currencyString: "JPY", imageSystemName: "yensign")
         case .sterling:
-            return CurrencyObject(currencyFullTitle: "United Kingdom Sterling", currencyString: "GBP", imageSystamName: "sterlingsign")
+            return CurrencyObject(currencyFullTitle: "United Kingdom Sterling", currencyString: "GBP", imageSystemName: "sterlingsign")
         case .lira:
-            return CurrencyObject(currencyFullTitle: "Turkish Lira", currencyString: "TRY", imageSystamName: "turkishlirasign")
+            return CurrencyObject(currencyFullTitle: "Turkish Lira", currencyString: "TRY", imageSystemName: "turkishlirasign")
         case .rupee:
-            return CurrencyObject(currencyFullTitle: "Indian Rupee", currencyString: "INR", imageSystamName: "indianrupeesign")
+            return CurrencyObject(currencyFullTitle: "Indian Rupee", currencyString: "INR", imageSystemName: "indianrupeesign")
         }
     }
 }

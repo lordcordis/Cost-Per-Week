@@ -13,7 +13,22 @@ struct ItemsTableViewControllerViewModel {
     
     var weekOrDayBool: Bool
     
-//    var currency = Currency.getCurrency
+    init() {
+        weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+
+        if let itemsRetrieved = persistency.retreveData() {
+            items = itemsRetrieved
+        } else {
+            items = []
+        }
+        
+        let currencyString = CurrencyObject.currencyString()
+        currency = Currency.stringIntoCurrencyObject(currencyString: currencyString)
+    }
+    
+//    var currency: String
+    
+//    var currency = Currenc
     
     private var items: [Item] {
         didSet {
@@ -25,7 +40,6 @@ struct ItemsTableViewControllerViewModel {
         
         weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
         
-        
         switch weekOrDayBool {
             
         case true:
@@ -33,10 +47,6 @@ struct ItemsTableViewControllerViewModel {
         case false:
             return "Cost per day"
         }
-        
-        
-        
-//        return "Cost per week"
     }
     
     
@@ -90,6 +100,10 @@ struct ItemsTableViewControllerViewModel {
         
     }
     
+    func currencyString() -> String {
+        return CurrencyObject.currencyString()
+    }
+    
     var totalPriceString: String {
         return "All items: " + "\(calculateTotalCost())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
     }
@@ -110,14 +124,16 @@ struct ItemsTableViewControllerViewModel {
         return items.isEmpty
     }
     
-    init() {
-        weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
 
-        if let itemsRetrieved = persistency.retreveData() {
-            items = itemsRetrieved
-        } else {
-            items = []
-        }
+    
+    private var currency: Currency
+    
+    mutating func setCurrency(_ currency: Currency) {
+        self.currency = currency
+    }
+    
+    func getCurrency() -> Currency {
+        return currency
     }
     
     func shouldPresentEmptyListView() -> Bool {
@@ -135,7 +151,7 @@ struct ItemsTableViewControllerViewModel {
             in
             currencyY.returnCurrency().currencyString == currencyString
         }) {
-            output = selectedCurrencyFromUserDefaults.returnCurrency().imageSystamName
+            output = selectedCurrencyFromUserDefaults.returnCurrency().imageSystemName
         }
         
         return output

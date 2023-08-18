@@ -39,8 +39,6 @@ final class DetailViewModel: ObservableObject {
         
         self.dismissDelegate = dismissDelegate
         self.delegate = delegate
-        
-        print(item?.fullPrice)
     }
     
     let initialItem: Item

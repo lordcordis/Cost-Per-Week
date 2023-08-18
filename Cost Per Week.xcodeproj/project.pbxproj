@@ -11,7 +11,6 @@
 		002F63592A0D07070036D6B5 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F63582A0D07070036D6B5 /* ItemType.swift */; };
 		002F635B2A0D0BE80036D6B5 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F635A2A0D0BE80036D6B5 /* LaunchScreen.swift */; };
 		002F635D2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F635C2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift */; };
-		002FE3642A5F2840002BB472 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FE3632A5F2840002BB472 /* SettingsView.swift */; };
 		002FE3662A5F2906002BB472 /* ItemAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FE3652A5F2906002BB472 /* ItemAddon.swift */; };
 		002FE3682A5F2B22002BB472 /* CurrencyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FE3672A5F2B22002BB472 /* CurrencyObject.swift */; };
 		0045145527298F5A00CB523A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045145427298F5A00CB523A /* AppDelegate.swift */; };
@@ -25,11 +24,15 @@
 		004F99232A571D580081365F /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004F99222A571D580081365F /* SheetView.swift */; };
 		005323CC272B463F008FAAD7 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */; };
 		0062827F2A7D4961005D5F61 /* ItemAddonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062827E2A7D4961005D5F61 /* ItemAddonView.swift */; };
+		00A9E8F02A8E705A00067280 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8EF2A8E705A00067280 /* ItemCell.swift */; };
+		00A9E8F22A8E791400067280 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8F12A8E791400067280 /* ItemCellViewModel.swift */; };
+		00A9E8F42A8E7A3500067280 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8F32A8E7A3500067280 /* SettingsView.swift */; };
+		00A9E8F62A8EC03700067280 /* CurrencyDiff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8F52A8EC03700067280 /* CurrencyDiff.swift */; };
+		00A9E8F82A8EEB2E00067280 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8F72A8EEB2E00067280 /* SettingsViewModel.swift */; };
 		00AF38462A84300C007D72FB /* ItemAddonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AF38452A84300C007D72FB /* ItemAddonViewModel.swift */; };
 		00B008A22A6AAFAA0096EA7D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B008A12A6AAFAA0096EA7D /* Protocols.swift */; };
 		00B47CFC2A7C1F0600B01E52 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47CFB2A7C1F0600B01E52 /* DetailView.swift */; };
 		00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */; };
-		00CA40842A30C9A600845AC7 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA40832A30C9A600845AC7 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +40,6 @@
 		002F63582A0D07070036D6B5 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		002F635A2A0D0BE80036D6B5 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		002F635C2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewControllerViewModel.swift; sourceTree = "<group>"; };
-		002FE3632A5F2840002BB472 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		002FE3652A5F2906002BB472 /* ItemAddon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddon.swift; sourceTree = "<group>"; };
 		002FE3672A5F2B22002BB472 /* CurrencyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyObject.swift; sourceTree = "<group>"; };
 		0045145127298F5A00CB523A /* Cost Per Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cost Per Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,11 +56,15 @@
 		004F99222A571D580081365F /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		0062827E2A7D4961005D5F61 /* ItemAddonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddonView.swift; sourceTree = "<group>"; };
+		00A9E8EF2A8E705A00067280 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		00A9E8F12A8E791400067280 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
+		00A9E8F32A8E7A3500067280 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		00A9E8F52A8EC03700067280 /* CurrencyDiff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDiff.swift; sourceTree = "<group>"; };
+		00A9E8F72A8EEB2E00067280 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		00AF38452A84300C007D72FB /* ItemAddonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddonViewModel.swift; sourceTree = "<group>"; };
 		00B008A12A6AAFAA0096EA7D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		00B47CFB2A7C1F0600B01E52 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsTableViewController + EmptyView.swift"; sourceTree = "<group>"; };
-		00CA40832A30C9A600845AC7 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 		0045144827298F5A00CB523A = {
 			isa = PBXGroup;
 			children = (
+				00A9E8F52A8EC03700067280 /* CurrencyDiff.swift */,
 				004766052905E5B500BCCCA1 /* Localizable.stringsdict */,
 				0045145327298F5A00CB523A /* Cost Per Week */,
 				0045145227298F5A00CB523A /* Products */,
@@ -121,6 +128,8 @@
 				002F635C2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift */,
 				004997792A6EC3670075540A /* DetailViewModel.swift */,
 				00AF38452A84300C007D72FB /* ItemAddonViewModel.swift */,
+				00A9E8F72A8EEB2E00067280 /* SettingsViewModel.swift */,
+				00A9E8F12A8E791400067280 /* ItemCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -143,8 +152,8 @@
 				004F99222A571D580081365F /* SheetView.swift */,
 				00B47CFB2A7C1F0600B01E52 /* DetailView.swift */,
 				0062827E2A7D4961005D5F61 /* ItemAddonView.swift */,
-				002FE3632A5F2840002BB472 /* SettingsView.swift */,
-				00CA40832A30C9A600845AC7 /* ItemCell.swift */,
+				00A9E8F32A8E7A3500067280 /* SettingsView.swift */,
+				00A9E8EF2A8E705A00067280 /* ItemCell.swift */,
 				002F635A2A0D0BE80036D6B5 /* LaunchScreen.swift */,
 			);
 			path = View;
@@ -232,12 +241,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				002FE3682A5F2B22002BB472 /* CurrencyObject.swift in Sources */,
+				00A9E8F82A8EEB2E00067280 /* SettingsViewModel.swift in Sources */,
 				002F635B2A0D0BE80036D6B5 /* LaunchScreen.swift in Sources */,
 				002F635D2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift in Sources */,
 				00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */,
+				00A9E8F62A8EC03700067280 /* CurrencyDiff.swift in Sources */,
 				0023B3FD2A59BD6200FDE61C /* ItemsTableViewController + Navigation.swift in Sources */,
+				00A9E8F22A8E791400067280 /* ItemCellViewModel.swift in Sources */,
 				002F63592A0D07070036D6B5 /* ItemType.swift in Sources */,
-				00CA40842A30C9A600845AC7 /* ItemCell.swift in Sources */,
 				005323CC272B463F008FAAD7 /* ItemsTableViewController.swift in Sources */,
 				00AF38462A84300C007D72FB /* ItemAddonViewModel.swift in Sources */,
 				002FE3662A5F2906002BB472 /* ItemAddon.swift in Sources */,
@@ -246,10 +257,11 @@
 				0045146927298F9800CB523A /* Persistency.swift in Sources */,
 				004F99232A571D580081365F /* SheetView.swift in Sources */,
 				0045145527298F5A00CB523A /* AppDelegate.swift in Sources */,
+				00A9E8F02A8E705A00067280 /* ItemCell.swift in Sources */,
+				00A9E8F42A8E7A3500067280 /* SettingsView.swift in Sources */,
 				0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */,
 				00B008A22A6AAFAA0096EA7D /* Protocols.swift in Sources */,
 				00B47CFC2A7C1F0600B01E52 /* DetailView.swift in Sources */,
-				002FE3642A5F2840002BB472 /* SettingsView.swift in Sources */,
 				0062827F2A7D4961005D5F61 /* ItemAddonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
