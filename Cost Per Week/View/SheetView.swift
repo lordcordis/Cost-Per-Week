@@ -46,6 +46,7 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
     func showSheetView(message: String) {
         
         let sheetController = UIHostingController(rootView: SheetView(message: message))
+        sheetController.view.backgroundColor = UIColor.clear
         
         let viewControllerToPresent = sheetController
         if let sheet = viewControllerToPresent.sheetPresentationController {
@@ -69,13 +70,12 @@ struct SheetView: View {
     var body: some View {
         
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.white, Color.init(uiColor: UIColor.systemGroupedBackground)]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
-            
+            Color.init(uiColor: UIColor.clear)
             VStack {
                 Text("Total Cost").font(.title).padding(.all).fontWeight(.semibold)
                 Text(message).font(.title2).padding(.all).multilineTextAlignment(.center).fontWeight(.semibold)
             }
-        }
+        }.background(.ultraThinMaterial)
     }
 }
 
