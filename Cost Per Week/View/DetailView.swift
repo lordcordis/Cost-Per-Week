@@ -53,7 +53,9 @@ struct DetailView: View {
                 }.onChange(of: viewModel.deviceType) { newValue in
                     viewModel.checkIfSavingIsNeeded()
                 }
-            }.pickerStyle(.navigationLink).tint(viewModel.tintColor)
+            }.pickerStyle(.navigationLink)
+//                .foregroundStyle(viewModel.tintColor)
+//                .tint(viewModel.tintColor)
         }
     }
     

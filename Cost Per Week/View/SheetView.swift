@@ -17,7 +17,7 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
     
     func refreshTitle() {
         title = viewModel.viewTitle()
-//        tableView.reloadData()
+        tableView.reloadData()
     }
     
     func showSettingsView() {
