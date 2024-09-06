@@ -55,4 +55,33 @@ class ItemCellViewModel {
         delegate?.deleteItem(item: item)
     }
     
+    func rubleString(for amount: Int) -> String {
+        let remainder10 = amount % 10
+        let remainder100 = amount % 100
+
+        var rubleWord: String
+
+        if remainder100 >= 11 && remainder100 <= 19 {
+            rubleWord = "рублей"
+        } else {
+            switch remainder10 {
+            case 1:
+                rubleWord = "рубль"
+            case 2, 3, 4:
+                rubleWord = "рубля"
+            default:
+                rubleWord = "рублей"
+            }
+        }
+
+        return "\(amount) \(rubleWord)"
+    }
+    
+    func rubleStringPerDay() -> String {
+        rubleString(for: item.pricePerDay)
+    }
+    
+    func rubleStringPerWeek() -> String {
+        rubleString(for: item.pricePerWeek)
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
     
@@ -36,7 +37,7 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.prefersEdgeAttachedInCompactHeight = true
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-            sheet.prefersGrabberVisible = true
+//            sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = 20
         }
         present(viewControllerToPresent, animated: true, completion: nil)
@@ -64,7 +65,18 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
 
 struct SheetView: View {
     
+    init(message: String) {
+        self.message = message
+        items = persistency.retreveData() ?? []
+        weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+    }
+    
+    let weekOrDayBool: Bool
+    let persistency = Persistency()
+    
     static let sampleMessage = "Per week: 10000 RUB"
+    
+    var items: [Item]
     
     let message: String
     var body: some View {
@@ -72,8 +84,63 @@ struct SheetView: View {
         ZStack {
             Color.init(uiColor: UIColor.clear)
             VStack {
-                Text("Total Cost").font(.title).padding(.all).fontWeight(.semibold)
-                Text(message).font(.title2).padding(.all).multilineTextAlignment(.center).fontWeight(.semibold)
+                Text("Total Cost")
+                    .font(.title)
+                    .padding()
+                    .fontWeight(.semibold)
+                Divider()
+                Text(message)
+                    .font(.title2)
+                    .padding(.all)
+                    .multilineTextAlignment(.center)
+                    .fontWeight(.semibold)
+                
+                TabView {
+                    
+                    VStack {
+                        Chart {
+                            
+                            if weekOrDayBool {
+                                ForEach(items) {item in
+                                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.pricePerWeek))
+                                }
+                            } else {
+                                ForEach(items) {item in
+                                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.pricePerDay))
+                                }
+                            }
+                            
+                            
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 40)
+                        
+                    }
+                    
+                    VStack {
+                        Chart {
+                            
+                            
+                                ForEach(items) {item in
+                                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
+                                }
+                            
+                                
+                            
+                            
+                            
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 40)
+
+                    }
+                    
+                    
+                    
+                }.tabViewStyle(.page)
+                
+                
+                
             }
         }.background(.ultraThinMaterial)
     }

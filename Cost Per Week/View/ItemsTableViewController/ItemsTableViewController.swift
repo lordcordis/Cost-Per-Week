@@ -179,8 +179,4 @@ extension ItemsTableViewController: DismissDelegate {
     }
 }
 
-//protocol ItemDelegate: AnyObject {
-//    func addItemToList (item: Item)
-//    func editItem(item: Item)
-//    func deleteItem(item: Item)
-//}
+

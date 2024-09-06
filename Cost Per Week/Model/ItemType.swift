@@ -19,7 +19,12 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
     }
     
     var id: Self { self }
-    case phone, laptop, headphones, tv, monitor, console, computer, macbook, iphone, airpods, ipad, car, undefined
+    //    case phone, laptop, headphones, tv, monitor, console, computer, macbook, iphone, airpods, ipad, car, undefined
+    
+    case macbook, iphone, airpods, ipad
+    case phone, laptop, computer, headphones, tv, monitor, console, car
+    case tablet, smartwatch, camera, speaker, router, appliance
+    case undefined
     
     func description() -> String {
         switch self {
@@ -68,106 +73,60 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
             return "car"
         case .undefined:
             return "ellipsis"
+        case .tablet:
+            return "ipad.homebutton.landscape.badge.play"
+        case .smartwatch:
+            return "watch.analog"
+        case .camera:
+            return "camera"
+        case .speaker:
+            return "speaker"
+        case .router:
+            return "wifi.router"
+        case .appliance:
+            return "bubbles.and.sparkles"
         }
     }
     
     static func stringToItemType(productNameString: String) -> ItemType {
         let productNameStringLowercased = productNameString.lowercased()
         
-        if productNameStringLowercased.contains("macbook") {
-            return .macbook
-        } else if productNameStringLowercased.contains("iphone") {
-            return .iphone
-        } else if productNameStringLowercased.contains("airpods") {
-            return .airpods
-        } else if productNameStringLowercased.contains("ipad") {
-            return .ipad
-        }
-        
-        let phoneList = ["Samsung", "Huawei", "Xiaomi", "OnePlus", "Google", "LG", "Motorola", "Nokia"]
-        let laptopList = ["Acer", "Microsoft", "MSI", "Samsung", "Sony vaio",
-                          "Lenovo ThinkPad",
-                          "Lenovo IdeaPad",
-                          "Lenovo Yoga",
-                          "Lenovo Legion",
-                          "Lenovo Flex",
-                          "Lenovo Chromebook",
-                          "Lenovo V Series",
-                          "Lenovo ThinkBook",
-                          "Lenovo Miix",
-                          "Dell Inspiron",
-                          "Dell XPS",
-                          "Dell Vostro",
-                          "Dell Latitude",
-                          "Dell Precision",
-                          "Dell G Series",
-                          "Dell Alienware",
-                          "Dell Chromebook",
-                          "Dell Studio",
-                          "Dell Studio XPS",
-                          "Dell Adamo",
-                          "Dell Venue",
-                          "Dell XPS",
-                          "HP Spectre",
-                          "HP ENVY",
-                          "HP Pavilion",
-                          "HP EliteBook",
-                          "HP ProBook",
-                          "HP ZBook",
-                          "HP Omen",
-                          "HP Chromebook",
-                          "HP Stream",
-                          "HP Essential",
-                          "Asus ZenBook",
-                          "Asus VivoBook",
-                          "Asus ROG",
-                          "Asus TUF Gaming",
-                          "Asus Chromebook",
-                          "Asus Transformer Book",
-                          "Asus ProArt StudioBook",
-                          "Asus ExpertBook"
+        let categories: [String: ItemType] = [
+            "macbook": .macbook,
+            "iphone": .iphone,
+            "airpods": .airpods,
+            "ipad": .ipad
         ]
-        let headphonesList = ["Sony MDR", "Sony WH", "Bose", "Sennheiser", "Beats", "JBL", "Audio-Technica", "AKG", "Skullcandy", "Beyerdynamic", "Jabra"]
-        let tvList = ["TCL", "Vizio", "Philips", "Hisense", "Sharp", "Sony Bravia"]
-        let monitorList = ["HP", "ASUS", "Samsung", "LG", "Acer", "BenQ", "ViewSonic", "Lenovo",
-                           "Dell UltraSharp",
-                           "Dell P Series",
-                           "Dell Alienware",
-                           "Dell S Series",
-                           "Dell U Series",
-                           "Dell E Series",
-                           "Dell SE Series",
-                           "Dell Gaming",
-                           "Dell Professional",
-                           "Dell Ultrathin",
-                           "Dell Curved",
-                           "Dell Touch",
-                           "Dell HDR",
-                           "Dell InfinityEdge"
-        ]
-        let consolesList = ["xbox", "switch", "playstation", "nintendo"]
-        let carsList = ["Toyota", "Honda", "Ford", "Chevrolet", "Volkswagen", "BMW", "Mercedes-Benz", "Audi", "Tesla", "Nissan"]
         
-        let finalList = [phoneList, laptopList, headphonesList, tvList, monitorList, consolesList, carsList]
-        
-        for list in finalList {
-            for item in list {
-                if productNameStringLowercased.contains(item.lowercased()) {
-                    switch list {
-                    case phoneList: return .phone
-                    case laptopList: return .laptop
-                    case headphonesList: return .headphones
-                    case tvList: return .tv
-                    case monitorList: return .monitor
-                    case consolesList: return .console
-                    case carsList: return .car
-                    default:
-                        break
-                    }
-                }
+        for (key, value) in categories {
+            if productNameStringLowercased.contains(key) {
+                return value
             }
         }
         
+        let categorizedLists: [ItemType: [String]] = [
+            .phone: ["Samsung", "Huawei", "Xiaomi", "OnePlus", "Google", "LG", "Motorola", "Nokia"],
+            .laptop: ["Acer", "Microsoft", "MSI", "Samsung", "Sony vaio", "Lenovo", "Dell", "HP", "Asus"],
+            .headphones: ["Sony MDR", "Sony WH", "Bose", "Sennheiser", "Beats", "JBL", "Audio-Technica", "AKG", "Skullcandy", "Beyerdynamic", "Jabra"],
+            .tv: ["TCL", "Vizio", "Philips", "Hisense", "Sharp", "Sony Bravia", "Samsung", "LG", "Panasonic"],
+            .monitor: ["HP", "ASUS", "Samsung", "LG", "Acer", "BenQ", "ViewSonic", "Lenovo", "Dell"],
+            .console: ["xbox", "switch", "playstation", "nintendo"],
+            .car: ["Toyota", "Honda", "Ford", "Chevrolet", "Volkswagen", "BMW", "Mercedes-Benz", "Audi", "Tesla", "Nissan"],
+            .tablet: ["iPad", "Galaxy Tab", "Surface", "Amazon Fire", "Lenovo Tab"],
+            .smartwatch: ["Apple Watch", "Galaxy Watch", "Fitbit", "Garmin", "Huawei Watch"],
+            .camera: ["Canon", "Nikon", "Sony Alpha", "Fujifilm", "Panasonic Lumix", "GoPro", "Leica"],
+            .speaker: ["Sonos", "Bose", "JBL", "Sony", "Harman Kardon", "Marshall", "Klipsch"],
+            .router: ["Netgear", "TP-Link", "Asus", "Linksys", "Google Nest", "Eero"],
+            .appliance: ["Whirlpool", "Samsung", "LG", "Bosch", "GE", "Frigidaire", "KitchenAid"]
+        ]
+        
+        for (itemType, list) in categorizedLists {
+            for item in list {
+                if productNameStringLowercased.contains(item.lowercased()) {
+                    return itemType
+                }
+            }
+        }
         return .undefined
     }
 }

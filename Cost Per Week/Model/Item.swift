@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Item: Codable, Hashable {
+struct Item: Codable, Hashable, Identifiable {
     
     static let sampleItem = Item(name: "Smasnug", price: 160000, date: Date(), itemType: .phone)
     
@@ -52,51 +53,74 @@ struct Item: Codable, Hashable {
     }
     
     
+//    var pricePerDay: Int {
+//        
+//        let daysFromPurchase = Int(secondsFromPurchase / 86400)
+//        
+//        guard daysFromPurchase != 0 else {
+//            return fullPrice
+//        }
+//        
+//        return Int(fullPrice / daysFromPurchase)
+//        
+//    }
+    
     var pricePerDay: Int {
-        
-        let daysFromPurchase = Int(secondsFromPurchase / 86400)
-        
-        guard daysFromPurchase != 0 else {
-            return fullPrice
-        }
-        
-        return Int(fullPrice / daysFromPurchase)
-        
+        let daysFromPurchase = max(Int(secondsFromPurchase / 86400), 1)
+        return fullPrice / daysFromPurchase
     }
     
     var fullPrice: Int {
         return price + priceOfAddons
     }
     
+//    var pricePerWeek: Int {
+////        get {
+////            var interval = DateInterval()
+////            interval.start = date
+////            interval.end = Date()
+////            let secondsSincePurchase = interval.duration.rounded()
+////            let weeksFromPurchase = Int(secondsSincePurchase / 604800)
+////            let pricePerWeek: Int = {
+////                guard weeksFromPurchase != 0 else { return fullPrice}
+////                return Int(fullPrice / weeksFromPurchase)
+////            }()
+////
+////            return pricePerWeek
+//        
+//        let weeksFromPurchase = Int(secondsFromPurchase / 604800)
+//        
+//        let pricePerWeek: Int = {
+//            guard weeksFromPurchase != 0 else { return fullPrice}
+//            return Int(fullPrice / weeksFromPurchase)
+//        }()
+//        
+//        return pricePerWeek
+//        
+//    }
+    
+    
     var pricePerWeek: Int {
-//        get {
-//            var interval = DateInterval()
-//            interval.start = date
-//            interval.end = Date()
-//            let secondsSincePurchase = interval.duration.rounded()
-//            let weeksFromPurchase = Int(secondsSincePurchase / 604800)
-//            let pricePerWeek: Int = {
-//                guard weeksFromPurchase != 0 else { return fullPrice}
-//                return Int(fullPrice / weeksFromPurchase)
-//            }()
-//
-//            return pricePerWeek
-        
-        let weeksFromPurchase = Int(secondsFromPurchase / 604800)
-        
-        let pricePerWeek: Int = {
-            guard weeksFromPurchase != 0 else { return fullPrice}
-            return Int(fullPrice / weeksFromPurchase)
-        }()
-        
-        return pricePerWeek
-        
+        let weeksFromPurchase = max(Int(secondsFromPurchase / 604800), 1)
+        return fullPrice / weeksFromPurchase
     }
     
     enum pricePerWeekOrDay: String, Identifiable, Codable, CaseIterable {
         var id: Self { self }
         
         case week, day
+        
+        var localizedLabel: LocalizedStringKey {
+            switch self {
+                
+            case .week:
+                return "week"
+            case .day:
+                return "day"
+            }
+        }
     }
+    
+    
     
 }

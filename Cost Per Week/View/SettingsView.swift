@@ -12,41 +12,43 @@ struct SettingsView: View {
     @StateObject var viewModel: SettingsViewModel
     
     var body: some View {
-        Form {
-            
-//            Picker("Choose view type:", selection: $viewModel.simpleOrDetailedViewType) {
-//                ForEach(SettingsViewModel.ViewType.allCases) {
-//                    result in
-//                    Text(result.rawValue.capitalized)
-//                }
-//            }.pickerStyle(.inline)
-            
+        NavigationStack {
+            Form {
+                
+                //            Picker("Choose view type:", selection: $viewModel.simpleOrDetailedViewType) {
+                //                ForEach(SettingsViewModel.ViewType.allCases) {
+                //                    result in
+                //                    Text(result.rawValue.capitalized)
+                //                }
+                //            }.pickerStyle(.inline)
+                
                 Picker("Choose time period:", selection: $viewModel.weekOrDayBool) {
                     ForEach(Item.pricePerWeekOrDay.allCases) {
                         result in
-                        Text(result.rawValue.capitalized)
+                        Text(result.localizedLabel)
                     }
                 }.pickerStyle(.inline)
                     .onChange(of: viewModel.weekOrDayBool) { newValue in
                         viewModel.saveDayOrWeek(newValue)
                     }
-
-            Picker("Select currency:", selection: $viewModel.selectedCurrency) {
-                ForEach(Currency.allCases, id: \.self) { currency in
-                    Label {
-                        Text(currency.returnCurrency().currencyFullTitle)
-                    } icon: {
-                        Image(systemName: currency.returnCurrency().imageSystemName)
-                    }.tag(currency)
+                
+                Picker("Select currency:", selection: $viewModel.selectedCurrency) {
+                    ForEach(Currency.allCases, id: \.self) { currency in
+                        Label {
+                            Text(currency.localized)
+                        } icon: {
+                            Image(systemName: currency.returnCurrency().imageSystemName)
+                        }.tag(currency)
+                    }
                 }
-            }
-            .pickerStyle(.inline)
-            .onChange(of: viewModel.selectedCurrency) { newValue in
-                viewModel.saveCurrency(newValue)
-            }
-            
+                .pickerStyle(.inline)
+                .onChange(of: viewModel.selectedCurrency) { newValue in
+                    viewModel.saveCurrency(newValue)
+                }
+                
+            }.navigationTitle("Settings")
+                .navigationBarTitleDisplayMode(.inline)
         }
-        
         
         
         

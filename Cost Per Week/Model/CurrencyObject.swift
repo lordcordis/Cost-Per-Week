@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct CurrencyObject: Hashable, Identifiable, Equatable {
     
@@ -66,6 +67,28 @@ enum Currency: String, CaseIterable, Hashable, Identifiable {
             return CurrencyObject(currencyFullTitle: "Turkish Lira", currencyString: "TRY", imageSystemName: "turkishlirasign")
         case .rupee:
             return CurrencyObject(currencyFullTitle: "Indian Rupee", currencyString: "INR", imageSystemName: "indianrupeesign")
+        }
+    }
+    
+    var localized: LocalizedStringKey {
+        switch self {
+            
+        case .dollar:
+            "dollar"
+        case .euro:
+            "euro"
+        case .ruble:
+            "ruble"
+        case .lari:
+            "lari"
+        case .yen:
+            "yen"
+        case .sterling:
+            "sterling"
+        case .lira:
+            "lira"
+        case .rupee:
+            "rupee"
         }
     }
 }

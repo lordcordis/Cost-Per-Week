@@ -54,8 +54,6 @@ struct DetailView: View {
                     viewModel.checkIfSavingIsNeeded()
                 }
             }.pickerStyle(.navigationLink)
-//                .foregroundStyle(viewModel.tintColor)
-//                .tint(viewModel.tintColor)
         }
     }
     
