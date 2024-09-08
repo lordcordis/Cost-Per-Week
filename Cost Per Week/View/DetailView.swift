@@ -46,7 +46,7 @@ struct DetailView: View {
                 ForEach(ItemType.allCases) { deviceType in
                     
                     Label {
-                        Text(deviceType.description())
+                        Text(deviceType.localized())
                     } icon: {
                         Image(systemName: deviceType.SystemImageName())
                     }.tint(viewModel.tintColor)

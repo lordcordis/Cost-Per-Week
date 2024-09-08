@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 enum ItemType: String, CaseIterable, Codable, Identifiable {
     
@@ -25,6 +26,50 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
     case phone, laptop, computer, headphones, tv, monitor, console, car
     case tablet, smartwatch, camera, speaker, router, appliance
     case undefined
+    
+    func localized() -> LocalizedStringKey {
+        switch self {
+        case .macbook:
+            return LocalizedStringKey("Macbook")
+        case .iphone:
+            return LocalizedStringKey("iPhone")
+        case .airpods:
+            return LocalizedStringKey("Airpods")
+        case .ipad:
+            return LocalizedStringKey("iPad")
+        case .phone:
+            return LocalizedStringKey("phone")
+        case .laptop:
+            return LocalizedStringKey("Laptop")
+        case .computer:
+            return LocalizedStringKey("Computer")
+        case .headphones:
+            return LocalizedStringKey("Headphones")
+        case .tv:
+            return LocalizedStringKey("TV")
+        case .monitor:
+            return LocalizedStringKey("Monitor")
+        case .console:
+            return LocalizedStringKey("Gaming console")
+        case .car:
+            return LocalizedStringKey("Car")
+        case .tablet:
+            return LocalizedStringKey("Tablet")
+        case .smartwatch:
+            return LocalizedStringKey("Smartwatch")
+        case .camera:
+            return LocalizedStringKey("Camera")
+        case .speaker:
+            return LocalizedStringKey("Speaker")
+        case .router:
+            return LocalizedStringKey("Router")
+        case .appliance:
+            return LocalizedStringKey("Appliance")
+        case .undefined:
+            return LocalizedStringKey("Undefined")
+        }
+    }
+
     
     func description() -> String {
         switch self {
@@ -80,7 +125,7 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
         case .camera:
             return "camera"
         case .speaker:
-            return "speaker"
+            return "hifispeaker"
         case .router:
             return "wifi.router"
         case .appliance:

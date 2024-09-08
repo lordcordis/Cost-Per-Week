@@ -41,12 +41,55 @@
         }
       }
     },
+    "Airpods" : {
+
+    },
+    "Appliance" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бытовая техника"
+          }
+        }
+      }
+    },
+    "Camera" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Камера"
+          }
+        }
+      }
+    },
+    "Car" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автомобиль"
+          }
+        }
+      }
+    },
     "Choose time period:" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Выберите временной период"
+          }
+        }
+      }
+    },
+    "Computer" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Компьютер"
           }
         }
       }
@@ -116,12 +159,48 @@
         }
       }
     },
+    "Gaming console" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Игровая консоль"
+          }
+        }
+      }
+    },
     "Get Started" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Начать"
+          }
+        }
+      }
+    },
+    "Headphones" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наушники"
+          }
+        }
+      }
+    },
+    "iPad" : {
+
+    },
+    "iPhone" : {
+
+    },
+    "Laptop" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Портативный ПК"
           }
         }
       }
@@ -158,12 +237,35 @@
         }
       }
     },
+    "Macbook" : {
+
+    },
+    "Monitor" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Монитор"
+          }
+        }
+      }
+    },
     "name" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Название"
+          }
+        }
+      }
+    },
+    "phone" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Телефон"
           }
         }
       }
@@ -214,6 +316,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Тип покупки"
+          }
+        }
+      }
+    },
+    "Router" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Роутер"
           }
         }
       }
@@ -280,6 +392,26 @@
         }
       }
     },
+    "Smartwatch" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Умные часы"
+          }
+        }
+      }
+    },
+    "Speaker" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Колонка"
+          }
+        }
+      }
+    },
     "sterling" : {
       "localizations" : {
         "en" : {
@@ -296,12 +428,42 @@
         }
       }
     },
+    "Tablet" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Планшет"
+          }
+        }
+      }
+    },
     "Total Cost" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Полная цена"
+          }
+        }
+      }
+    },
+    "TV" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Телевизор"
+          }
+        }
+      }
+    },
+    "Undefined" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не выбрано"
           }
         }
       }
@@ -335,7 +497,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Японская Йена"
           }
         }
