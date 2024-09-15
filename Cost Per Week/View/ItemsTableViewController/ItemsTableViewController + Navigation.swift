@@ -14,7 +14,7 @@ extension ItemsTableViewController {
     }
     
     @objc func countItemsAlertController() {
-        showSheetView(message: viewModel.resultString())
+        showSheetView(message: viewModel.pricePerWeekOrDayStringOutput(), message2: viewModel.totalPriceStringOutput())
     }
     
     func configureNavigationController() {

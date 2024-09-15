@@ -44,9 +44,9 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
     }
     
     
-    func showSheetView(message: String) {
+    func showSheetView(message: String, message2: String) {
         
-        let sheetController = UIHostingController(rootView: SheetView(message: message))
+        let sheetController = UIHostingController(rootView: SheetView(message: message, message2: message2))
         sheetController.view.backgroundColor = UIColor.clear
         
         let viewControllerToPresent = sheetController
@@ -65,8 +65,9 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
 
 struct SheetView: View {
     
-    init(message: String) {
+    init(message: String, message2: String) {
         self.message = message
+        self.message2 = message2
         items = persistency.retreveData() ?? []
         weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
     }
@@ -79,25 +80,31 @@ struct SheetView: View {
     var items: [Item]
     
     let message: String
+    let message2: String
     var body: some View {
         
         ZStack {
             Color.init(uiColor: UIColor.clear)
             VStack {
-                Text("Total Cost")
-                    .font(.title)
-                    .padding()
-                    .fontWeight(.semibold)
-                Divider()
-                Text(message)
-                    .font(.title2)
-                    .padding(.all)
-                    .multilineTextAlignment(.center)
-                    .fontWeight(.semibold)
+
+                
+                
+                
                 
                 TabView {
                     
                     VStack {
+                        
+                        
+                            Text(message)
+                                .font(.title2)
+                                .padding(.all)
+                                .multilineTextAlignment(.center)
+                                .fontWeight(.semibold)
+                                .padding()
+                        
+                        
+                        
                         Chart {
                             
                             if weekOrDayBool {
@@ -114,15 +121,25 @@ struct SheetView: View {
                         }
                         .padding(.horizontal, 20)
                         .padding(.bottom, 40)
-                        
+                        .padding()
                     }
                     
                     VStack {
+                        
+                        
+                        Text(message2)
+                            .font(.title2)
+                            .padding(.all)
+                            .multilineTextAlignment(.center)
+                            .fontWeight(.semibold)
+                            .padding()
+                        
                         Chart {
                             
                             
                                 ForEach(items) {item in
                                     BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
+                                        
                                 }
                             
                                 
@@ -132,6 +149,7 @@ struct SheetView: View {
                         }
                         .padding(.horizontal, 20)
                         .padding(.bottom, 40)
+                        .padding()
 
                     }
                     
@@ -146,8 +164,8 @@ struct SheetView: View {
     }
 }
 
-struct SheetView_Previews: PreviewProvider {
-    static var previews: some View {
-        SheetView(message: SheetView.sampleMessage)
-    }
-}
+//struct SheetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SheetView(message: SheetView.sampleMessage)
+//    }
+//}

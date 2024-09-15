@@ -42,7 +42,7 @@
 		002F635C2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewControllerViewModel.swift; sourceTree = "<group>"; };
 		002FE3652A5F2906002BB472 /* ItemAddon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddon.swift; sourceTree = "<group>"; };
 		002FE3672A5F2B22002BB472 /* CurrencyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyObject.swift; sourceTree = "<group>"; };
-		0045145127298F5A00CB523A /* Cost Per Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cost Per Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0045145127298F5A00CB523A /* CostPerWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CostPerWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0045145427298F5A00CB523A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0045145627298F5A00CB523A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0045145D27298F5C00CB523A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		0045145227298F5A00CB523A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0045145127298F5A00CB523A /* Cost Per Week.app */,
+				0045145127298F5A00CB523A /* CostPerWeek.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,9 +171,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0045145027298F5A00CB523A /* Cost Per Week */ = {
+		0045145027298F5A00CB523A /* CostPerWeek */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0045146527298F5C00CB523A /* Build configuration list for PBXNativeTarget "Cost Per Week" */;
+			buildConfigurationList = 0045146527298F5C00CB523A /* Build configuration list for PBXNativeTarget "CostPerWeek" */;
 			buildPhases = (
 				0045144D27298F5A00CB523A /* Sources */,
 				0045144E27298F5A00CB523A /* Frameworks */,
@@ -183,9 +183,9 @@
 			);
 			dependencies = (
 			);
-			name = "Cost Per Week";
+			name = CostPerWeek;
 			productName = "Cost Per Week";
-			productReference = 0045145127298F5A00CB523A /* Cost Per Week.app */;
+			productReference = 0045145127298F5A00CB523A /* CostPerWeek.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -203,7 +203,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0045144C27298F5A00CB523A /* Build configuration list for PBXProject "Cost Per Week" */;
+			buildConfigurationList = 0045144C27298F5A00CB523A /* Build configuration list for PBXProject "CostPerWeek" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,7 +217,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0045145027298F5A00CB523A /* Cost Per Week */,
+				0045145027298F5A00CB523A /* CostPerWeek */,
 			);
 		};
 /* End PBXProject section */
@@ -476,7 +476,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0045144C27298F5A00CB523A /* Build configuration list for PBXProject "Cost Per Week" */ = {
+		0045144C27298F5A00CB523A /* Build configuration list for PBXProject "CostPerWeek" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0045146327298F5C00CB523A /* Debug */,
@@ -485,7 +485,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0045146527298F5C00CB523A /* Build configuration list for PBXNativeTarget "Cost Per Week" */ = {
+		0045146527298F5C00CB523A /* Build configuration list for PBXNativeTarget "CostPerWeek" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0045146627298F5C00CB523A /* Debug */,

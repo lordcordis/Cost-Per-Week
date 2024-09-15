@@ -26,10 +26,6 @@ struct ItemsTableViewControllerViewModel {
         currency = Currency.stringIntoCurrencyObject(currencyString: currencyString)
     }
     
-//    var currency: String
-    
-//    var currency = Currenc
-    
     private var items: [Item] {
         didSet {
             persistency.saveData(items: items)
@@ -108,12 +104,20 @@ struct ItemsTableViewControllerViewModel {
         return "All items: " + "\(calculateTotalCost())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
     }
     
-    func resultString() -> String {
-        guard !items.isEmpty else {return "there are no items"}
-        return String("""
-        \(pricePerWeekOrDayString)\n
-        \(totalPriceString)
-        """)
+//    func resultString() -> String {
+//        guard !items.isEmpty else {return "there are no items"}
+//        return String("""
+//        \(pricePerWeekOrDayString)\n
+//        \(totalPriceString)
+//        """)
+//    }
+    
+    func pricePerWeekOrDayStringOutput() -> String {
+        return pricePerWeekOrDayString
+    }
+    
+    func totalPriceStringOutput() -> String {
+        return totalPriceString
     }
     
     func allItems() -> [Item] {

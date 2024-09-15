@@ -439,6 +439,7 @@
       }
     },
     "Total Cost" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {

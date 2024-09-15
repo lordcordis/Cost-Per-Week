@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ItemCellViewModel {
     
@@ -47,13 +48,39 @@ class ItemCellViewModel {
         return String(item.pricePerWeek)
     }
     
-    func currencyString() -> String{
-        return currency.rawValue
-    }
-    
-    func deleteCurrentItem() {
-        delegate?.deleteItem(item: item)
-    }
+    func currencyString() -> String {
+        
+        let locale = Locale.current
+        let amount = weekOrDayBool ? item.pricePerWeek : item.pricePerDay
+        
+        let formatter = NumberFormatter()
+        formatter.locale = locale
+        formatter.numberStyle = .currency
+        
+        
+        switch currency {
+        case .ruble:
+            formatter.currencyCode = "RUR"
+        case .dollar:
+            formatter.currencyCode = "USD"
+        case .euro:
+            formatter.currencyCode = "EUR"
+        case .lari:
+            formatter.currencyCode = "GEL"
+        case .yen:
+            formatter.currencyCode = "JPY"
+        case .sterling:
+            formatter.currencyCode = "GBP"
+        case .lira:
+            formatter.currencyCode = "TRY"
+        case .rupee:
+            formatter.currencyCode = "INR"
+//        default:
+//            break
+        }
+        
+//        return formatter.string(from: NSNumber(value: amount)) ?? "\(amount) \(currency.rawValue)"
+        return formatter.currencySymbol    }
     
     func rubleString(for amount: Int) -> String {
         let remainder10 = amount % 10
@@ -74,7 +101,33 @@ class ItemCellViewModel {
             }
         }
 
-        return "\(amount) \(rubleWord)"
+        return "\(rubleWord)"
+    }
+    
+    func dollarString(for amount: Int) -> String {
+        let remainder10 = amount % 10
+        let remainder100 = amount % 100
+
+        var rubleWord: String
+
+        if remainder100 >= 11 && remainder100 <= 19 {
+            rubleWord = "долларов"
+        } else {
+            switch remainder10 {
+            case 1:
+                rubleWord = "доллар"
+            case 2, 3, 4:
+                rubleWord = "доллара"
+            default:
+                rubleWord = "долларов"
+            }
+        }
+
+        return "\(rubleWord)"
+    }
+    
+    func deleteCurrentItem() {
+        delegate?.deleteItem(item: item)
     }
     
     func rubleStringPerDay() -> String {
