@@ -15,13 +15,6 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 
-                //            Picker("Choose view type:", selection: $viewModel.simpleOrDetailedViewType) {
-                //                ForEach(SettingsViewModel.ViewType.allCases) {
-                //                    result in
-                //                    Text(result.rawValue.capitalized)
-                //                }
-                //            }.pickerStyle(.inline)
-                
                 Picker("Choose time period:", selection: $viewModel.weekOrDayBool) {
                     ForEach(Item.pricePerWeekOrDay.allCases) {
                         result in

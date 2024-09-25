@@ -96,6 +96,12 @@
     },
     "day" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Day"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -124,7 +130,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Доллар США"
           }
         }
@@ -231,14 +237,21 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Турецкая Лира"
           }
         }
       }
     },
     "Macbook" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MacBook"
+          }
+        }
+      }
     },
     "Monitor" : {
       "localizations" : {
@@ -252,6 +265,12 @@
     },
     "name" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -340,7 +359,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Российский Рубль"
           }
         }
@@ -356,7 +375,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Индийская Рупия"
           }
         }
@@ -422,7 +441,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Британский Фунт"
           }
         }
@@ -434,17 +453,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Планшет"
-          }
-        }
-      }
-    },
-    "Total Cost" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Полная цена"
           }
         }
       }
@@ -477,6 +485,12 @@
     },
     "week" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Week"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",

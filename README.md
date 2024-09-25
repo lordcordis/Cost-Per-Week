@@ -61,4 +61,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any issues or inquiries, please contact the repository owner at:
 
-- **Email**: [devkorenev@gmeil.com](mailto:devkorenev@gmeil.com)
+- **Email**: [devkorenev@gmail.com](mailto:devkorenev@gmail.com)
