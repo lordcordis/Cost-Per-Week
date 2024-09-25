@@ -5,7 +5,7 @@ A simple Swift app to help users calculate the daily and weekly costs of items b
 ## Features
 
 - **Item Cost Calculation**: Easily calculate the daily and weekly cost of an item by entering the total cost and the number of days it will be used.
-- **Breakdown of Costs**: The app displays the total cost (`fullPrice`), as well as the cost per day (`pricePerDay`) and cost per week (`pricePerWeek`).
+- **Breakdown of Costs**: The app displays the total cost, as well as the cost per day and cost per week.
 - **SwiftUI Based**: Built using SwiftUI for modern and responsive UI components.
 
 ## Installation
