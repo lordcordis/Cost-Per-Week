@@ -32,10 +32,14 @@ A simple Swift app to help users calculate the daily and weekly costs of items b
 3. The app will calculate and display the price per day, price per week, and total cost.
 
 ## Screenshots
-![Main screen](https://github.com/user-attachments/assets/3e1cdf80-9480-428e-af1a-659cd31360fa)
-![Item screen](https://github.com/user-attachments/assets/0432b6a0-7664-45e7-ae7b-9321089498cf)
-![Settins](https://github.com/user-attachments/assets/34b87eb1-a50f-466b-b6f7-4857eeac6830)
-![Chart showing prices and years](https://github.com/user-attachments/assets/c309f421-2180-49d1-a9ba-20e0c266c391)
+![Main screen](https://github.com/user-attachments/assets/3e084726-474f-4282-a904-8e22af51b2d9)
+
+![Item screen](https://github.com/user-attachments/assets/8fe4083a-a7cf-4e8a-b8b8-bdbaabdf55a6)
+
+![Settings](https://github.com/user-attachments/assets/d8e56964-a4a3-4da7-aae9-a098333abc24)
+
+
+![Chart showing prices and years](https://github.com/user-attachments/assets/ad28932f-dac4-4123-90b6-04545d49b655)
 
 
 ## Technologies Used
