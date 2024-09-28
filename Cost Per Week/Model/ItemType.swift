@@ -93,7 +93,7 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
     func SystemImageName() -> String {
         switch self {
         case .phone:
-            return "candybarphone"
+            return "smartphone"
         case .laptop:
             return "laptopcomputer"
         case .headphones:
