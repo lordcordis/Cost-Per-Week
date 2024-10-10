@@ -13,7 +13,7 @@ protocol DismissDelegate {
 
 protocol ChangeWeekOrDayInItemsTableViewDelegate: AnyObject {
     func refreshCurrency(currencyString: String)
-    func refreshTitle()
+    func refreshTitleAndReloadTableView()
 }
 
 protocol ItemTableViewDelegate: AnyObject {

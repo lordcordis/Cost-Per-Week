@@ -31,27 +31,28 @@ class SettingsViewModel: ObservableObject {
     @Published var selectedCurrency = Currency.dollar
 //    @Published var simpleOrDetailedViewType: ViewType = .simple
     
-    func saveCurrency(_ newValue: Currency) {
-        CurrencyObject.saveCurrencyAsDefault(currency: newValue.returnCurrency())
-        delegate?.refreshCurrency(currencyString: newValue.returnCurrency().currencyString)
-        delegate?.refreshTitle()
+    func saveCurrency() {
+        CurrencyObject.saveCurrencyAsDefault(currency: selectedCurrency.returnCurrency())
+        delegate?.refreshCurrency(currencyString: selectedCurrency.returnCurrency().currencyString)
+        delegate?.refreshTitleAndReloadTableView()
     }
     
-    func saveDayOrWeek(_ newValue: Item.pricePerWeekOrDay) {
+    func saveDayOrWeek() {
         
-        switch newValue{
+        switch weekOrDayBool {
         case .week:
             UserDefaults.standard.set(true, forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
-            delegate?.refreshTitle()
+            delegate?.refreshTitleAndReloadTableView()
         case .day:
             UserDefaults.standard.set(false, forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
-            delegate?.refreshTitle()
+            delegate?.refreshTitleAndReloadTableView()
         }
     }
     
-//    enum ViewType: String, CaseIterable, Codable, Identifiable {
-//        var id: Self { self }
-//
-//        case simple, detailed
-//    }
+    func deleteAllData() {
+        print("deleteAllData()")
+//        let persistency = Persistency()
+//        persistency.deleteAllData()
+//        delegate?.refreshTitle()
+    }
 }

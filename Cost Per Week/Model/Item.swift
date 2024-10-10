@@ -8,9 +8,12 @@
 import Foundation
 import SwiftUI
 
+struct SoldInfo: Codable, Equatable {
+    var dateSold: Date
+    var priceSold: Int
+}
+
 struct Item: Codable, Hashable, Identifiable {
-    
-    static let sampleItem = Item(name: "Smasnug", price: 160000, date: Date(), itemType: .phone)
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -19,9 +22,13 @@ struct Item: Codable, Hashable, Identifiable {
     var name: String = ""
     var price: Int = 0
     var date: Date
+//    var addonsActive: Bool
     var addons: [ItemAddon]?
     var itemType: ItemType
     var id = UUID()
+    
+    var isSold: Bool
+    var soldInfo: SoldInfo?
     
     var dateAsString: String {
         get {
@@ -29,6 +36,34 @@ struct Item: Codable, Hashable, Identifiable {
             format.dateStyle = .medium
             let result = format.string(from: self.date)
             return result
+        }
+    }
+    
+    var dateSoldAsString: String? {
+        get {
+            let format = DateFormatter()
+            format.dateStyle = .medium
+            if let dateSold = soldInfo?.dateSold, isSold == true {
+                let result = format.string(from: dateSold)
+                return result
+            } else {
+                return nil
+            }
+        }
+    }
+    
+    var amoundOfDaysOwned: String? {
+        get {
+//            let format = DateFormatter()
+//            format.dateStyle = .medium
+            if let dateSold = soldInfo?.dateSold, isSold == true {
+                let interval = dateSold.timeIntervalSince(date)
+                let days = interval / 86400
+                let result = String(Int(days))
+                return result
+            } else {
+                return nil
+            }
         }
     }
     
@@ -51,19 +86,7 @@ struct Item: Codable, Hashable, Identifiable {
         let output = interval.duration.rounded()
         return output
     }
-    
-    
-//    var pricePerDay: Int {
-//        
-//        let daysFromPurchase = Int(secondsFromPurchase / 86400)
-//        
-//        guard daysFromPurchase != 0 else {
-//            return fullPrice
-//        }
-//        
-//        return Int(fullPrice / daysFromPurchase)
-//        
-//    }
+
     
     var pricePerDay: Int {
         let daysFromPurchase = max(Int(secondsFromPurchase / 86400), 1)
@@ -73,32 +96,6 @@ struct Item: Codable, Hashable, Identifiable {
     var fullPrice: Int {
         return price + priceOfAddons
     }
-    
-//    var pricePerWeek: Int {
-////        get {
-////            var interval = DateInterval()
-////            interval.start = date
-////            interval.end = Date()
-////            let secondsSincePurchase = interval.duration.rounded()
-////            let weeksFromPurchase = Int(secondsSincePurchase / 604800)
-////            let pricePerWeek: Int = {
-////                guard weeksFromPurchase != 0 else { return fullPrice}
-////                return Int(fullPrice / weeksFromPurchase)
-////            }()
-////
-////            return pricePerWeek
-//        
-//        let weeksFromPurchase = Int(secondsFromPurchase / 604800)
-//        
-//        let pricePerWeek: Int = {
-//            guard weeksFromPurchase != 0 else { return fullPrice}
-//            return Int(fullPrice / weeksFromPurchase)
-//        }()
-//        
-//        return pricePerWeek
-//        
-//    }
-    
     
     var pricePerWeek: Int {
         let weeksFromPurchase = max(Int(secondsFromPurchase / 604800), 1)

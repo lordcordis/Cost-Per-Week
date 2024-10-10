@@ -34,11 +34,11 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
         case .iphone:
             return LocalizedStringKey("iPhone")
         case .airpods:
-            return LocalizedStringKey("Airpods")
+            return LocalizedStringKey("AirPods")
         case .ipad:
             return LocalizedStringKey("iPad")
         case .phone:
-            return LocalizedStringKey("phone")
+            return LocalizedStringKey("Smartphone")
         case .laptop:
             return LocalizedStringKey("Laptop")
         case .computer:
@@ -66,7 +66,7 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
         case .appliance:
             return LocalizedStringKey("Appliance")
         case .undefined:
-            return LocalizedStringKey("Undefined")
+            return LocalizedStringKey("")
         }
     }
 

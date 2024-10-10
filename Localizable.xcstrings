@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%@ per day" : {
       "localizations" : {
         "ru" : {
@@ -41,7 +44,7 @@
         }
       }
     },
-    "Airpods" : {
+    "AirPods" : {
 
     },
     "Appliance" : {
@@ -94,6 +97,12 @@
         }
       }
     },
+    "Date of purchase" : {
+
+    },
+    "Date sold" : {
+
+    },
     "day" : {
       "localizations" : {
         "en" : {
@@ -120,6 +129,9 @@
         }
       }
     },
+    "Delete all data..." : {
+
+    },
     "dollar" : {
       "localizations" : {
         "en" : {
@@ -140,6 +152,7 @@
 
     },
     "Enter price" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -279,7 +292,11 @@
         }
       }
     },
+    "NO" : {
+
+    },
     "phone" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -298,6 +315,12 @@
           }
         }
       }
+    },
+    "Price" : {
+
+    },
+    "Price sold" : {
+
     },
     "Product info" : {
       "localizations" : {
@@ -320,6 +343,7 @@
       }
     },
     "Purchase date" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -330,6 +354,7 @@
       }
     },
     "Purchase type" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -411,6 +436,9 @@
         }
       }
     },
+    "Smartphone" : {
+
+    },
     "Smartwatch" : {
       "localizations" : {
         "ru" : {
@@ -420,6 +448,9 @@
           }
         }
       }
+    },
+    "Sold" : {
+
     },
     "Speaker" : {
       "localizations" : {
@@ -467,7 +498,11 @@
         }
       }
     },
+    "Type of purchase" : {
+
+    },
     "Undefined" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -517,6 +552,9 @@
           }
         }
       }
+    },
+    "YES" : {
+
     }
   },
   "version" : "1.0"

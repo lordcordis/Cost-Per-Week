@@ -50,6 +50,24 @@ struct ProductPriceView: View {
                     .foregroundStyle(.secondary)
                     .font(.system(.subheadline, weight: .bold))
             }
+            
+            if viewModel.shouldShowSoldData() {
+                Spacer()
+                
+                VStack {
+                    Text(viewModel.dateSoldString())
+                        .foregroundStyle(.secondary)
+                        .font(.footnote)
+                    
+                    Text(viewModel.timeOwnedInterval())
+                        .foregroundStyle(.secondary)
+                        .font(.footnote)
+                }
+            }
+            
+            
+            
+            
         }
     }
 }
@@ -71,8 +89,3 @@ struct ProductTitleView: View {
     }
 }
 
-struct ItemCell_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemCell(viewModel: ItemCellViewModel(item: Item.sampleItem, delegate: nil, weekOrDay: false))
-    }
-}

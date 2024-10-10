@@ -11,6 +11,10 @@ struct SettingsView: View {
     
     @StateObject var viewModel: SettingsViewModel
     
+    let alertButtonIsVisible = true
+    let alertDeleteText = "Are you sure you want to delete all data?"
+    @State var alertDeleteIsPresented = false
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -21,8 +25,8 @@ struct SettingsView: View {
                         Text(result.localizedLabel)
                     }
                 }.pickerStyle(.inline)
-                    .onChange(of: viewModel.weekOrDayBool) { newValue in
-                        viewModel.saveDayOrWeek(newValue)
+                    .onChange(of: viewModel.weekOrDayBool) {
+                        viewModel.saveDayOrWeek()
                     }
                 
                 Picker("Select currency:", selection: $viewModel.selectedCurrency) {
@@ -35,43 +39,27 @@ struct SettingsView: View {
                     }
                 }
                 .pickerStyle(.inline)
-                .onChange(of: viewModel.selectedCurrency) { newValue in
-                    viewModel.saveCurrency(newValue)
+                .onChange(of: viewModel.selectedCurrency) {
+                    viewModel.saveCurrency()
                 }
+                
+                if alertButtonIsVisible {
+                    Button("Delete all data...") {
+                        alertDeleteIsPresented.toggle()
+                    }.alert(alertDeleteText, isPresented: $alertDeleteIsPresented) {
+                        Button("YES") {
+                            viewModel.deleteAllData()
+                        }
+                        Button("NO") {
+                            
+                        }
+                    }
+
+                }
+                
                 
             }.navigationTitle("Settings")
                 .navigationBarTitleDisplayMode(.inline)
         }
-        
-        
-        
-        
-        //        .onAppear {
-        //
-        //            //            let currencyString = Currency.currency
-        //            let currencyString = CurrencyObject.currencyString()
-        //            if let selectedCurrencyFromUserDefaults = Currency.allCases.first(where: {
-        //                currencyY
-        //                in
-        //                currencyY.returnCurrency().currencyString == currencyString
-        //            }) {
-        //                viewModel.selectedCurrency = selectedCurrencyFromUserDefaults
-        //            }
-        //
-        //            let weekIfTrue = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
-        //
-        //            switch weekIfTrue {
-        //            case true:
-        //                viewModel.weekOrDayBool = .week
-        //            case false:
-        //                viewModel.weekOrDayBool = .day
-        //            }
-        //        }
     }
 }
-
-//struct SettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingsView()
-//    }
-//}

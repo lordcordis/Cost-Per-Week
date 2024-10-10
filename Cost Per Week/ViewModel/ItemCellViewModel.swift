@@ -28,6 +28,30 @@ class ItemCellViewModel {
         return item.dateAsString
     }
     
+    func dateSoldString() -> String {
+        if let dateSoldAsString = item.dateSoldAsString {
+            return dateSoldAsString
+        } else {
+            return ""
+        }
+    }
+    
+    func timeOwnedInterval() -> String {
+        if let amoundOfDaysOwned = item.amoundOfDaysOwned {
+            return "\(amoundOfDaysOwned) days"
+        } else {
+            return ""
+        }
+    }
+    
+    func shouldShowSoldData() -> Bool {
+        if item.amoundOfDaysOwned != nil && item.dateSoldAsString != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func weekOrDay() -> Bool {
         return weekOrDayBool
     }

@@ -16,7 +16,7 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
         viewModel.setCurrency(currency)
     }
     
-    func refreshTitle() {
+    func refreshTitleAndReloadTableView() {
         title = viewModel.viewTitle()
         tableView.reloadData()
     }
@@ -40,6 +40,7 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
 //            sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = 20
         }
+//        self.addChild(viewControllerToPresent)
         present(viewControllerToPresent, animated: true, completion: nil)
     }
     
@@ -163,9 +164,3 @@ struct SheetView: View {
         }.background(.ultraThinMaterial)
     }
 }
-
-//struct SheetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SheetView(message: SheetView.sampleMessage)
-//    }
-//}

@@ -83,5 +83,13 @@ final class ItemAddonViewModel: ObservableObject {
         
 
     }
-    
 }
+
+extension ItemAddonViewModel {
+    func dismissNewAddonCreation() {
+        saveToggleIsActiveForThisAddon = false
+        isAddNewRepairViewVisible = true
+    }
+}
+
+

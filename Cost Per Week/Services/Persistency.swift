@@ -45,3 +45,17 @@ class Persistency {
         case currency, pricePerWeekIfTrue
     }
 }
+
+extension Persistency {
+    func deleteAllData() {
+        do {
+            let items = [Item]()
+            let plistEnc = PropertyListEncoder()
+            let savedata = try plistEnc.encode(items)
+            try savedata.write(to: savePath())
+            print("data saved")
+        } catch {
+            print("error saving data")
+        }
+    }
+}

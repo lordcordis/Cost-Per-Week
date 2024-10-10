@@ -17,17 +17,17 @@ struct ItemAddonView: View {
         VStack {
             HStack {
                 
-//                Setting up textfields
+                //                Setting up textfields
                 
-                TextField("name", text: $viewModel.name).onChange(of: viewModel.name) { _ in
+                TextField("name", text: $viewModel.name).onChange(of: viewModel.name) {
                     viewModel.checkIfAddonShouldBeSaved()
                 }
-                TextField("price", text: $viewModel.price).onChange(of: viewModel.price) { _ in
+                TextField("price", text: $viewModel.price).onChange(of: viewModel.price) {
                     viewModel.checkIfAddonShouldBeSaved()
                 }.keyboardType(.asciiCapableNumberPad)
             }
             
-//            Showing save button in an overlay if addon needs to be saved
+            //            Showing save button in an overlay if addon needs to be saved
             
             .overlay {
                 HStack{
@@ -45,13 +45,3 @@ struct ItemAddonView: View {
         }
     }
 }
-
-
-//struct AddonItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ItemAddonView(addon: ItemAddon.sampleItemAddon, isToggleOn: true, addons: [ItemAddon.sampleItemAddon])
-//    }
-//}
-
-
-
