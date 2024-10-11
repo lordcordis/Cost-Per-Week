@@ -22,7 +22,7 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
     var id: Self { self }
     //    case phone, laptop, headphones, tv, monitor, console, computer, macbook, iphone, airpods, ipad, car, undefined
     
-    case macbook, iphone, airpods, ipad
+    case macbook, iphone, airpods, ipad, appleWatch
     case phone, laptop, computer, headphones, tv, monitor, console, car
     case tablet, smartwatch, camera, speaker, router, appliance
     case undefined
@@ -33,6 +33,8 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
             return LocalizedStringKey("Macbook")
         case .iphone:
             return LocalizedStringKey("iPhone")
+        case .appleWatch:
+            return LocalizedStringKey("Apple Watch")
         case .airpods:
             return LocalizedStringKey("AirPods")
         case .ipad:
@@ -94,6 +96,8 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
         switch self {
         case .phone:
             return "smartphone"
+        case .appleWatch:
+            return "applewatch"
         case .laptop:
             return "laptopcomputer"
         case .headphones:
@@ -140,7 +144,9 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
             "macbook": .macbook,
             "iphone": .iphone,
             "airpods": .airpods,
-            "ipad": .ipad
+            "ipad": .ipad,
+            "apple watch": .appleWatch
+            
         ]
         
         for (key, value) in categories {

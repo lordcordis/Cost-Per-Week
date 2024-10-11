@@ -37,6 +37,8 @@ struct ItemAddonView: View {
                             viewModel.saveToggleIsActiveForThisAddon = false
                             viewModel.saveAddon()
                             viewModel.isAddNewRepairViewVisible = true
+                            viewModel.name = ""
+                            viewModel.price = ""
                         }
                         .buttonStyle(.borderedProminent)
                     }

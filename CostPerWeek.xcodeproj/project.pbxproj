@@ -32,6 +32,7 @@
 		00B008A22A6AAFAA0096EA7D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B008A12A6AAFAA0096EA7D /* Protocols.swift */; };
 		00B47CFC2A7C1F0600B01E52 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47CFB2A7C1F0600B01E52 /* DetailView.swift */; };
 		00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */; };
+		2572D9BD2CB93D57009372FB /* DetailViewModelAlt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2572D9BC2CB93D57009372FB /* DetailViewModelAlt.swift */; };
 		25FB24442C889F7400B39E32 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 25FB24432C889F7400B39E32 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		00B008A12A6AAFAA0096EA7D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		00B47CFB2A7C1F0600B01E52 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsTableViewController + EmptyView.swift"; sourceTree = "<group>"; };
+		2572D9BC2CB93D57009372FB /* DetailViewModelAlt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelAlt.swift; sourceTree = "<group>"; };
 		25FB24432C889F7400B39E32 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 			children = (
 				002F635C2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift */,
 				004997792A6EC3670075540A /* DetailViewModel.swift */,
+				2572D9BC2CB93D57009372FB /* DetailViewModelAlt.swift */,
 				00AF38452A84300C007D72FB /* ItemAddonViewModel.swift */,
 				00A9E8F72A8EEB2E00067280 /* SettingsViewModel.swift */,
 				00A9E8F12A8E791400067280 /* ItemCellViewModel.swift */,
@@ -243,6 +246,7 @@
 				002FE3682A5F2B22002BB472 /* CurrencyObject.swift in Sources */,
 				00A9E8F82A8EEB2E00067280 /* SettingsViewModel.swift in Sources */,
 				002F635B2A0D0BE80036D6B5 /* LaunchScreen.swift in Sources */,
+				2572D9BD2CB93D57009372FB /* DetailViewModelAlt.swift in Sources */,
 				002F635D2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift in Sources */,
 				00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */,
 				00A9E8F62A8EC03700067280 /* CurrencyDiff.swift in Sources */,

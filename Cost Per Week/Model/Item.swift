@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct SoldInfo: Codable, Equatable {
-    var dateSold: Date
-    var priceSold: Int
-}
+//struct SoldInfo: Codable, Equatable {
+//    var dateSold: Date
+//    var priceSold: Int
+//}
 
 struct Item: Codable, Hashable, Identifiable {
     
@@ -22,13 +22,15 @@ struct Item: Codable, Hashable, Identifiable {
     var name: String = ""
     var price: Int = 0
     var date: Date
-//    var addonsActive: Bool
+    var addonsActive: Bool
     var addons: [ItemAddon]?
     var itemType: ItemType
-    var id = UUID()
+    var id: String
     
     var isSold: Bool
-    var soldInfo: SoldInfo?
+    var dateSold: Date
+    var priceSold: Int
+//    var soldInfo: SoldInfo?
     
     var dateAsString: String {
         get {
@@ -43,7 +45,7 @@ struct Item: Codable, Hashable, Identifiable {
         get {
             let format = DateFormatter()
             format.dateStyle = .medium
-            if let dateSold = soldInfo?.dateSold, isSold == true {
+            if isSold == true {
                 let result = format.string(from: dateSold)
                 return result
             } else {
@@ -54,9 +56,7 @@ struct Item: Codable, Hashable, Identifiable {
     
     var amoundOfDaysOwned: String? {
         get {
-//            let format = DateFormatter()
-//            format.dateStyle = .medium
-            if let dateSold = soldInfo?.dateSold, isSold == true {
+            if isSold == true {
                 let interval = dateSold.timeIntervalSince(date)
                 let days = interval / 86400
                 let result = String(Int(days))
@@ -69,6 +69,10 @@ struct Item: Codable, Hashable, Identifiable {
     
     var priceOfAddons: Int {
         
+        guard addonsActive == true else {
+            return 0
+        }
+        
         var additionalPrice: Int = 0
         
         if let addons = addons {
@@ -76,7 +80,9 @@ struct Item: Codable, Hashable, Identifiable {
                 additionalPrice += addon.price
             }
         }
+        
         return additionalPrice
+        
     }
     
     private var secondsFromPurchase: TimeInterval {
@@ -94,7 +100,13 @@ struct Item: Codable, Hashable, Identifiable {
     }
     
     var fullPrice: Int {
-        return price + priceOfAddons
+        
+        if isSold == true {
+            return price + priceOfAddons - priceSold
+        } else {
+            return price + priceOfAddons
+        }
+        
     }
     
     var pricePerWeek: Int {

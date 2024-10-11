@@ -10,29 +10,31 @@ import SwiftUI
 struct DetailView: View {
     
     @StateObject var viewModel: DetailViewModel
+    var showSaveButton = true
     
     //    MARK: -- Product info section
     
     var body: some View {
         
         
-        NavigationStack {
+//        NavigationStack {
             Form {
                 productInfoSection
                 
                 additionalExpensesSection
                 
                 isSoldSection
-            }.scrollDismissesKeyboard(.immediately)
-            
-
-        }.toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                if viewModel.saveButtonIsVisible {
+                
+                
+                if showSaveButton{
                     SaveButton
                 }
+                
+                
+            }.scrollDismissesKeyboard(.immediately)
+            .onDisappear {
+                viewModel.formOnDisappear()
             }
-        }
     }
 }
 
@@ -42,15 +44,15 @@ extension DetailView {
     
     var productInfoSection: some View {
         Section("Product info") {
-            TextField("Product name", text: $viewModel.name)
-                .onChange(of: viewModel.name, {
+            TextField("Product name", text: $viewModel.itemName)
+                .onChange(of: viewModel.itemName, {
                     viewModel.productNameChanged()
                 })
             
             HStack {
-                TextField("Price", text: $viewModel.price)
+                TextField("Price", text: $viewModel.itemPurchasePrice)
                     .keyboardType(.numberPad)
-                    .onChange(of: viewModel.price) {
+                    .onChange(of: viewModel.itemPurchasePrice) {
                         viewModel.productPriceChanged()
                     }
                 
@@ -59,8 +61,8 @@ extension DetailView {
             
             //            Purchase date datePicker
             
-            DatePicker("Date of purchase", selection: $viewModel.dateOfPurchase, displayedComponents: [.date])
-                .onChange(of: viewModel.dateOfPurchase, {
+            DatePicker("Date of purchase", selection: $viewModel.itemDateOfPurchase, displayedComponents: [.date])
+                .onChange(of: viewModel.itemDateOfPurchase, {
                     viewModel.productPurchaseDateChanged()
                 })
                 .datePickerStyle(.compact)
@@ -88,14 +90,14 @@ extension DetailView {
     
     @ViewBuilder
     var additionalExpensesSection: some View {
-        Toggle("Additional expenses", isOn: $viewModel.repairsSectionIsVisible)
+        Toggle("Additional expenses", isOn: $viewModel.additionalExpensesSectionIsVisible)
             .tint(viewModel.tintColor)
         
-        if viewModel.repairsSectionIsVisible {
+        if viewModel.additionalExpensesSectionIsVisible {
             
             List {
-                ForEach(viewModel.addons) { addon in
-                    ItemAddonView(viewModel: ItemAddonViewModel(addon: addon, addonsArray: $viewModel.addons, isAddNewRepairViewShown: $viewModel.addNewRepairViewIsVisible, isAddNewRepairButtonVisible: $viewModel.addNewRepairButtonIsVisible, addonsArrayIsChanged: $viewModel.addonsArrayIsChanged))
+                ForEach(viewModel.itemAddons) { addon in
+                    ItemAddonView(viewModel: ItemAddonViewModel(addon: addon, addonsArray: $viewModel.itemAddons, isAddNewRepairViewShown: $viewModel.addNewRepairViewIsVisible, isAddNewRepairButtonVisible: $viewModel.addNewRepairButtonIsVisible, addonsArrayIsChanged: $viewModel.addonsArrayIsChanged))
                 }.onDelete { indexSet in
                     viewModel.removeAddon(at: indexSet)
                 }
@@ -114,7 +116,7 @@ extension DetailView {
                 && viewModel.addNewRepairButtonIsVisible == false
             {
                 
-                ItemAddonView(viewModel: ItemAddonViewModel(addon: nil, addonsArray: $viewModel.addons, isAddNewRepairViewShown: $viewModel.addNewRepairViewIsVisible, isAddNewRepairButtonVisible: $viewModel.addNewRepairButtonIsVisible, addonsArrayIsChanged: $viewModel.addonsArrayIsChanged))
+                ItemAddonView(viewModel: ItemAddonViewModel(addon: nil, addonsArray: $viewModel.itemAddons, isAddNewRepairViewShown: $viewModel.addNewRepairViewIsVisible, isAddNewRepairButtonVisible: $viewModel.addNewRepairButtonIsVisible, addonsArrayIsChanged: $viewModel.addonsArrayIsChanged))
                 
             } else {
                     
@@ -128,19 +130,19 @@ extension DetailView {
     var isSoldSection: some View {
         Section {
             
-            Toggle("Sold", isOn: $viewModel.isSold)
+            Toggle("Sold", isOn: $viewModel.itemIsSold)
                 .tint(viewModel.tintColor)
-                .onChange(of: viewModel.isSold) {
+                .onChange(of: viewModel.itemIsSold) {
                     viewModel.soldToggleChanged()
                 }
             
-            if viewModel.isSold {
+            if viewModel.itemIsSold {
                 
                 HStack {
                     
-                    TextField("Price sold", text: $viewModel.soldItemPrice)
+                    TextField("Price sold", text: $viewModel.priceSold)
                         .keyboardType(.numberPad)
-                        .onChange(of: viewModel.soldItemPrice) {
+                        .onChange(of: viewModel.priceSold) {
                             viewModel.soldItemPriceChanged()
                         }
                         
@@ -149,12 +151,13 @@ extension DetailView {
                 
                 //            Sold date datePicker
                 
-                DatePicker("Date sold", selection: $viewModel.soldDate, displayedComponents: [.date])
-                    .onChange(of: viewModel.soldDate, {
+                DatePicker("Date sold", selection: $viewModel.dateSold, displayedComponents: [.date])
+                    .onChange(of: viewModel.dateSold, {
                         viewModel.soldDateChanged()
                     })
                     .datePickerStyle(.compact)
                     .tint(viewModel.tintColor)
+                    
             }
             
         }
@@ -163,14 +166,10 @@ extension DetailView {
     
     var SaveButton: some View {
         Button(action: {
-            viewModel.saveItemAndDismiss()
+            viewModel.save(dismiss: true)
         }) {
             Text("Save")
-        }.buttonStyle(.borderedProminent)
-            .transition(.move(edge: .bottom))
-            .padding(.all)
-            .tint(Color(uiColor: .systemPink))
-            .animation(.easeIn, value: 20)
+        }
     }
     
     var addNewAddonButton: some View {
@@ -182,7 +181,7 @@ extension DetailView {
             Label("Add new", systemImage: "plus")
         }
         .onAppear {
-//            viewModel.ch
+
         }
     }
 }

@@ -11,7 +11,7 @@ struct SettingsView: View {
     
     @StateObject var viewModel: SettingsViewModel
     
-    let alertButtonIsVisible = true
+    let deleteAllDataButtonVisible = false
     let alertDeleteText = "Are you sure you want to delete all data?"
     @State var alertDeleteIsPresented = false
     
@@ -43,7 +43,7 @@ struct SettingsView: View {
                     viewModel.saveCurrency()
                 }
                 
-                if alertButtonIsVisible {
+                if deleteAllDataButtonVisible {
                     Button("Delete all data...") {
                         alertDeleteIsPresented.toggle()
                     }.alert(alertDeleteText, isPresented: $alertDeleteIsPresented) {

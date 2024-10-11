@@ -14,10 +14,44 @@ struct ItemCell: View {
     static let id = "ItemCellId"
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ProductTitleView(viewModel: viewModel)
-            Spacer()
-            ProductPriceView(viewModel: viewModel)
+        
+        HStack {
+            VStack(alignment: .leading) {
+                ProductTitleView(viewModel: viewModel)
+                Spacer()
+                ProductPriceView(viewModel: viewModel)
+            }
+            
+            VStack {
+                
+                if viewModel.shouldShowSoldData() {
+                    Text(viewModel.dateString())
+                        .foregroundStyle(.secondary)
+                        .font(.footnote)
+                    
+                    Text(viewModel.dateSoldString())
+                        .foregroundStyle(.secondary)
+                        .font(.footnote)
+                    
+                    Spacer()
+                    
+                    Text(viewModel.timeOwnedInterval())
+                        .foregroundStyle(.secondary)
+                        .font(.footnote)
+                } else {
+                    Text(viewModel.dateString())
+                        .foregroundStyle(.secondary)
+                        .font(.footnote)
+                    
+                    Spacer()
+                }
+                
+                
+                
+                
+            }
+            
+            
         }.swipeActions {
             Button {
                 viewModel.deleteCurrentItem()
@@ -26,6 +60,8 @@ struct ItemCell: View {
             }
             .tint(.red)
         }
+        
+        
     }
 }
 
@@ -51,19 +87,7 @@ struct ProductPriceView: View {
                     .font(.system(.subheadline, weight: .bold))
             }
             
-            if viewModel.shouldShowSoldData() {
-                Spacer()
-                
-                VStack {
-                    Text(viewModel.dateSoldString())
-                        .foregroundStyle(.secondary)
-                        .font(.footnote)
-                    
-                    Text(viewModel.timeOwnedInterval())
-                        .foregroundStyle(.secondary)
-                        .font(.footnote)
-                }
-            }
+
             
             
             
@@ -82,9 +106,6 @@ struct ProductTitleView: View {
                 .foregroundStyle(.pink)
                 .font(.system(.subheadline, weight: .bold))
             Spacer()
-            Text(viewModel.dateString())
-                .foregroundStyle(.secondary)
-                .font(.footnote)
         }
     }
 }

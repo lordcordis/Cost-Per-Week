@@ -8,8 +8,6 @@
 import UIKit
 import SwiftUI
 
-
-
 class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     
     //    Initialisation

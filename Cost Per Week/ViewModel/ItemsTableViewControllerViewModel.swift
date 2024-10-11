@@ -53,8 +53,19 @@ struct ItemsTableViewControllerViewModel {
     }
     
     mutating func updateItem (item: Item) {
+        
+        print("mutating func updateItem \(item)")
+        
+        print(item.id)
+        
+        items.map { item in
+            print(item.id)
+        }
+        
+        
         for (ind, itemInside) in items.enumerated() {
             if itemInside.id == item.id {
+                print("items[ind] = item")
                 items[ind] = item
             }
         }

@@ -27,8 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let model = ItemsTableViewControllerViewModel()
         let mainVC = ItemsTableViewController(model: model)
-//        let mainVC = FormViewController()
-//        let mainVC = UIHostingController(rootView: ContentView())
         let navController = UINavigationController(rootViewController: mainVC)
         
         self.window!.rootViewController = navController
