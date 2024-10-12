@@ -71,7 +71,14 @@
       }
     },
     "Cancel" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отмена"
+          }
+        }
+      }
     },
     "Car" : {
       "localizations" : {
@@ -104,10 +111,24 @@
       }
     },
     "Date of purchase" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата покупки"
+          }
+        }
+      }
     },
     "Date sold" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата продажи"
+          }
+        }
+      }
     },
     "day" : {
       "localizations" : {
@@ -136,7 +157,14 @@
       }
     },
     "Delete all data..." : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить все данные…"
+          }
+        }
+      }
     },
     "dollar" : {
       "localizations" : {
@@ -156,17 +184,6 @@
     },
     "Effortlessly Calculate Your Weekly Expenses" : {
 
-    },
-    "Enter price" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Введите цену"
-          }
-        }
-      }
     },
     "euro" : {
       "localizations" : {
@@ -240,7 +257,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Грузинский Лари"
           }
         }
@@ -299,15 +316,11 @@
       }
     },
     "NO" : {
-
-    },
-    "phone" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Телефон"
+            "value" : "НЕТ"
           }
         }
       }
@@ -323,10 +336,24 @@
       }
     },
     "Price" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цена"
+          }
+        }
+      }
     },
     "Price sold" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цена продажи"
+          }
+        }
+      }
     },
     "Product info" : {
       "localizations" : {
@@ -344,28 +371,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Название продукта"
-          }
-        }
-      }
-    },
-    "Purchase date" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Дата покупки"
-          }
-        }
-      }
-    },
-    "Purchase type" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Тип покупки"
           }
         }
       }
@@ -456,7 +461,14 @@
       }
     },
     "Sold" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продано"
+          }
+        }
+      }
     },
     "Speaker" : {
       "localizations" : {
@@ -505,15 +517,11 @@
       }
     },
     "Type of purchase" : {
-
-    },
-    "Undefined" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не выбрано"
+            "value" : "Тип покупки"
           }
         }
       }
@@ -560,7 +568,14 @@
       }
     },
     "YES" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ДА"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
