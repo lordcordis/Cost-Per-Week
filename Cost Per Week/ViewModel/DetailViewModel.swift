@@ -183,7 +183,7 @@ extension DetailViewModel {
     }
     
     func formOnDisappear() {
-//        save(dismiss: false)
+        save(dismiss: false)
     }
     
     func save(dismiss: Bool) {

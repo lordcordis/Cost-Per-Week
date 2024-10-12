@@ -41,6 +41,13 @@ struct ItemAddonView: View {
                             viewModel.price = ""
                         }
                         .buttonStyle(.borderedProminent)
+                    } else if viewModel.saveToggleIsActiveForThisAddon == false && viewModel.isAddNewRepairViewVisible == true {
+                        Spacer()
+                        Button("Cancel") {
+                            viewModel.dismissNewAddonCreation()
+                        }
+                        .buttonStyle(.bordered)
+                        .foregroundStyle(Color.secondary)
                     }
                 }
             }

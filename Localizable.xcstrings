@@ -70,6 +70,9 @@
         }
       }
     },
+    "Cancel" : {
+
+    },
     "Car" : {
       "localizations" : {
         "ru" : {

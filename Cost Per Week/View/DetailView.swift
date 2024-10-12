@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
     
     @StateObject var viewModel: DetailViewModel
-    var showSaveButton = true
+    var showSaveButton = false
     
     //    MARK: -- Product info section
     
@@ -174,8 +174,10 @@ extension DetailView {
     
     var addNewAddonButton: some View {
         Button(role: .cancel) {
-            viewModel.addNewRepairViewIsVisible = true
-            viewModel.addNewRepairButtonIsVisible = false
+            withAnimation {
+                viewModel.addNewRepairViewIsVisible = true
+                viewModel.addNewRepairButtonIsVisible = false
+            }
             
         } label: {
             Label("Add new", systemImage: "plus")
