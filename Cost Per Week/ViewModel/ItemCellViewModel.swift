@@ -37,7 +37,7 @@ class ItemCellViewModel {
     }
     
     func timeOwnedInterval() -> String {
-        if let amoundOfDaysOwned = item.amoundOfDaysOwned {
+        if let amoundOfDaysOwned = item.amoundOfDaysOwnedString {
             return "\(amoundOfDaysOwned) days"
         } else {
             return ""
@@ -45,7 +45,7 @@ class ItemCellViewModel {
     }
     
     func shouldShowSoldData() -> Bool {
-        if item.amoundOfDaysOwned != nil && item.dateSoldAsString != nil {
+        if item.amoundOfDaysOwnedString != nil && item.dateSoldAsString != nil {
             return true
         } else {
             return false

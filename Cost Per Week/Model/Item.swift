@@ -54,12 +54,38 @@ struct Item: Codable, Hashable, Identifiable {
         }
     }
     
-    var amoundOfDaysOwned: String? {
+    var amoundOfDaysOwnedString: String? {
         get {
             if isSold == true {
                 let interval = dateSold.timeIntervalSince(date)
                 let days = interval / 86400
                 let result = String(Int(days))
+                return result
+            } else {
+                return nil
+            }
+        }
+    }
+    
+    var amoundOfDaysOwnedInt: Int? {
+        get {
+            if isSold == true {
+                let interval = dateSold.timeIntervalSince(date)
+                let days = interval / 86400
+                let result = Int(days)
+                return result
+            } else {
+                return nil
+            }
+        }
+    }
+    
+    var amoundOfWeeksOwnedInt: Int? {
+        get {
+            if isSold == true {
+                let interval = dateSold.timeIntervalSince(date)
+                let days = interval / 86400 / 7
+                let result = Int(days)
                 return result
             } else {
                 return nil
@@ -95,8 +121,20 @@ struct Item: Codable, Hashable, Identifiable {
 
     
     var pricePerDay: Int {
-        let daysFromPurchase = max(Int(secondsFromPurchase / 86400), 1)
-        return fullPrice / daysFromPurchase
+        
+        if isSold {
+            if let amoundOfDaysOwnedInt = amoundOfDaysOwnedInt {
+                return fullPrice / amoundOfDaysOwnedInt
+            } else {
+                return 0
+            }
+        } else {
+            let daysFromPurchase = max(Int(secondsFromPurchase / 86400), 1)
+            return fullPrice / daysFromPurchase
+        }
+        
+        
+        
     }
     
     var fullPrice: Int {
@@ -110,8 +148,19 @@ struct Item: Codable, Hashable, Identifiable {
     }
     
     var pricePerWeek: Int {
-        let weeksFromPurchase = max(Int(secondsFromPurchase / 604800), 1)
-        return fullPrice / weeksFromPurchase
+        
+        if isSold {
+            if let amoundOfWeeksOwnedInt = amoundOfWeeksOwnedInt {
+                return fullPrice / amoundOfWeeksOwnedInt
+            } else {
+                return 0
+            }
+        } else {
+            let weeksFromPurchase = max(Int(secondsFromPurchase / 604800), 1)
+            return fullPrice / weeksFromPurchase
+        }
+        
+        
     }
     
     enum pricePerWeekOrDay: String, Identifiable, Codable, CaseIterable {
