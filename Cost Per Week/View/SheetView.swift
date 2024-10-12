@@ -26,7 +26,7 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
         
         let viewModel = SettingsViewModel(weekOrDay: viewModel.weekOrDayBool, delegate: self)
         let viewToPresent = SettingsView(viewModel: viewModel)
-//        viewToPresent.delegate = self
+        //        viewToPresent.delegate = self
         
         let sheetController = UIHostingController(rootView: viewToPresent)
         
@@ -37,10 +37,10 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.prefersEdgeAttachedInCompactHeight = true
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-//            sheet.prefersGrabberVisible = true
+            //            sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = 20
         }
-//        self.addChild(viewControllerToPresent)
+        //        self.addChild(viewControllerToPresent)
         present(viewControllerToPresent, animated: true, completion: nil)
     }
     
@@ -69,14 +69,41 @@ struct SheetView: View {
     init(message: String, message2: String) {
         self.message = message
         self.message2 = message2
-        items = persistency.retreveData() ?? []
+//        items = persistency.retreveData() ?? []
+        
+        if let itemsRetreieved = persistency.retreveData() {
+            let itemsNotSold = itemsRetreieved.filter { item in
+                item.isSold == false
+            }
+            
+            items = itemsNotSold
+            
+            
+        } else {
+            items = []
+        }
+        
         weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+    }
+    
+    func calculateBalance() {
+        var output = 0
+        let itemsRetreieved = persistency.retreveData()
+        
+        for item in items {
+            if item.isSold == true {
+                let priceOfOwning = item.price - item.priceSold
+                output += priceOfOwning
+            } else {
+                output += item.price
+            }
+        }
     }
     
     let weekOrDayBool: Bool
     let persistency = Persistency()
     
-    static let sampleMessage = "Per week: 10000 RUB"
+//    static let sampleMessage = "Per week: 10000 RUB"
     
     var items: [Item]
     
@@ -87,24 +114,17 @@ struct SheetView: View {
         ZStack {
             Color.init(uiColor: UIColor.clear)
             VStack {
-
-                
-                
-                
                 
                 TabView {
                     
                     VStack {
                         
-                        
-                            Text(message)
-                                .font(.title2)
-                                .padding(.all)
-                                .multilineTextAlignment(.center)
-                                .fontWeight(.semibold)
-                                .padding()
-                        
-                        
+                        Text(message)
+                            .font(.title2)
+                            .padding(.all)
+                            .multilineTextAlignment(.center)
+                            .fontWeight(.semibold)
+                            .padding()
                         
                         Chart {
                             
@@ -112,13 +132,12 @@ struct SheetView: View {
                                 ForEach(items) {item in
                                     BarMark(x: .value("value 1", item.date), y: .value("value 2", item.pricePerWeek))
                                 }
+                                
                             } else {
                                 ForEach(items) {item in
                                     BarMark(x: .value("value 1", item.date), y: .value("value 2", item.pricePerDay))
                                 }
                             }
-                            
-                            
                         }
                         .padding(.horizontal, 20)
                         .padding(.bottom, 40)
@@ -126,7 +145,6 @@ struct SheetView: View {
                     }
                     
                     VStack {
-                        
                         
                         Text(message2)
                             .font(.title2)
@@ -136,30 +154,16 @@ struct SheetView: View {
                             .padding()
                         
                         Chart {
-                            
-                            
-                                ForEach(items) {item in
-                                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
-                                        
-                                }
-                            
+                            ForEach(items) {item in
+                                BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
                                 
-                            
-                            
-                            
+                            }
                         }
                         .padding(.horizontal, 20)
                         .padding(.bottom, 40)
                         .padding()
-
                     }
-                    
-                    
-                    
                 }.tabViewStyle(.page)
-                
-                
-                
             }
         }.background(.ultraThinMaterial)
     }
