@@ -120,17 +120,18 @@ struct Item: Codable, Hashable, Identifiable {
     }
 
     
-    var pricePerDay: Int {
+    var pricePerDay: Double {
         
         if isSold {
             if let amoundOfDaysOwnedInt = amoundOfDaysOwnedInt {
-                return fullPrice / amoundOfDaysOwnedInt
+                return Double(fullPrice) / Double(amoundOfDaysOwnedInt)
             } else {
                 return 0
             }
         } else {
             let daysFromPurchase = max(Int(secondsFromPurchase / 86400), 1)
-            return fullPrice / daysFromPurchase
+            return Double(fullPrice) / Double(daysFromPurchase)
+             
         }
         
         
@@ -147,17 +148,17 @@ struct Item: Codable, Hashable, Identifiable {
         
     }
     
-    var pricePerWeek: Int {
+    var pricePerWeek: Double {
         
         if isSold {
             if let amoundOfWeeksOwnedInt = amoundOfWeeksOwnedInt {
-                return fullPrice / amoundOfWeeksOwnedInt
+                return Double(fullPrice) / Double(amoundOfWeeksOwnedInt)
             } else {
                 return 0
             }
         } else {
             let weeksFromPurchase = max(Int(secondsFromPurchase / 604800), 1)
-            return fullPrice / weeksFromPurchase
+            return Double(fullPrice) / Double(weeksFromPurchase)
         }
         
         

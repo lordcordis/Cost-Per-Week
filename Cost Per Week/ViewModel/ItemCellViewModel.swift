@@ -65,17 +65,26 @@ class ItemCellViewModel {
     }
     
     func pricePerDay() -> String {
-        return String(item.pricePerDay)
+        
+        if item.pricePerDay > 10 {
+            return String(Int(item.pricePerDay))
+        } else {
+            return String(format: "%.2f", item.pricePerDay)
+        }
     }
 
     func pricePerWeek() -> String {
-        return String(item.pricePerWeek)
+        if item.pricePerWeek > 10 {
+            return String(Int(item.pricePerWeek))
+        } else {
+            return String(format: "%.2f", item.pricePerWeek)
+        }
     }
     
     func currencyString() -> String {
         
         let locale = Locale.current
-        let amount = weekOrDayBool ? item.pricePerWeek : item.pricePerDay
+//        let amount = weekOrDayBool ? item.pricePerWeek : item.pricePerDay
         
         let formatter = NumberFormatter()
         formatter.locale = locale
@@ -106,59 +115,59 @@ class ItemCellViewModel {
 //        return formatter.string(from: NSNumber(value: amount)) ?? "\(amount) \(currency.rawValue)"
         return formatter.currencySymbol    }
     
-    func rubleString(for amount: Int) -> String {
-        let remainder10 = amount % 10
-        let remainder100 = amount % 100
-
-        var rubleWord: String
-
-        if remainder100 >= 11 && remainder100 <= 19 {
-            rubleWord = "рублей"
-        } else {
-            switch remainder10 {
-            case 1:
-                rubleWord = "рубль"
-            case 2, 3, 4:
-                rubleWord = "рубля"
-            default:
-                rubleWord = "рублей"
-            }
-        }
-
-        return "\(rubleWord)"
-    }
+//    func rubleString(for amount: Int) -> String {
+//        let remainder10 = amount % 10
+//        let remainder100 = amount % 100
+//
+//        var rubleWord: String
+//
+//        if remainder100 >= 11 && remainder100 <= 19 {
+//            rubleWord = "рублей"
+//        } else {
+//            switch remainder10 {
+//            case 1:
+//                rubleWord = "рубль"
+//            case 2, 3, 4:
+//                rubleWord = "рубля"
+//            default:
+//                rubleWord = "рублей"
+//            }
+//        }
+//
+//        return "\(rubleWord)"
+//    }
     
-    func dollarString(for amount: Int) -> String {
-        let remainder10 = amount % 10
-        let remainder100 = amount % 100
-
-        var rubleWord: String
-
-        if remainder100 >= 11 && remainder100 <= 19 {
-            rubleWord = "долларов"
-        } else {
-            switch remainder10 {
-            case 1:
-                rubleWord = "доллар"
-            case 2, 3, 4:
-                rubleWord = "доллара"
-            default:
-                rubleWord = "долларов"
-            }
-        }
-
-        return "\(rubleWord)"
-    }
+//    func dollarString(for amount: Int) -> String {
+//        let remainder10 = amount % 10
+//        let remainder100 = amount % 100
+//
+//        var rubleWord: String
+//
+//        if remainder100 >= 11 && remainder100 <= 19 {
+//            rubleWord = "долларов"
+//        } else {
+//            switch remainder10 {
+//            case 1:
+//                rubleWord = "доллар"
+//            case 2, 3, 4:
+//                rubleWord = "доллара"
+//            default:
+//                rubleWord = "долларов"
+//            }
+//        }
+//
+//        return "\(rubleWord)"
+//    }
     
     func deleteCurrentItem() {
         delegate?.deleteItem(item: item)
     }
     
-    func rubleStringPerDay() -> String {
-        rubleString(for: item.pricePerDay)
-    }
+//    func rubleStringPerDay() -> String {
+//        rubleString(for: item.pricePerDay)
+//    }
     
-    func rubleStringPerWeek() -> String {
-        rubleString(for: item.pricePerWeek)
-    }
+//    func rubleStringPerWeek() -> String {
+//        rubleString(for: item.pricePerWeek)
+//    }
 }

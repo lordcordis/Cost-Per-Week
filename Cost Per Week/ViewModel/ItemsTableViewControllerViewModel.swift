@@ -82,13 +82,13 @@ struct ItemsTableViewControllerViewModel {
         }
     }
     
-    func totalCostForSingleWeek() -> Int {
+    func totalCostForSingleWeek() -> Double {
         return items.reduce(0) { partialResult, item in
             partialResult + item.pricePerWeek
         }
     }
     
-    func totalCostForSingleDay() -> Int {
+    func totalCostForSingleDay() -> Double {
         return items.reduce(0) { partialResult, item in
             partialResult + item.pricePerDay
         }
