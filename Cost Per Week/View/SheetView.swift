@@ -86,19 +86,22 @@ struct SheetView: View {
         weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
     }
     
-    func calculateBalance() {
-        var output = 0
-        let itemsRetreieved = persistency.retreveData()
-        
-        for item in items {
-            if item.isSold == true {
-                let priceOfOwning = item.price - item.priceSold
-                output += priceOfOwning
-            } else {
-                output += item.price
-            }
-        }
-    }
+//    mutating func calculateBalance() {
+//        var output = 0
+//        let itemsRetreieved = persistency.retreveData()
+//        
+//        for item in items {
+//            if item.isSold == true {
+//                let priceOfOwning = item.price - item.priceSold
+//                output += priceOfOwning
+//            } else {
+//                output += item.price
+//            }
+//        }
+//       
+//        var message2 = "Balance: \(output)"
+//        self.message2 = message2
+//    }
     
     let weekOrDayBool: Bool
     let persistency = Persistency()
@@ -108,7 +111,7 @@ struct SheetView: View {
     var items: [Item]
     
     let message: String
-    let message2: String
+    var message2: String
     var body: some View {
         
         ZStack {
@@ -117,54 +120,63 @@ struct SheetView: View {
                 
                 TabView {
                     
-                    VStack {
-                        
-                        Text(message)
-                            .font(.title2)
-                            .padding(.all)
-                            .multilineTextAlignment(.center)
-                            .fontWeight(.semibold)
-                            .padding()
-                        
-                        Chart {
-                            
-                            if weekOrDayBool {
-                                ForEach(items) {item in
-                                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.pricePerWeek))
-                                }
-                                
-                            } else {
-                                ForEach(items) {item in
-                                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.pricePerDay))
-                                }
-                            }
-                        }
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 40)
-                        .padding()
-                    }
-                    
-                    VStack {
-                        
-                        Text(message2)
-                            .font(.title2)
-                            .padding(.all)
-                            .multilineTextAlignment(.center)
-                            .fontWeight(.semibold)
-                            .padding()
-                        
-                        Chart {
-                            ForEach(items) {item in
-                                BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
-                                
-                            }
-                        }
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 40)
-                        .padding()
-                    }
+//                    firstTab
+                    secondTab
+
                 }.tabViewStyle(.page)
             }
         }.background(.ultraThinMaterial)
     }
+    
+    var firstTab: some View {
+        VStack {
+            
+            Text(message)
+                .font(.title2)
+                .padding(.all)
+                .multilineTextAlignment(.center)
+                .fontWeight(.semibold)
+                .padding()
+            
+            Chart {
+                
+                if weekOrDayBool {
+                    ForEach(items) {item in
+                        BarMark(x: .value("value 1", item.date), y: .value("value 2", item.pricePerWeek))
+                    }
+                    
+                } else {
+                    ForEach(items) {item in
+                        BarMark(x: .value("value 1", item.date), y: .value("value 2", item.pricePerDay))
+                    }
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.bottom, 40)
+            .padding()
+        }
+    }
+    
+    var secondTab: some View {
+        VStack {
+            
+            Text(message2)
+                .font(.title2)
+                .padding(.all)
+                .multilineTextAlignment(.center)
+                .fontWeight(.semibold)
+                .padding()
+            
+            Chart {
+                ForEach(items) {item in
+                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
+                    
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.bottom, 40)
+            .padding()
+        }
+    }
+    
 }
