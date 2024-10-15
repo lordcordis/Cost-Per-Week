@@ -59,6 +59,19 @@ final class DetailViewModel: ObservableObject {
             itemAddons = item.addons
             itemID = item.id
             
+            
+            soldDatesRange = {
+                return item.date
+                    ...
+                Date()
+            }()
+            
+            purchasedDatesRange = {
+                return Date.distantPast
+                ...
+                item.dateSold
+            }()
+            
         } else {
             
             //            Item is new
@@ -75,6 +88,18 @@ final class DetailViewModel: ObservableObject {
             dateSold = Date()
             priceSold = ""
             itemID = UUID().uuidString
+            
+            soldDatesRange = {
+                return Date.distantPast
+                ...
+                Date()
+            }()
+            
+            purchasedDatesRange = {
+                return Date.distantPast
+                ...
+                Date()
+            }()
         }
     }
     
@@ -106,6 +131,9 @@ final class DetailViewModel: ObservableObject {
     @Published var priceSold: String
     @Published var dateSold: Date
     
+    @Published var purchasedDatesRange: ClosedRange<Date>
+    @Published var soldDatesRange: ClosedRange<Date>
+    
     //    Checking if price string can be converted to int
     
     private func priceIsValid(price: String) -> Bool {
@@ -130,7 +158,7 @@ final class DetailViewModel: ObservableObject {
     }
     
     func productPurchaseDateChanged() {
-        
+        generateSoldDateRange()
     }
     
     func productPurchaseTypeChanged() {
@@ -156,7 +184,7 @@ final class DetailViewModel: ObservableObject {
     }
     
     func soldDateChanged() {
-        
+        generatePurchasedDateRange()
     }
     
     func soldToggleChanged() {
@@ -165,6 +193,22 @@ final class DetailViewModel: ObservableObject {
 }
 
 extension DetailViewModel {
+    
+    func generateSoldDateRange() {
+        soldDatesRange = {
+            itemDateOfPurchase
+            ...
+            Date()
+        }()
+    }
+    
+    func generatePurchasedDateRange() {
+        purchasedDatesRange = {
+            Date.distantPast
+            ...
+            dateSold
+        }()
+    }
     
     func generateItemForExport() -> Item? {
         

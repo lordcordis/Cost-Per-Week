@@ -67,7 +67,7 @@ extension DetailView {
             
             //            Purchase date datePicker
             
-            DatePicker("Date of purchase", selection: $viewModel.itemDateOfPurchase, displayedComponents: [.date])
+            DatePicker("Date of purchase", selection: $viewModel.itemDateOfPurchase, in: viewModel.purchasedDatesRange, displayedComponents: [.date])
                 .onChange(of: viewModel.itemDateOfPurchase, {
                     viewModel.productPurchaseDateChanged()
                 })
@@ -184,7 +184,8 @@ extension DetailView {
                 
                 //            Sold date datePicker
                 
-                DatePicker("Date sold", selection: $viewModel.dateSold, displayedComponents: [.date])
+                
+                DatePicker("Date sold", selection: $viewModel.dateSold, in: viewModel.soldDatesRange, displayedComponents: [.date])
                     .onChange(of: viewModel.dateSold, {
                         viewModel.soldDateChanged()
                     })

@@ -16,9 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let needshardReset = true
         let needshardReset = false
         
+        let july2010 = Date(timeIntervalSince1970: 1277942400)
+        let july15_2020 = Date(timeIntervalSince1970: 1594771200)
+        let june2016 = Date(timeIntervalSince1970: 1464739200)
+        
+        var yamahaAddons: [ItemAddon] = [
+            ItemAddon(description: "Roland Micro Cube", price: 4500, id: UUID().uuidString)
+        ]
+        
+        let sampleItems: [Item] = [
+            Item(name: "Yamaga", date: july2010, addonsActive: false, addons: yamahaAddons, itemType: .undefined, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 100)
+        ]
+        
         if needshardReset {
             let presistency = Persistency()
             presistency.deleteAllData()
+            presistency.saveData(items: sampleItems)
         }
         
         return true

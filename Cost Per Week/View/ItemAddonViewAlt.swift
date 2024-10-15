@@ -47,6 +47,9 @@ struct ItemAddonViewAlt: View {
         guard let priceInt = Int(price) else {return}
         let exportedAddon = ItemAddon(description: name, price: priceInt, id: initialAddon.id)
         
+        name = ""
+        price = ""
+        
         var isExportedSuccessfully = false
         
         for (index, itemAddon) in itemAddons.enumerated() {
