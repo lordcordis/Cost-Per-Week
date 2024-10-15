@@ -103,6 +103,8 @@ extension DetailView {
             List {
                 ForEach(viewModel.itemAddons) { addon in
                     ItemAddonViewAlt(addon: addon, itemAddons: $viewModel.itemAddons, newAddonToggle: $viewModel.newAddonToggle)
+                }.onDelete { indexSet in
+                    viewModel.removeAddon(at: indexSet)
                 }
             }
             

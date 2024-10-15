@@ -16,9 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let needshardReset = true
         let needshardReset = false
         
-        let july2010 = Date(timeIntervalSince1970: 1277942400)
         let july15_2020 = Date(timeIntervalSince1970: 1594771200)
         let june2016 = Date(timeIntervalSince1970: 1464739200)
+        
+        let july2010 = Date(timeIntervalSince1970: 1277942400)
         
         var yamahaAddons: [ItemAddon] = [
             ItemAddon(description: "Roland Micro Cube", price: 4500, id: UUID().uuidString)

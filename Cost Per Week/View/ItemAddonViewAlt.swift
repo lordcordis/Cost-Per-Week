@@ -47,9 +47,6 @@ struct ItemAddonViewAlt: View {
         guard let priceInt = Int(price) else {return}
         let exportedAddon = ItemAddon(description: name, price: priceInt, id: initialAddon.id)
         
-        name = ""
-        price = ""
-        
         var isExportedSuccessfully = false
         
         for (index, itemAddon) in itemAddons.enumerated() {
@@ -62,8 +59,12 @@ struct ItemAddonViewAlt: View {
         
         if isExportedSuccessfully == false {
             itemAddons.append(exportedAddon)
+                    name = ""
+                    price = ""
             showAddNewButton()
         }
+        
+        buttonVisibleToggle = .nothing
     }
     
     func showAddNewButton() {
@@ -80,15 +81,17 @@ struct ItemAddonViewAlt: View {
     
     func checkIfSaveButtonShouldBeShown() {
         
-        switch (name.isEmpty, price.isEmpty) {
-        case (true, true):
-            buttonVisibleToggle = .nothing
-            
-        case (false, false):
-            buttonVisibleToggle = .save
-            
-        default:
-            buttonVisibleToggle = .cancel
+        withAnimation {
+            switch (name.isEmpty, price.isEmpty) {
+            case (true, true):
+                buttonVisibleToggle = .nothing
+                
+            case (false, false):
+                buttonVisibleToggle = .save
+                
+            default:
+                buttonVisibleToggle = .cancel
+            }
         }
     }
     
@@ -131,7 +134,7 @@ struct ItemAddonViewAlt: View {
                         showAddNewButton()
                     }
                     .buttonStyle(.bordered)
-                    
+                    .foregroundStyle(Color.secondary)
                 }
             }
         }
