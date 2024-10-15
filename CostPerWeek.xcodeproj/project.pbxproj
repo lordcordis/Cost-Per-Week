@@ -32,6 +32,7 @@
 		00B008A22A6AAFAA0096EA7D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B008A12A6AAFAA0096EA7D /* Protocols.swift */; };
 		00B47CFC2A7C1F0600B01E52 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47CFB2A7C1F0600B01E52 /* DetailView.swift */; };
 		00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */; };
+		2517F6F52CBEBFD900FFD9A2 /* ItemAddonViewAlt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2517F6F42CBEBFD900FFD9A2 /* ItemAddonViewAlt.swift */; };
 		25FB24442C889F7400B39E32 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 25FB24432C889F7400B39E32 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		00B008A12A6AAFAA0096EA7D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		00B47CFB2A7C1F0600B01E52 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsTableViewController + EmptyView.swift"; sourceTree = "<group>"; };
+		2517F6F42CBEBFD900FFD9A2 /* ItemAddonViewAlt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddonViewAlt.swift; sourceTree = "<group>"; };
 		25FB24432C889F7400B39E32 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 				004F99222A571D580081365F /* SheetView.swift */,
 				00B47CFB2A7C1F0600B01E52 /* DetailView.swift */,
 				0062827E2A7D4961005D5F61 /* ItemAddonView.swift */,
+				2517F6F42CBEBFD900FFD9A2 /* ItemAddonViewAlt.swift */,
 				00A9E8F32A8E7A3500067280 /* SettingsView.swift */,
 				00A9E8EF2A8E705A00067280 /* ItemCell.swift */,
 				002F635A2A0D0BE80036D6B5 /* LaunchScreen.swift */,
@@ -258,6 +261,7 @@
 				004F99232A571D580081365F /* SheetView.swift in Sources */,
 				0045145527298F5A00CB523A /* AppDelegate.swift in Sources */,
 				00A9E8F02A8E705A00067280 /* ItemCell.swift in Sources */,
+				2517F6F52CBEBFD900FFD9A2 /* ItemAddonViewAlt.swift in Sources */,
 				00A9E8F42A8E7A3500067280 /* SettingsView.swift in Sources */,
 				0045145727298F5A00CB523A /* SceneDelegate.swift in Sources */,
 				00B008A22A6AAFAA0096EA7D /* Protocols.swift in Sources */,

@@ -10,6 +10,10 @@ import SwiftUI
 
 final class DetailViewModel: ObservableObject {
     
+    enum newAddonToggle {
+        case newAddon, addNewButton
+    }
+    
     init(item: Item? = nil, delegate: ItemTableViewDelegate, dismissDelegate: DismissDelegate, systemCurrencyString: String) {
         
         //        initial setup
@@ -36,7 +40,7 @@ final class DetailViewModel: ObservableObject {
             
             itemIsSold = item.isSold
             itemAddonsActive = item.addonsActive
-            additionalExpensesSectionIsVisible = item.addonsActive
+            additionalExpensesEnabled = item.addonsActive
             
             dateSold = item.dateSold
             
@@ -51,8 +55,8 @@ final class DetailViewModel: ObservableObject {
             itemDateOfPurchase = item.date
             
             itemAddonsActive = item.addonsActive
-            additionalExpensesSectionIsVisible = item.addonsActive
-            itemAddons = item.addons ?? []
+            additionalExpensesEnabled = item.addonsActive
+            itemAddons = item.addons
             itemID = item.id
             
         } else {
@@ -65,7 +69,7 @@ final class DetailViewModel: ObservableObject {
             itemIsSold = false
             itemAddonsActive = false
             itemAddons = []
-            additionalExpensesSectionIsVisible = false
+            additionalExpensesEnabled = false
             itemType = .undefined
             itemDateOfPurchase = Date()
             dateSold = Date()
@@ -87,8 +91,10 @@ final class DetailViewModel: ObservableObject {
     
     @Published var addNewRepairViewIsVisible = false
     @Published var addNewRepairButtonIsVisible = true
-    @Published var additionalExpensesSectionIsVisible: Bool = false
+    @Published var additionalExpensesEnabled: Bool = false
     @Published var addonsArrayIsChanged: Bool = false
+    
+    @Published var newAddonToggle: newAddonToggle = .addNewButton
     
 //    @Published var itemIsChangedAndNeedsToSave: Bool = false
     
@@ -177,7 +183,7 @@ extension DetailViewModel {
             priceSoldIntOutput = 0
         }
         
-        let itemToExport = Item(name: itemName, price: priceIntOutput, date: itemDateOfPurchase, addonsActive: additionalExpensesSectionIsVisible, addons: itemAddons, itemType: itemType, id: itemID, isSold: itemIsSold, dateSold: dateSold, priceSold: priceSoldIntOutput)
+        let itemToExport = Item(name: itemName, price: priceIntOutput, date: itemDateOfPurchase, addonsActive: additionalExpensesEnabled, addons: itemAddons, itemType: itemType, id: itemID, isSold: itemIsSold, dateSold: dateSold, priceSold: priceSoldIntOutput)
         
         return itemToExport
     }
@@ -198,6 +204,9 @@ extension DetailViewModel {
         switch isNewItem {
             
         case true:
+            guard !itemToExport.name.isEmpty, itemToExport.price != 0 else {
+                return
+            }
             delegate?.addItemToList(item: itemToExport)
             
         case false:
@@ -210,121 +219,3 @@ extension DetailViewModel {
         
     }
 }
-
-
-
-//    checking if immutable initialItem is different to current state of item based on name, price, dateOfPurchase, itemType, addons
-
-//    private func checkIfItemChangedAndSave() {
-//
-//        guard let priceInt = Int(price), let priceSoldInt = Int(priceSold) else {return}
-//
-//        let itemToExport = Item(name: itemName, price: priceInt, date: itemDateOfPurchase, addonsActive: addonsActive, addons: itemAddons, itemType: itemType, id: initialItem.id, isSold: itemIsSold, dateSold: soldDate, priceSold: priceSoldInt)
-//
-//
-//        if itemToExport != initialItem {
-//            print("item did change, saving")
-//            saveItem()
-//        }
-//
-//
-//    }
-
-
-//    saving item based on isNewItem property
-
-//    func saveItem() {
-//        guard priceIsValid(price: price) else {
-//            print("price is invalid")
-//            return }
-//
-//        switch isNewItem {
-//
-//        case true:
-//
-//            guard !itemName.isEmpty, !price.isEmpty else {
-//                print("new item can not be exported, !name.isEmpty, !price.isEmpty")
-//                return
-//            }
-//
-//            var itemToExport: Item
-//
-////            generateSoldInfo()
-//            itemToExport = Item(name: itemName, price: Int(price)!, date: itemDateOfPurchase, addonsActive: addonsActive, addons: itemAddons, itemType: itemType,isSold: itemIsSold, dateSold: soldDate, priceSold: Int(priceSold)!)
-//
-//            print(String.init(describing: itemToExport))
-//
-//            if isNewItemCreated == false {
-//                print("isNewItemCreated == false")
-//                delegate?.addItemToList(item: itemToExport)
-//                isNewItemCreated = true
-//            } else {
-//                delegate?.editItem(item: itemToExport)
-//            }
-//
-//
-//        case false:
-//
-//            var itemToExport: Item
-//
-//            //            if let soldInfo = self.soldInfo {
-//            //                itemToExport = Item(name: name, price: Int(price)!, date: dateOfPurchase, addons: addons, itemType: itemType, id: initialItem.id, isSold: isSold, soldInfo: soldInfo)
-//            //            } else {
-////            generateSoldInfo()
-//            itemToExport = Item(name: itemName, price: Int(price)!, date: itemDateOfPurchase, addonsActive: addonsActive, addons: itemAddons, itemType: itemType, id: initialItem.id, isSold: itemIsSold, dateSold: soldDate, priceSold: Int(priceSold)!)
-//            //            }
-//
-//            delegate?.editItem(item: itemToExport)
-//        }
-//    }
-
-//    func saveItemAndDismiss() {
-//        guard priceIsValid(price: price) else {
-//            print("price is invalid")
-//            return }
-//
-//        switch isNewItem {
-//        case true:
-//            guard !name.isEmpty, !price.isEmpty else {
-//                print("item can not be exported")
-//                return
-//            }
-//
-//            var itemToExport: Item
-//
-//
-//            itemToExport = Item(name: name, price: Int(price)!, date: dateOfPurchase, addonsActive: addonsActive, addons: addons, itemType: itemType, isSold: isSold, soldInfo: soldInfo)
-//
-//
-//
-//            delegate?.addItemToList(item: itemToExport)
-//
-//
-//        case false:
-//
-//            var itemToExport: Item
-//
-//            if let soldInfo = self.soldInfo {
-//                itemToExport = Item(name: name, price: Int(price)!, date: dateOfPurchase, addonsActive: addonsActive, addons: addons, itemType: itemType, id: initialItem.id, isSold: self.isSold, soldInfo: soldInfo)
-//            } else {
-//                itemToExport = Item(name: name, price: Int(price)!, date: dateOfPurchase, addonsActive: addonsActive, addons: addons, itemType: itemType, id: initialItem.id, isSold: self.isSold)
-//            }
-//
-//            delegate?.editItem(item: itemToExport)
-//        }
-//
-//
-//
-//        dismissDelegate?.dismiss()
-//    }
-
-//    checking need for save button appearing
-
-//    func checkIfSavingIsNeeded() {
-//
-//        withAnimation {
-//            checkIfItemIsDifferent()
-////            checkIfSoldStatusIsChanged()
-//            saveButtonIsVisible = !name.isEmpty && !price.isEmpty && priceIsValid(price: price) && itemIsChangedAndNeedsToSave
-//        }
-//    }

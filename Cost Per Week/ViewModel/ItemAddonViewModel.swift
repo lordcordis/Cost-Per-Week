@@ -10,15 +10,24 @@ import SwiftUI
 
 final class ItemAddonViewModel: ObservableObject {
     
-    init(addon: ItemAddon?, addonsArray: Binding<[ItemAddon]>, isAddNewRepairViewShown: Binding<Bool>, isAddNewRepairButtonVisible: Binding<Bool>, addonsArrayIsChanged: Binding<Bool>) {
+    init(addon: ItemAddon?,
+         addonsArray: Binding<[ItemAddon]>,
+         isAddNewRepairViewShown: Binding<Bool>,
+         isAddNewRepairButtonVisible: Binding<Bool>,
+         addonsArrayIsChanged: Binding<Bool>) {
+        
         if let addon = addon {
-            self.itemAddonInitialValue = addon
+//            Addon is imported
             self.isAddonNew = false
+            self.itemAddonInitialValue = addon
             name = addon.description
             price = String(addon.price)
         } else {
-            self.itemAddonInitialValue = ItemAddon(description: "", price: 0)
+//            Addon is new
             self.isAddonNew = true
+            self.itemAddonInitialValue = ItemAddon(description: "",
+                                                   price: 0,
+                                                   id: UUID().uuidString)
         }
         
         _isAddNewRepairViewVisible = isAddNewRepairViewShown
@@ -36,9 +45,8 @@ final class ItemAddonViewModel: ObservableObject {
     @Published var saveToggleIsActiveForThisAddon = false
     @Published var saved = true
     
-    
     let itemAddonInitialValue: ItemAddon
-    let isAddonNew: Bool
+    var isAddonNew: Bool
     
     func checkIfAddonShouldBeSaved() {
         withAnimation {
@@ -65,6 +73,7 @@ final class ItemAddonViewModel: ObservableObject {
             withAnimation {
                 addonsArray.append(addonToExport)
             }
+            isAddonNew = false
             
         case false:
             

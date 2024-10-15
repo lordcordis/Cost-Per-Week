@@ -67,7 +67,9 @@ class ItemCellViewModel {
     func pricePerDay() -> String {
         
         if item.pricePerDay > 10 {
-            return String(Int(item.pricePerDay))
+//            return String(Int(item.pricePerDay.rounded()))
+//            return String.init(describing: item.pricePerDay)
+            return String(format: "%.f", item.pricePerDay)
         } else {
             return String(format: "%.2f", item.pricePerDay)
         }
@@ -75,7 +77,9 @@ class ItemCellViewModel {
 
     func pricePerWeek() -> String {
         if item.pricePerWeek > 10 {
-            return String(Int(item.pricePerWeek))
+//            return String(Int(item.pricePerWeek.rounded()))
+//            return String.init(describing: item.pricePerWeek)
+            return String(format: "%.f", item.pricePerWeek)
         } else {
             return String(format: "%.2f", item.pricePerWeek)
         }

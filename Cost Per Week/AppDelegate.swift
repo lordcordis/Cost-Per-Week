@@ -11,13 +11,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-//        let presistency = Persistency()
-//
-//        presistency.deleteAllData()
+//        let needshardReset = true
+        let needshardReset = false
+        
+        if needshardReset {
+            let presistency = Persistency()
+            presistency.deleteAllData()
+        }
+        
         return true
     }
 

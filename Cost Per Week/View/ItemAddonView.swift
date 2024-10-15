@@ -14,15 +14,17 @@ struct ItemAddonView: View {
     @StateObject var viewModel: ItemAddonViewModel
     
     var body: some View {
-        VStack {
+//        VStack {
             HStack {
                 
                 //                Setting up textfields
                 
-                TextField("name", text: $viewModel.name).onChange(of: viewModel.name) {
+                TextField("name", text: $viewModel.name)
+                    .onChange(of: viewModel.name) {
                     viewModel.checkIfAddonShouldBeSaved()
                 }
-                TextField("price", text: $viewModel.price).onChange(of: viewModel.price) {
+                TextField("price", text: $viewModel.price)
+                    .onChange(of: viewModel.price) {
                     viewModel.checkIfAddonShouldBeSaved()
                 }.keyboardType(.asciiCapableNumberPad)
             }
@@ -51,6 +53,6 @@ struct ItemAddonView: View {
                     }
                 }
             }
-        }
+//        }
     }
 }

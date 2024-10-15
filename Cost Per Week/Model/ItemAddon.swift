@@ -9,10 +9,10 @@ import Foundation
 
 struct ItemAddon: Codable, Equatable, Identifiable {
     
-    static let sampleItemAddon = ItemAddon(description: "Battery", price: 6000)
+//    static let sampleItemAddon = ItemAddon(description: "Battery", price: 6000)
     
     
-    init(description: String, price: Int, id: UUID = UUID()) {
+    init(description: String, price: Int, id: String) {
         
 //        initilalising itemAddon with new id, if it is not provided
         
@@ -21,7 +21,7 @@ struct ItemAddon: Codable, Equatable, Identifiable {
         self.price = price
     }
     
-    let id: UUID
+    let id: String
     var description: String
     var price: Int
     

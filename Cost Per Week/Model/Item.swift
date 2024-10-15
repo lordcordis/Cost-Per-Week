@@ -8,11 +8,6 @@
 import Foundation
 import SwiftUI
 
-//struct SoldInfo: Codable, Equatable {
-//    var dateSold: Date
-//    var priceSold: Int
-//}
-
 struct Item: Codable, Hashable, Identifiable {
     
     func hash(into hasher: inout Hasher) {
@@ -23,14 +18,13 @@ struct Item: Codable, Hashable, Identifiable {
     var price: Int = 0
     var date: Date
     var addonsActive: Bool
-    var addons: [ItemAddon]?
+    var addons: [ItemAddon]
     var itemType: ItemType
     var id: String
     
     var isSold: Bool
     var dateSold: Date
     var priceSold: Int
-//    var soldInfo: SoldInfo?
     
     var dateAsString: String {
         get {
@@ -101,10 +95,8 @@ struct Item: Codable, Hashable, Identifiable {
         
         var additionalPrice: Int = 0
         
-        if let addons = addons {
-            addons.forEach { addon in
-                additionalPrice += addon.price
-            }
+        addons.forEach { addon in
+            additionalPrice += addon.price
         }
         
         return additionalPrice

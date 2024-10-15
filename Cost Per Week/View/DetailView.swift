@@ -21,7 +21,7 @@ struct DetailView: View {
             Form {
                 productInfoSection
                 
-                additionalExpensesSection
+                additionalExpensesSectionAlt
                 
                 isSoldSection
                 
@@ -31,9 +31,15 @@ struct DetailView: View {
                 }
                 
                 
-            }.scrollDismissesKeyboard(.immediately)
+            }
+            .toolbar(content: {
+                ToolbarItem(placement: .topBarTrailing) {
+                    SaveButton
+                }
+            })
+            .scrollDismissesKeyboard(.immediately)
             .onDisappear {
-                viewModel.formOnDisappear()
+//                viewModel.formOnDisappear()
             }
     }
 }
@@ -89,15 +95,42 @@ extension DetailView {
     //    MARK: Additional Expenses Section
     
     @ViewBuilder
-    var additionalExpensesSection: some View {
-        Toggle("Additional expenses", isOn: $viewModel.additionalExpensesSectionIsVisible)
+    var additionalExpensesSectionAlt: some View {
+        Toggle("Additional expenses", isOn: $viewModel.additionalExpensesEnabled)
             .tint(viewModel.tintColor)
         
-        if viewModel.additionalExpensesSectionIsVisible {
+        if viewModel.additionalExpensesEnabled {
+            List {
+                ForEach(viewModel.itemAddons) { addon in
+                    ItemAddonViewAlt(addon: addon, itemAddons: $viewModel.itemAddons, newAddonToggle: $viewModel.newAddonToggle)
+                }
+            }
+            
+            switch viewModel.newAddonToggle {
+            case .newAddon:
+                ItemAddonViewAlt(addon: nil, itemAddons: $viewModel.itemAddons, newAddonToggle: $viewModel.newAddonToggle)
+            case .addNewButton:
+                addNewAddonButtonAlt
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var additionalExpensesSection: some View {
+        Toggle("Additional expenses", isOn: $viewModel.additionalExpensesEnabled)
+            .tint(viewModel.tintColor)
+        
+        if viewModel.additionalExpensesEnabled {
             
             List {
                 ForEach(viewModel.itemAddons) { addon in
-                    ItemAddonView(viewModel: ItemAddonViewModel(addon: addon, addonsArray: $viewModel.itemAddons, isAddNewRepairViewShown: $viewModel.addNewRepairViewIsVisible, isAddNewRepairButtonVisible: $viewModel.addNewRepairButtonIsVisible, addonsArrayIsChanged: $viewModel.addonsArrayIsChanged))
+                    ItemAddonView(
+                        viewModel: ItemAddonViewModel(
+                            addon: addon,
+                            addonsArray: $viewModel.itemAddons,
+                            isAddNewRepairViewShown: $viewModel.addNewRepairViewIsVisible,
+                            isAddNewRepairButtonVisible: $viewModel.addNewRepairButtonIsVisible,
+                            addonsArrayIsChanged: $viewModel.addonsArrayIsChanged))
                 }.onDelete { indexSet in
                     viewModel.removeAddon(at: indexSet)
                 }
@@ -170,6 +203,7 @@ extension DetailView {
         }) {
             Text("Save")
         }
+        .buttonStyle(.bordered)
     }
     
     var addNewAddonButton: some View {
@@ -185,6 +219,17 @@ extension DetailView {
         .onAppear {
 
         }
+    }
+    
+    var addNewAddonButtonAlt: some View {
+        Button(role: .cancel) {
+            withAnimation {
+                viewModel.newAddonToggle = .newAddon                
+            }
+        } label: {
+            Label("Add new", systemImage: "plus")
+        }
+        
     }
 }
 
