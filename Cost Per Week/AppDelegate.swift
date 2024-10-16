@@ -16,17 +16,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let needshardReset = true
         let needshardReset = false
         
-        let july15_2020 = Date(timeIntervalSince1970: 1594771200)
-        let june2016 = Date(timeIntervalSince1970: 1464739200)
+        let nswPurchaseDate = Date(timeIntervalSince1970: 1488518400)
+        let nswSoldDate = Date(timeIntervalSince1970: 1636940800)
+        let airpodsProPurchaseDate = Date(timeIntervalSince1970: 1594771200)
+        let macbookPurchaseDate = Date(timeIntervalSince1970: 1464739200)
         
-        let july2010 = Date(timeIntervalSince1970: 1277942400)
+        let yamahaPurchaseDate = Date(timeIntervalSince1970: 1277942400)
         
-        var yamahaAddons: [ItemAddon] = [
-            ItemAddon(description: "Roland Micro Cube", price: 4500, id: UUID().uuidString)
+        let switchAddons = [
+            ItemAddon(description: "Case", price: 1700, id: UUID().uuidString),
+            ItemAddon(description: "Pro Controller", price: 3900, id: UUID().uuidString)
+        ]
+        
+        let yamahaAddons: [ItemAddon] = [
+            ItemAddon(description: "Roland Micro Cube", price: 4500, id: UUID().uuidString),
+            ItemAddon(description: "Digitech RP155", price: 6100, id: UUID().uuidString)
+        ]
+        
+        let airpodsAddons = [
+            ItemAddon(description: "Case", price: 6000, id: UUID().uuidString)
         ]
         
         let sampleItems: [Item] = [
-            Item(name: "Yamaga", date: july2010, addonsActive: false, addons: yamahaAddons, itemType: .undefined, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 100)
+            Item(name: "Yamaha RG121z", price: 21000, date: yamahaPurchaseDate, addonsActive: true, addons: yamahaAddons, itemType: .musicInstrument, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 100),
+            Item(name: "AirPods Pro", price: 14000, date: airpodsProPurchaseDate, addonsActive: true, addons: airpodsAddons, itemType: .airpods, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 100),
+            Item(name: "Nintendo Switch", price: 25000, date: nswPurchaseDate, addonsActive: true, addons: switchAddons, itemType: .console, id: UUID().uuidString, isSold: true, dateSold: nswSoldDate, priceSold: 20000)
         ]
         
         if needshardReset {
