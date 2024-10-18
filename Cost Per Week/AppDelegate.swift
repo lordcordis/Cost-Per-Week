@@ -28,6 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ItemAddon(description: "Pro Controller", price: 3900, id: UUID().uuidString)
         ]
         
+        let macbookAddons = [
+            ItemAddon(description: "Battery", price: 4200, id: UUID().uuidString),
+            ItemAddon(description: "Battery", price: 3000, id: UUID().uuidString),
+            
+        ]
+        
         let yamahaAddons: [ItemAddon] = [
             ItemAddon(description: "Roland Micro Cube", price: 4500, id: UUID().uuidString),
             ItemAddon(description: "Digitech RP155", price: 6100, id: UUID().uuidString)
@@ -40,7 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sampleItems: [Item] = [
             Item(name: "Yamaha RG121z", price: 21000, date: yamahaPurchaseDate, addonsActive: true, addons: yamahaAddons, itemType: .musicInstrument, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 100),
             Item(name: "AirPods Pro", price: 14000, date: airpodsProPurchaseDate, addonsActive: true, addons: airpodsAddons, itemType: .airpods, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 100),
-            Item(name: "Nintendo Switch", price: 25000, date: nswPurchaseDate, addonsActive: true, addons: switchAddons, itemType: .console, id: UUID().uuidString, isSold: true, dateSold: nswSoldDate, priceSold: 20000)
+            Item(name: "Nintendo Switch", price: 25000, date: nswPurchaseDate, addonsActive: true, addons: switchAddons, itemType: .console, id: UUID().uuidString, isSold: true, dateSold: nswSoldDate, priceSold: 20000),
+            Item(name: "MacBook Pro 13 2015 128GB", price: 82000, date: macbookPurchaseDate , addonsActive: true, addons: macbookAddons, itemType: .macbook, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 0)
         ]
         
         if needshardReset {

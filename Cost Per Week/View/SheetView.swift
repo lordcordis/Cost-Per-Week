@@ -69,14 +69,13 @@ struct SheetView: View {
     init(message: String, message2: String) {
         self.message = message
         self.message2 = message2
-//        items = persistency.retreveData() ?? []
         
         if let itemsRetreieved = persistency.retreveData() {
-            let itemsNotSold = itemsRetreieved.filter { item in
-                item.isSold == false
-            }
+//            let itemsNotSold = itemsRetreieved.filter { item in
+//                item.isSold == false
+//            }
             
-            items = itemsNotSold
+            items = itemsRetreieved
             
             
         } else {
@@ -84,24 +83,42 @@ struct SheetView: View {
         }
         
         weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+        
+        var output = 0
+        let itemsRetreieved = persistency.retreveData()
+        
+        var outputTotal = 0
+        
+        for item in items {
+            outputTotal += item.price
+        }
+        
+        var outputSold = 0
+        
+        for item in items {
+            if item.isSold {
+                outputSold += item.priceSold
+            }
+        }
+        
+        var outputBalance = outputTotal - outputSold
+        
+
+       
+        self.messageTotal = String(outputTotal)
+        self.messageSold = String(outputSold)
+        self.messageBalance = String(outputBalance)
     }
     
-//    mutating func calculateBalance() {
-//        var output = 0
-//        let itemsRetreieved = persistency.retreveData()
-//        
-//        for item in items {
-//            if item.isSold == true {
-//                let priceOfOwning = item.price - item.priceSold
-//                output += priceOfOwning
-//            } else {
-//                output += item.price
-//            }
-//        }
-//       
-//        var message2 = "Balance: \(output)"
-//        self.message2 = message2
-//    }
+    let priceTotalLabel: LocalizedStringKey = "Price of all items"
+    let soldLabel: LocalizedStringKey = "Sold"
+    let balanceLabel: LocalizedStringKey = "Balance"
+
+    let currencyString = CurrencyObject.currencyString()
+    
+    @State var messageTotal: String
+    @State var messageSold: String
+    @State var messageBalance: String
     
     let weekOrDayBool: Bool
     let persistency = Persistency()
@@ -128,6 +145,58 @@ struct SheetView: View {
         }.background(.ultraThinMaterial)
     }
     
+
+    
+
+    
+}
+
+extension SheetView {
+    var secondTab: some View {
+        VStack {
+            VStack {
+                HStack {
+                    Text(priceTotalLabel)
+                    Text(messageTotal)
+                    Text(currencyString)
+                }
+                
+                HStack {
+                    Text(soldLabel)
+                    Text(messageSold)
+                    Text(currencyString)
+                }
+                
+                HStack {
+                    Text(balanceLabel)
+                    Text(messageBalance)
+                    Text(currencyString)
+                }
+            }.font(.headline)
+                .padding()
+            
+//            Text(message2)
+//                .font(.title2)
+//                .padding(.all)
+//                .multilineTextAlignment(.center)
+//                .fontWeight(.semibold)
+//                .padding()
+            
+            Chart {
+                ForEach(items) { item in
+                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
+                        .foregroundStyle(item.isSold ? .secondary : .primary)
+                    
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.bottom, 40)
+            .padding()
+        }
+    }
+}
+
+extension SheetView {
     var firstTab: some View {
         VStack {
             
@@ -156,27 +225,4 @@ struct SheetView: View {
             .padding()
         }
     }
-    
-    var secondTab: some View {
-        VStack {
-            
-            Text(message2)
-                .font(.title2)
-                .padding(.all)
-                .multilineTextAlignment(.center)
-                .fontWeight(.semibold)
-                .padding()
-            
-            Chart {
-                ForEach(items) {item in
-                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
-                    
-                }
-            }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 40)
-            .padding()
-        }
-    }
-    
 }

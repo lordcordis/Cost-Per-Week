@@ -2,10 +2,24 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "%@ per day" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ օրական"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16,6 +30,12 @@
     },
     "%@ per week" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ շաբաթական"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26,6 +46,12 @@
     },
     "Add new" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ավելացնել"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36,6 +62,12 @@
     },
     "Additional expenses" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հավելյալ ծախսեր"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45,13 +77,33 @@
       }
     },
     "AirPods" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AirPods"
+          }
+        }
+      }
     },
     "Apple Watch" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple Watch"
+          }
+        }
+      }
     },
     "Appliance" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կենցաղային սարք"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -60,8 +112,30 @@
         }
       }
     },
+    "Balance" : {
+      "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մնացորդ"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Баланс"
+          }
+        }
+      }
+    },
     "Camera" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Խցիկ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -72,6 +146,12 @@
     },
     "Cancel" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Չեղարկել"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -82,6 +162,12 @@
     },
     "Car" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ավտոմեքենա"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -92,6 +178,12 @@
     },
     "Choose time period:" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ընտրել ժամանակահատված"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -102,6 +194,12 @@
     },
     "Computer" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Համակարգիչ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -112,6 +210,12 @@
     },
     "Date of purchase" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Գնվել է"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -122,6 +226,12 @@
     },
     "Date sold" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Վաճառվել է"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -138,6 +248,12 @@
             "value" : "Day"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Օր"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -148,6 +264,12 @@
     },
     "Delete" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ջնջել"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -158,6 +280,12 @@
     },
     "Delete all data..." : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ջնջել ամբողջը"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -174,6 +302,12 @@
             "value" : "US Dollar"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Դոլար"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -181,9 +315,6 @@
           }
         }
       }
-    },
-    "Effortlessly Calculate Your Weekly Expenses" : {
-
     },
     "euro" : {
       "localizations" : {
@@ -193,9 +324,15 @@
             "value" : "Euro"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Եվրո"
+          }
+        },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Евро"
           }
         }
@@ -203,6 +340,12 @@
     },
     "Gaming console" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Խաղային սարք"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -211,18 +354,14 @@
         }
       }
     },
-    "Get Started" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начать"
-          }
-        }
-      }
-    },
     "Headphones" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ականջակալ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -232,13 +371,33 @@
       }
     },
     "iPad" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad"
+          }
+        }
+      }
     },
     "iPhone" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone"
+          }
+        }
+      }
     },
     "Laptop" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Նոթբուք"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -253,6 +412,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Georgian Lari"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Լարի"
           }
         },
         "ru" : {
@@ -271,6 +436,12 @@
             "value" : "Turkish Lira"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Լիրա"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -286,11 +457,23 @@
             "state" : "translated",
             "value" : "MacBook"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MacBook"
+          }
         }
       }
     },
     "Monitor" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մոնիտոր"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -300,7 +483,20 @@
       }
     },
     "Music Instrument" : {
-
+      "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Երաժշտական գործիք"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Музыкальный инструмент"
+          }
+        }
+      }
     },
     "name" : {
       "localizations" : {
@@ -308,6 +504,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Անուն"
           }
         },
         "ru" : {
@@ -320,6 +522,12 @@
     },
     "NO" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ոչ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -330,6 +538,12 @@
     },
     "price" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "գին"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -340,6 +554,12 @@
     },
     "Price" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Գին"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -348,8 +568,30 @@
         }
       }
     },
+    "Price of all items" : {
+      "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ընդհանուր գին"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полная стоимость"
+          }
+        }
+      }
+    },
     "Price sold" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Վաճառքի գին"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -360,6 +602,12 @@
     },
     "Product info" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մանրամասներ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -370,6 +618,12 @@
     },
     "Product name" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Անվանում"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -380,6 +634,12 @@
     },
     "Router" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ռոուտեր"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -394,6 +654,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Russian Ruble"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ռուբլի"
           }
         },
         "ru" : {
@@ -412,6 +678,12 @@
             "value" : "Indian Rupee"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Րուփի"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -422,6 +694,12 @@
     },
     "Save" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Պահպանել"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -432,6 +710,12 @@
     },
     "Select currency:" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ընտրել արժույթ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -442,6 +726,12 @@
     },
     "Settings" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կարգավորումներ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -451,10 +741,29 @@
       }
     },
     "Smartphone" : {
-
+      "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Սմարթֆոն"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Смартфон"
+          }
+        }
+      }
     },
     "Smartwatch" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Սմարթ հեռախոս"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -465,6 +774,12 @@
     },
     "Sold" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Վաճառված"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -475,6 +790,12 @@
     },
     "Speaker" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բարձրախոս"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -491,6 +812,12 @@
             "value" : "Pound"
           }
         },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ֆունտ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -501,6 +828,12 @@
     },
     "Tablet" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Տաբլետ"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -511,6 +844,12 @@
     },
     "TV" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հեռուստացույց"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -521,19 +860,31 @@
     },
     "Type of purchase" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Item categories"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ապրանքների կատեգորիաներ"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "Тип покупки"
           }
         }
       }
     },
     "value 1" : {
-
+      "shouldTranslate" : false
     },
     "value 2" : {
-
+      "shouldTranslate" : false
     },
     "week" : {
       "localizations" : {
@@ -541,6 +892,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Week"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Շաբաթ"
           }
         },
         "ru" : {
@@ -551,15 +908,18 @@
         }
       }
     },
-    "Welcome to ItemCostTracker" : {
-
-    },
     "yen" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Japanese Yen"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Յեն"
           }
         },
         "ru" : {
@@ -572,6 +932,12 @@
     },
     "YES" : {
       "localizations" : {
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Այո"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",

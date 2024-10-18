@@ -214,6 +214,7 @@
 				en,
 				Base,
 				ru,
+				hy,
 			);
 			mainGroup = 0045144827298F5A00CB523A;
 			productRefGroup = 0045145227298F5A00CB523A /* Products */;
