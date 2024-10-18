@@ -33,12 +33,9 @@ A simple Swift app to help users calculate the daily and weekly costs of items b
 
 ## Screenshots
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/3e084726-474f-4282-a904-8e22af51b2d9" alt="Main screen" width="23%" />
-  <img src="https://github.com/user-attachments/assets/8fe4083a-a7cf-4e8a-b8b8-bdbaabdf55a6" alt="Item screen" width="23%" />
-  <img src="https://github.com/user-attachments/assets/d8e56964-a4a3-4da7-aae9-a098333abc24" alt="Settings" width="23%" />
-  <img src="https://github.com/user-attachments/assets/ad28932f-dac4-4123-90b6-04545d49b655" alt="Chart showing prices and years" width="23%" />
-</p>
+![Simulator Screenshot - iPhone 16 - 2024-10-16 at 15 22 11](https://github.com/user-attachments/assets/9311eab5-e265-4111-888b-ecf2c4aaa6cd)
+![Simulator Screenshot - iPhone 16 - 2024-10-16 at 15 22 30](https://github.com/user-attachments/assets/0b4a2a61-2155-4b12-877a-269f79bf033d)
+![Simulator Screenshot - iPhone 16 - 2024-10-16 at 15 22 45](https://github.com/user-attachments/assets/c599219d-52c7-4524-85e4-c6680a99cc63)
 
 
 ## Technologies Used
