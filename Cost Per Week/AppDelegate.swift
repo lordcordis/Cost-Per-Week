@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let macbookAddons = [
             ItemAddon(description: "Battery", price: 4200, id: UUID().uuidString),
             ItemAddon(description: "Battery", price: 3000, id: UUID().uuidString),
-            
         ]
         
         let yamahaAddons: [ItemAddon] = [

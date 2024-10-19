@@ -37,10 +37,30 @@ class ItemCellViewModel {
     }
     
     func timeOwnedInterval() -> String {
-        if let amoundOfDaysOwned = item.amoundOfDaysOwnedString {
-            return "\(amoundOfDaysOwned) days"
-        } else {
-            return ""
+        let locale = Locale.current
+        print(locale)
+        
+        guard let days = item.amoundOfDaysOwnedInt else {return ""}
+        
+        switch locale.language.languageCode?.identifier {
+        case "ru": // Russian
+            if days % 10 == 1 && days % 100 != 11 {
+                return "\(days) день"
+            } else if (days % 10 >= 2 && days % 10 <= 4) && !(days % 100 >= 12 && days % 100 <= 14) {
+                return "\(days) дня"
+            } else {
+                return "\(days) дней"
+            }
+            
+        case "hy": // Armenian
+            return "\(days) օր"
+            
+        default: // English
+            if days == 1 {
+                return "\(days) day"
+            } else {
+                return "\(days) days"
+            }
         }
     }
     
