@@ -35,11 +35,11 @@ A simple Swift app to help users calculate the daily and weekly costs of items b
 
 ## Screenshots
 
-![Simulator Screenshot - iPhone 16 Plus - 2024-10-19 at 22 15 22](https://github.com/user-attachments/assets/d916fc75-c7ea-4d57-9b72-fcc67dc4de15)
-![Simulator Screenshot - iPhone 16 Plus - 2024-10-19 at 22 15 45](https://github.com/user-attachments/assets/c24931b9-d403-4e5f-99e6-c35edb17920e)
-![Simulator Screenshot - iPhone 16 Plus - 2024-10-19 at 22 15 56](https://github.com/user-attachments/assets/1b0cb147-173d-4d19-b0b8-a7391d17ed04)
-![Simulator Screenshot - iPhone 16 Plus - 2024-10-19 at 22 16 06](https://github.com/user-attachments/assets/0d9d137b-2b66-4a8d-8beb-9aff59628b69)
+![Simulator Screenshot - iPhone 16 Plus - 2024-10-22 at 19 52 58](https://github.com/user-attachments/assets/2ba441ee-1d45-45d7-82b3-aeb17d737533)
+![Simulator Screenshot - iPhone 16 Plus - 2024-10-22 at 19 53 11](https://github.com/user-attachments/assets/3510556c-4e3a-4519-adea-e88b0b2dd0ba)
 
+![Simulator Screenshot - iPhone 16 Plus - 2024-10-22 at 19 53 21](https://github.com/user-attachments/assets/e65cabe6-52a7-4a89-ba8b-8c234f23eb4c)
+![Simulator Screenshot - iPhone 16 Plus - 2024-10-22 at 19 53 27](https://github.com/user-attachments/assets/6b008119-35ff-4ad3-9a26-d053d7d2ce3c)
 
 ## Technologies Used
 
