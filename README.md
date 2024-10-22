@@ -2,6 +2,8 @@
 
 A simple Swift app to help users calculate the daily and weekly costs of items based on their total price and usage period. This app is designed for personal finance management, allowing users to better understand the costs of their purchases over time.
 
+[![App Store](https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg)](https://apps.apple.com/ru/app/cost-per-week/id6736867770)
+
 ## Features
 
 - **Item Cost Calculation**: Easily calculate the daily and weekly cost of an item by entering the total cost and the number of days it will be used.
@@ -33,9 +35,10 @@ A simple Swift app to help users calculate the daily and weekly costs of items b
 
 ## Screenshots
 
-![Simulator Screenshot - iPhone 16 - 2024-10-16 at 15 22 11](https://github.com/user-attachments/assets/9311eab5-e265-4111-888b-ecf2c4aaa6cd)
-![Simulator Screenshot - iPhone 16 - 2024-10-16 at 15 22 30](https://github.com/user-attachments/assets/0b4a2a61-2155-4b12-877a-269f79bf033d)
-![Simulator Screenshot - iPhone 16 - 2024-10-16 at 15 22 45](https://github.com/user-attachments/assets/c599219d-52c7-4524-85e4-c6680a99cc63)
+![Simulator Screenshot - iPhone 16 Plus - 2024-10-19 at 22 15 22](https://github.com/user-attachments/assets/d916fc75-c7ea-4d57-9b72-fcc67dc4de15)
+![Simulator Screenshot - iPhone 16 Plus - 2024-10-19 at 22 15 45](https://github.com/user-attachments/assets/c24931b9-d403-4e5f-99e6-c35edb17920e)
+![Simulator Screenshot - iPhone 16 Plus - 2024-10-19 at 22 15 56](https://github.com/user-attachments/assets/1b0cb147-173d-4d19-b0b8-a7391d17ed04)
+![Simulator Screenshot - iPhone 16 Plus - 2024-10-19 at 22 16 06](https://github.com/user-attachments/assets/0d9d137b-2b66-4a8d-8beb-9aff59628b69)
 
 
 ## Technologies Used
