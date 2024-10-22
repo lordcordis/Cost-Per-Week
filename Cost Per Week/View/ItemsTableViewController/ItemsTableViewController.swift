@@ -50,14 +50,14 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     func setupDataSource() {
         
         dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { [self] tableView, indexPath, item in
-            let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.id)
+            let cell = tableView.dequeueReusableCell(withIdentifier: ItemCellView.id)
             
             // creating cell contents with SwiftUI
             
             let viewModel = ItemCellViewModel(item: item, delegate: self, weekOrDay: viewModel.weekOrDayBool)
             
             cell?.contentConfiguration = UIHostingConfiguration {
-                ItemCell(viewModel: viewModel)
+                ItemCellView(viewModel: viewModel)
             }
             return cell
         })

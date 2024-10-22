@@ -138,7 +138,8 @@ struct SheetView: View {
                 TabView {
                     
 //                    firstTab
-                    secondTab
+//                    secondTab
+                    secondTabAlt
 
                 }.tabViewStyle(.page)
             }
@@ -152,6 +153,64 @@ struct SheetView: View {
 }
 
 extension SheetView {
+    
+    var secondTabAlt: some View {
+        VStack(alignment: .center) {
+            // Full Price
+            HStack(alignment: .firstTextBaseline) {
+                Text(priceTotalLabel)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                Text(messageTotal)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.pink)
+                Text(currencyString)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+            }.padding(.top)
+            
+            // Sold Amount
+            HStack(alignment: .firstTextBaseline) {
+                Text(soldLabel)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                Text(messageSold)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.pink)
+                Text(currencyString)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+            }
+            
+            // Balance
+            HStack(alignment: .firstTextBaseline) {
+                Text(balanceLabel)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                Text(messageBalance)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.pink)
+                Text(currencyString)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+            }
+            
+            
+            chartView
+        }
+        //                .padding()
+        //                .background(Color(.systemGray6)) // Optional background styling
+        //                .cornerRadius(12)
+        //                .shadow(radius: 5)
+        
+        
+        
+    }
+    
+    
     var secondTab: some View {
         VStack {
             VStack {
@@ -182,21 +241,26 @@ extension SheetView {
 //                .fontWeight(.semibold)
 //                .padding()
             
-            Chart {
-                ForEach(items) { item in
-                    BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
-                        .foregroundStyle(item.isSold ? .secondary : .primary)
-                    
-                }
-            }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 40)
-            .padding()
+            chartView
         }
     }
 }
 
 extension SheetView {
+    
+    var chartView: some View {
+        Chart {
+            ForEach(items) { item in
+                BarMark(x: .value("value 1", item.date), y: .value("value 2", item.fullPrice))
+                    .foregroundStyle(item.isSold ? .secondary : .primary)
+                
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.bottom, 40)
+        .padding()
+    }
+    
     var firstTab: some View {
         VStack {
             

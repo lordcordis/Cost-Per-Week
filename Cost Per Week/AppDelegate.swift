@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nswSoldDate = Date(timeIntervalSince1970: 1636940800)
         let airpodsProPurchaseDate = Date(timeIntervalSince1970: 1594771200)
         let macbookPurchaseDate = Date(timeIntervalSince1970: 1464739200)
+        let watch7purchaseDate = Date(timeIntervalSince1970: 1640044800)
         
         let yamahaPurchaseDate = Date(timeIntervalSince1970: 1277942400)
         
@@ -46,7 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Item(name: "Yamaha RG121z", price: 21000, date: yamahaPurchaseDate, addonsActive: true, addons: yamahaAddons, itemType: .musicInstrument, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 100),
             Item(name: "AirPods Pro", price: 14000, date: airpodsProPurchaseDate, addonsActive: true, addons: airpodsAddons, itemType: .airpods, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 100),
             Item(name: "Nintendo Switch", price: 25000, date: nswPurchaseDate, addonsActive: true, addons: switchAddons, itemType: .console, id: UUID().uuidString, isSold: true, dateSold: nswSoldDate, priceSold: 20000),
-            Item(name: "MacBook Pro 13 2015 128GB", price: 82000, date: macbookPurchaseDate , addonsActive: true, addons: macbookAddons, itemType: .macbook, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 0)
+            Item(name: "MacBook Pro 13 2015 128GB", price: 82000, date: macbookPurchaseDate , addonsActive: true, addons: macbookAddons, itemType: .macbook, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 0),
+            Item(name: "Apple Watch Series 7", price: 41000, date: watch7purchaseDate , addonsActive: false, addons: [], itemType: .appleWatch, id: UUID().uuidString, isSold: false, dateSold: Date(), priceSold: 0)
         ]
         
         if needshardReset {
