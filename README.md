@@ -1,37 +1,44 @@
-# Cost-Per-Week
+# Cost Per Week
 
-A simple Swift app to help users calculate the daily and weekly costs of items based on their total price and usage period. This app is designed for personal finance management, allowing users to better understand the costs of their purchases over time.
+A straightforward Swift app for calculating daily and weekly item costs, designed to help users track and manage expenses over time. This app is a helpful tool for budgeting and understanding how purchases affect finances daily and weekly.
 
 [![App Store](https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg)](https://apps.apple.com/ru/app/cost-per-week/id6736867770)
 
 ## Features
 
-- **Item Cost Calculation**: Easily calculate the daily and weekly cost of an item by entering the total cost and the number of days it will be used.
-- **Breakdown of Costs**: The app displays the total cost, as well as the cost per day and cost per week.
-- **SwiftUI Based**: Built using SwiftUI for modern and responsive UI components.
+- **Item Cost Calculation**: Calculate daily and weekly costs based on total cost and usage period.
+- **Detailed Cost Breakdown**: View total cost, cost per day, and cost per week, including add-ons like repairs.
+- **Sell Item Option**: Recalculate the overall balance by adding resale details.
+- **Item Add-Ons**: Easily include additional expenses like repairs to reflect true ownership costs.
+- **Expense Overview with Graphs**: A dedicated sheet provides visual insights into spending trends, including the year of purchase, purchase cost, total spent, amount sold, and overall balance.
+- **SwiftUI-Based Interface**: Modern, responsive UI built with UIKit and SwiftUI.
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the Repository**:
 
     ```bash
     git clone https://github.com/lordcordis/Cost-Per-Week.git
     ```
 
-2. Open the project in Xcode:
+2. **Open in Xcode**:
 
     ```bash
     cd Cost-Per-Week
     open CostPerWeek.xcodeproj
     ```
 
-3. Build and run the app on a simulator or a physical device.
+3. **Build and Run**:
+    - Use Xcode to run the app on a simulator or a connected iOS device.
 
-## Usage
+## How It Works
 
-1. Enter the cost of an item plus additional expenses such as repairs.
-2. Specify the purchase date.
-3. The app will calculate and display the price per day, price per week, and total cost.
+1. **Enter Purchase Details**: Input the initial cost, any additional expenses, and the purchase date.
+2. **Add Optional Add-Ons**: Include costs for add-ons like repairs to get an accurate expense overview.
+3. **Set Usage Period**: Specify the intended usage period in days.
+4. **Sell and Recalculate**: Enter a resale value if applicable to see how selling impacts the overall balance.
+5. **Expense Visualization**: Review a detailed sheet with graphs that show purchase year, cost, total spent, resale amount, and balance for a full picture of your finances.
+6. **View Cost Breakdown**: The app displays the item’s cost per day, per week, and total, adjusted for add-ons and any sale.
 
 ## Screenshots
 
@@ -43,15 +50,18 @@ A simple Swift app to help users calculate the daily and weekly costs of items b
 
 ## Technologies Used
 
-- **Swift**: The app is developed in Swift, making use of native iOS development features.
-- **SwiftUI**: A declarative UI framework used for building the interface. SwiftUI views are inside UIKit containers.
-- **Xcode**: IDE for iOS app development.
+- **Swift & SwiftUI**: Written in Swift, with a declarative SwiftUI interface inside UIKit containers for modern UI handling.
+- **Xcode**: IDE for iOS development.
+
+## Privacy
+
+All calculations and data inputs remain local to the device. The app does not store or transmit personal data externally.
 
 ## Contributing
 
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Commit your changes and open a pull request.
+1. **Fork the Repository**
+2. **Create a Branch** for your feature or bug fix.
+3. **Open a Pull Request** with your changes.
 
 ## License
 
@@ -59,6 +69,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any issues or inquiries, please contact the repository owner at:
+For support or inquiries, reach out at:
 
 - **Email**: [devkorenev@gmail.com](mailto:devkorenev@gmail.com)
+
+
+
+
