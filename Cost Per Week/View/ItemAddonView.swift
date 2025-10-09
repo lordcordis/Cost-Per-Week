@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct ItemAddonView: View {
     
     @StateObject var viewModel: ItemAddonViewModel
@@ -16,8 +14,6 @@ struct ItemAddonView: View {
     var body: some View {
 //        VStack {
             HStack {
-                
-                //                Setting up textfields
                 
                 TextField("name", text: $viewModel.name)
                     .onChange(of: viewModel.name) {

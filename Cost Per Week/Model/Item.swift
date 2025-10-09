@@ -27,16 +27,13 @@ struct Item: Codable, Hashable, Identifiable {
     var priceSold: Int
     
     var dateAsString: String {
-        get {
             let format = DateFormatter()
             format.dateStyle = .medium
             let result = format.string(from: self.date)
             return result
-        }
     }
     
     var dateSoldAsString: String? {
-        get {
             let format = DateFormatter()
             format.dateStyle = .medium
             if isSold == true {
@@ -45,11 +42,9 @@ struct Item: Codable, Hashable, Identifiable {
             } else {
                 return nil
             }
-        }
     }
     
     var amoundOfDaysOwnedString: String? {
-        get {
             if isSold == true {
                 let interval = dateSold.timeIntervalSince(date)
                 let days = interval / 86400
@@ -58,11 +53,9 @@ struct Item: Codable, Hashable, Identifiable {
             } else {
                 return nil
             }
-        }
     }
     
     var amoundOfDaysOwnedInt: Int? {
-        get {
             if isSold == true {
                 let interval = dateSold.timeIntervalSince(date)
                 let days = interval / 86400
@@ -71,11 +64,9 @@ struct Item: Codable, Hashable, Identifiable {
             } else {
                 return nil
             }
-        }
     }
     
     var amoundOfWeeksOwnedInt: Int? {
-        get {
             if isSold == true {
                 let interval = dateSold.timeIntervalSince(date)
                 let days = interval / 86400 / 7
@@ -84,7 +75,6 @@ struct Item: Codable, Hashable, Identifiable {
             } else {
                 return nil
             }
-        }
     }
     
     var priceOfAddons: Int {
@@ -111,7 +101,6 @@ struct Item: Codable, Hashable, Identifiable {
         return output
     }
 
-    
     var pricePerDay: Double {
         
         if isSold {
@@ -123,11 +112,7 @@ struct Item: Codable, Hashable, Identifiable {
         } else {
             let daysFromPurchase = max(Int(secondsFromPurchase / 86400), 1)
             return Double(fullPrice) / Double(daysFromPurchase)
-             
         }
-        
-        
-        
     }
     
     var fullPrice: Int {
@@ -137,7 +122,6 @@ struct Item: Codable, Hashable, Identifiable {
         } else {
             return price + priceOfAddons
         }
-        
     }
     
     var pricePerWeek: Double {
@@ -152,11 +136,9 @@ struct Item: Codable, Hashable, Identifiable {
             let weeksFromPurchase = max(Int(secondsFromPurchase / 604800), 1)
             return Double(fullPrice) / Double(weeksFromPurchase)
         }
-        
-        
     }
     
-    enum pricePerWeekOrDay: String, Identifiable, Codable, CaseIterable {
+    enum PriceTimePeriod: String, Identifiable, Codable, CaseIterable {
         var id: Self { self }
         
         case week, day
@@ -171,7 +153,4 @@ struct Item: Codable, Hashable, Identifiable {
             }
         }
     }
-    
-    
-    
 }

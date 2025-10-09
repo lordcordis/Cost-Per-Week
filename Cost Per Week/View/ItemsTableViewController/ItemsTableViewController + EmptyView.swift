@@ -43,9 +43,9 @@ extension ItemsTableViewController {
     }
 }
 
-
 extension ItemsTableViewControllerViewModel {
-    //    MARK: - Generating view in case of absence of items
+    
+    // MARK: - Generating view in case of absence of items
         
         func generateEmptyListView () -> UIView {
             let errorView = UIView()

@@ -8,12 +8,13 @@
 import Foundation
 
 class Persistency {
-    func documentsFolder()-> URL {
+    
+    func documentsFolder() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
     
-    func savePath()-> URL {
+    func savePath() -> URL {
         return documentsFolder().appendingPathComponent("data.plist")
     }
     
@@ -39,7 +40,6 @@ class Persistency {
             print("error saving data")
         }
     }
-    
     
     enum KeysForUserDefaults: String {
         case currency, pricePerWeekIfTrue

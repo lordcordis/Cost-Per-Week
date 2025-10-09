@@ -33,21 +33,15 @@ struct ItemCellView: View {
                     .foregroundColor(.secondary)
                 
                 if viewModel.shouldShowSoldData() {
-                    //                    Text(viewModel.dateSoldString())
-                    //                        .font(.subheadline)
-                    //                        .foregroundColor(.secondary)
                     
                     Text(viewModel.timeOwnedInterval())
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
-                
-                
             }
             
             Spacer()
             
-            // Amount in Rubles per Week
             VStack {
                 
                 if viewModel.weekOrDay() {
@@ -64,7 +58,6 @@ struct ItemCellView: View {
                         .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(.pink)
-                    
                     
                     Text("\(viewModel.currencyString()) per day")
                         .font(.footnote)
@@ -125,13 +118,7 @@ struct ItemCell: View {
                     
                     Spacer()
                 }
-                
-                
-                
-                
             }
-            
-            
         }
         .swipeActions {
             Button {
@@ -141,11 +128,8 @@ struct ItemCell: View {
             }
             .tint(.red)
         }
-        
-        
     }
 }
-
 
 struct ProductPriceView: View {
     
@@ -167,12 +151,6 @@ struct ProductPriceView: View {
                     .foregroundStyle(.secondary)
                     .font(.system(.subheadline, weight: .bold))
             }
-            
-            
-            
-            
-            
-            
         }
     }
 }
@@ -190,4 +168,3 @@ struct ProductTitleView: View {
         }
     }
 }
-

@@ -12,12 +12,10 @@ struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
     var showSaveButton = false
     
-    //    MARK: -- Product info section
+    // MARK: -- Product info section
     
     var body: some View {
-        
-        
-//        NavigationStack {
+
             Form {
                 productInfoSection
                 
@@ -25,12 +23,9 @@ struct DetailView: View {
                 
                 isSoldSection
                 
-                
                 if showSaveButton{
                     SaveButton
                 }
-                
-                
             }
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -38,15 +33,12 @@ struct DetailView: View {
                 }
             })
             .scrollDismissesKeyboard(.immediately)
-            .onDisappear {
-//                viewModel.formOnDisappear()
-            }
     }
 }
 
 extension DetailView {
     
-//    MARK: Product Info Section
+// MARK: Product Info Section
     
     var productInfoSection: some View {
         Section("Product info") {
@@ -74,7 +66,6 @@ extension DetailView {
                 .datePickerStyle(.compact)
                 .tint(viewModel.tintColor)
             
-            
             //            Purchase type picker
             
             Picker("Type of purchase", selection: $viewModel.itemType) {
@@ -92,7 +83,7 @@ extension DetailView {
         }
     }
     
-    //    MARK: Additional Expenses Section
+    // MARK: Additional Expenses Section
     
     @ViewBuilder
     var additionalExpensesSectionAlt: some View {
@@ -160,7 +151,7 @@ extension DetailView {
         }
     }
     
-    //    MARK: Is Sold Section
+    // MARK: Is Sold Section
     
     var isSoldSection: some View {
         Section {
@@ -185,20 +176,16 @@ extension DetailView {
                 }
                 
                 //            Sold date datePicker
-                
-                
+                    
                 DatePicker("Date sold", selection: $viewModel.dateSold, in: viewModel.soldDatesRange, displayedComponents: [.date])
                     .onChange(of: viewModel.dateSold, {
                         viewModel.soldDateChanged()
                     })
                     .datePickerStyle(.compact)
                     .tint(viewModel.tintColor)
-                    
             }
-            
         }
     }
-    
     
     var SaveButton: some View {
         Button(action: {
@@ -232,10 +219,5 @@ extension DetailView {
         } label: {
             Label("Add new", systemImage: "plus")
         }
-        
     }
 }
-
-
-
-

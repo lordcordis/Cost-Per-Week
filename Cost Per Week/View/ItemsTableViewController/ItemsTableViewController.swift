@@ -23,7 +23,6 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //    Initialising datasource, view model and alert controller
     
     private var dataSource: UITableViewDiffableDataSource <Int, Item>!
@@ -74,8 +73,8 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         showDetailView(indexPath: nil)
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         checkIfItemsListIsEmpty()
         title = viewModel.viewTitle()
         tableView.reloadData()
@@ -87,7 +86,6 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         tableView.delegate = self
         setupDataSource()
         updateDataSource()
-//        title = viewModel.viewTitle()
         view.backgroundColor = .systemGray6
         configureNavigationController()
 
@@ -124,10 +122,9 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     }
 }
 
-//MARK: - realisation of ItemDelegate protocol: deleting, editing, adding items
+//nMARK: - realisation of ItemDelegate protocol: deleting, editing, adding items
 
 extension ItemsTableViewController: ItemTableViewDelegate {
-    
     
     func deleteItem(item: Item) {
         viewModel.removeItem(item: item)
@@ -136,7 +133,6 @@ extension ItemsTableViewController: ItemTableViewDelegate {
         dataSource.apply(snapshot)
         checkIfItemsListIsEmpty()
     }
-    
     
     func editItem(item: Item) {
         viewModel.updateItem(item: item)
@@ -159,7 +155,7 @@ extension ItemsTableViewController: ItemTableViewDelegate {
     }
 }
 
-//MARK: - Realisation of DismissDelegate protocol: ability to pop view from navigation controller from swiftui view
+// MARK: - Realisation of DismissDelegate protocol: ability to pop view from navigation controller from swiftui view
 
 extension ItemsTableViewController: DismissDelegate {
     
@@ -167,5 +163,3 @@ extension ItemsTableViewController: DismissDelegate {
         self.navigationController?.popViewController(animated: true)
     }
 }
-
-

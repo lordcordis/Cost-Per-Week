@@ -25,7 +25,6 @@ extension ItemsTableViewController {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.tintColor = .systemPink
         
-        
         // configuring bar buttons
         
         let plusItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .done, target: self, action: #selector(createNewItem))
@@ -34,11 +33,9 @@ extension ItemsTableViewController {
         
         let settingsItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showSettings))
         
-        
-        //MARK: adding bar buttons to navigation bar
+        // MARK: adding bar buttons to navigation bar
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = plusItem
         navigationController?.navigationBar.topItem?.leftBarButtonItems = [settingsItem, computeAllCostsItem]
-        
     }
 }

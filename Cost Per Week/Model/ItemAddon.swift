@@ -11,7 +11,6 @@ struct ItemAddon: Codable, Equatable, Identifiable {
     
 //    static let sampleItemAddon = ItemAddon(description: "Battery", price: 6000)
     
-    
     init(description: String, price: Int, id: String) {
         
 //        initilalising itemAddon with new id, if it is not provided

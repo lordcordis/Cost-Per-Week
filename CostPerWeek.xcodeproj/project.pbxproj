@@ -26,7 +26,6 @@
 		00A9E8F02A8E705A00067280 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8EF2A8E705A00067280 /* ItemCell.swift */; };
 		00A9E8F22A8E791400067280 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8F12A8E791400067280 /* ItemCellViewModel.swift */; };
 		00A9E8F42A8E7A3500067280 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8F32A8E7A3500067280 /* SettingsView.swift */; };
-		00A9E8F62A8EC03700067280 /* CurrencyDiff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8F52A8EC03700067280 /* CurrencyDiff.swift */; };
 		00A9E8F82A8EEB2E00067280 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E8F72A8EEB2E00067280 /* SettingsViewModel.swift */; };
 		00AF38462A84300C007D72FB /* ItemAddonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AF38452A84300C007D72FB /* ItemAddonViewModel.swift */; };
 		00B008A22A6AAFAA0096EA7D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B008A12A6AAFAA0096EA7D /* Protocols.swift */; };
@@ -34,6 +33,7 @@
 		00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */; };
 		2517F6F52CBEBFD900FFD9A2 /* ItemAddonViewAlt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2517F6F42CBEBFD900FFD9A2 /* ItemAddonViewAlt.swift */; };
 		25FB24442C889F7400B39E32 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 25FB24432C889F7400B39E32 /* Localizable.xcstrings */; };
+		3048ECD12E9165CE0034179B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3048ECD02E9165CE0034179B /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,6 @@
 		0045146227298F5C00CB523A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0045146827298F9800CB523A /* Persistency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistency.swift; sourceTree = "<group>"; };
 		0045146A27298FEE00CB523A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		004766042905E51F00BCCCA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		004997792A6EC3670075540A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		004F99222A571D580081365F /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		005323CB272B463F008FAAD7 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +58,6 @@
 		00A9E8EF2A8E705A00067280 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		00A9E8F12A8E791400067280 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 		00A9E8F32A8E7A3500067280 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		00A9E8F52A8EC03700067280 /* CurrencyDiff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDiff.swift; sourceTree = "<group>"; };
 		00A9E8F72A8EEB2E00067280 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		00AF38452A84300C007D72FB /* ItemAddonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddonViewModel.swift; sourceTree = "<group>"; };
 		00B008A12A6AAFAA0096EA7D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -67,6 +65,7 @@
 		00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsTableViewController + EmptyView.swift"; sourceTree = "<group>"; };
 		2517F6F42CBEBFD900FFD9A2 /* ItemAddonViewAlt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddonViewAlt.swift; sourceTree = "<group>"; };
 		25FB24432C889F7400B39E32 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		3048ECD02E9165CE0034179B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +82,8 @@
 		0045144827298F5A00CB523A = {
 			isa = PBXGroup;
 			children = (
+				3048ECD02E9165CE0034179B /* .swiftlint.yml */,
 				25FB24432C889F7400B39E32 /* Localizable.xcstrings */,
-				00A9E8F52A8EC03700067280 /* CurrencyDiff.swift */,
 				0045145327298F5A00CB523A /* Cost Per Week */,
 				0045145227298F5A00CB523A /* Products */,
 			);
@@ -181,10 +180,12 @@
 				0045144D27298F5A00CB523A /* Sources */,
 				0045144E27298F5A00CB523A /* Frameworks */,
 				0045144F27298F5A00CB523A /* Resources */,
+				3048ECD22E9165E10034179B /* lint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				302EAD1C2E981C0500CDD7FE /* PBXTargetDependency */,
 			);
 			name = CostPerWeek;
 			productName = "Cost Per Week";
@@ -199,7 +200,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					0045145027298F5A00CB523A = {
 						CreatedOnToolsVersion = 13.1;
@@ -215,8 +216,19 @@
 				Base,
 				ru,
 				hy,
+				fr,
+				de,
+				id,
+				it,
+				ja,
+				ko,
+				es,
+				"es-419",
 			);
 			mainGroup = 0045144827298F5A00CB523A;
+			packageReferences = (
+				302EAD1A2E981BFA00CDD7FE /* XCRemoteSwiftPackageReference "xcstrings-tool-plugin" */,
+			);
 			productRefGroup = 0045145227298F5A00CB523A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,12 +244,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				0045146127298F5C00CB523A /* LaunchScreen.storyboard in Resources */,
+				3048ECD12E9165CE0034179B /* .swiftlint.yml in Resources */,
 				25FB24442C889F7400B39E32 /* Localizable.xcstrings in Resources */,
 				0045145E27298F5C00CB523A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3048ECD22E9165E10034179B /* lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = lint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0045144D27298F5A00CB523A /* Sources */ = {
@@ -249,7 +283,6 @@
 				002F635B2A0D0BE80036D6B5 /* LaunchScreen.swift in Sources */,
 				002F635D2A0D35520036D6B5 /* ItemsTableViewControllerViewModel.swift in Sources */,
 				00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */,
-				00A9E8F62A8EC03700067280 /* CurrencyDiff.swift in Sources */,
 				0023B3FD2A59BD6200FDE61C /* ItemsTableViewController + Navigation.swift in Sources */,
 				00A9E8F22A8E791400067280 /* ItemCellViewModel.swift in Sources */,
 				002F63592A0D07070036D6B5 /* ItemType.swift in Sources */,
@@ -273,12 +306,18 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		302EAD1C2E981C0500CDD7FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 302EAD1B2E981C0500CDD7FE /* XCStringsToolPlugin */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		0045145F27298F5C00CB523A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0045146027298F5C00CB523A /* Base */,
-				004766042905E51F00BCCCA1 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -323,6 +362,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S4A283Y4R2;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -345,6 +385,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -387,6 +428,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S4A283Y4R2;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -402,6 +444,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -415,7 +458,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S4A283Y4R2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cost Per Week/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Cost Per Week";
@@ -430,7 +473,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.21;
 				PRODUCT_BUNDLE_IDENTIFIER = "lc.Cost-Per-Week";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -450,7 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S4A283Y4R2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cost Per Week/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Cost Per Week";
@@ -465,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.21;
 				PRODUCT_BUNDLE_IDENTIFIER = "lc.Cost-Per-Week";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -500,6 +543,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		302EAD1A2E981BFA00CDD7FE /* XCRemoteSwiftPackageReference "xcstrings-tool-plugin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/liamnichols/xcstrings-tool-plugin";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		302EAD1B2E981C0500CDD7FE /* XCStringsToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 302EAD1A2E981BFA00CDD7FE /* XCRemoteSwiftPackageReference "xcstrings-tool-plugin" */;
+			productName = "plugin:XCStringsToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0045144927298F5A00CB523A /* Project object */;
 }

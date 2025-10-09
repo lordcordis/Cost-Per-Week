@@ -10,7 +10,6 @@ import Charts
 
 extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
     
-    
     func refreshCurrency(currencyString: String) {
         let currency = Currency.stringIntoCurrencyObject(currencyString: currencyString)
         viewModel.setCurrency(currency)
@@ -22,7 +21,6 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
     }
     
     func showSettingsView() {
-        
         
         let viewModel = SettingsViewModel(weekOrDay: viewModel.weekOrDayBool, delegate: self)
         let viewToPresent = SettingsView(viewModel: viewModel)
@@ -43,7 +41,6 @@ extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
         //        self.addChild(viewControllerToPresent)
         present(viewControllerToPresent, animated: true, completion: nil)
     }
-    
     
     func showSheetView(message: String, message2: String) {
         
@@ -71,21 +68,12 @@ struct SheetView: View {
         self.message2 = message2
         
         if let itemsRetreieved = persistency.retreveData() {
-//            let itemsNotSold = itemsRetreieved.filter { item in
-//                item.isSold == false
-//            }
-            
             items = itemsRetreieved
-            
-            
         } else {
             items = []
         }
         
         weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
-        
-        var output = 0
-        let itemsRetreieved = persistency.retreveData()
         
         var outputTotal = 0
         
@@ -95,16 +83,12 @@ struct SheetView: View {
         
         var outputSold = 0
         
-        for item in items {
-            if item.isSold {
-                outputSold += item.priceSold
-            }
+        for item in items where item.isSold {
+            outputSold += item.priceSold
         }
         
-        var outputBalance = outputTotal - outputSold
+        let outputBalance = outputTotal - outputSold
         
-
-       
         self.messageTotal = String(outputTotal)
         self.messageSold = String(outputSold)
         self.messageBalance = String(outputBalance)
@@ -123,8 +107,6 @@ struct SheetView: View {
     let weekOrDayBool: Bool
     let persistency = Persistency()
     
-//    static let sampleMessage = "Per week: 10000 RUB"
-    
     var items: [Item]
     
     let message: String
@@ -132,7 +114,7 @@ struct SheetView: View {
     var body: some View {
         
         ZStack {
-            Color.init(uiColor: UIColor.clear)
+            Color.clear
             VStack {
                 
                 TabView {
@@ -145,11 +127,6 @@ struct SheetView: View {
             }
         }.background(.ultraThinMaterial)
     }
-    
-
-    
-
-    
 }
 
 extension SheetView {
@@ -198,18 +175,9 @@ extension SheetView {
                     .foregroundColor(.primary)
             }
             
-            
             chartView
         }
-        //                .padding()
-        //                .background(Color(.systemGray6)) // Optional background styling
-        //                .cornerRadius(12)
-        //                .shadow(radius: 5)
-        
-        
-        
     }
-    
     
     var secondTab: some View {
         VStack {

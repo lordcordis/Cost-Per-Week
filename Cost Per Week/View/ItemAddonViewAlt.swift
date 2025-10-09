@@ -10,7 +10,7 @@ import Combine
 
 struct ItemAddonViewAlt: View {
     
-    enum buttonVisible {
+    enum ButtonVisible {
         case nothing
         case save
         case cancel
@@ -18,12 +18,11 @@ struct ItemAddonViewAlt: View {
     
     let initialAddon: ItemAddon
     @Binding var itemAddons: [ItemAddon]
-    @Binding var newAddonToggle: DetailViewModel.newAddonToggle
+    @Binding var newAddonToggle: DetailViewModel.NewAddonToggle
     
-    @State var buttonVisibleToggle: buttonVisible = .nothing
+    @State var buttonVisibleToggle: ButtonVisible = .nothing
     
-    init(addon: ItemAddon?, itemAddons: Binding<[ItemAddon]>, newAddonToggle: Binding<DetailViewModel.newAddonToggle>) {
-        
+    init(addon: ItemAddon?, itemAddons: Binding<[ItemAddon]>, newAddonToggle: Binding<DetailViewModel.NewAddonToggle>) {
         
         if let addon = addon {
             self.initialAddon = addon

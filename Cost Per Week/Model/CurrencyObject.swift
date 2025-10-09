@@ -18,7 +18,6 @@ struct CurrencyObject: Hashable, Identifiable, Equatable {
     
 //    Getting currency string from userDefaults, returning "USD" if not present
     
-    
     static func currencyString() -> String {
         return "\(UserDefaults.standard.value(forKey: Persistency.KeysForUserDefaults.currency.rawValue) ?? "USD")"
     }
@@ -35,12 +34,9 @@ enum Currency: String, CaseIterable, Hashable, Identifiable {
     
     case dollar, euro, ruble, lari, yen, sterling, lira, rupee
     
-    
     static func stringIntoCurrencyObject(currencyString: String) -> Currency {
         
-        if let selectedCurrencyFromUserDefaults = Currency.allCases.first(where: {
-            currencyY
-            in
+        if let selectedCurrencyFromUserDefaults = Currency.allCases.first(where: { currencyY in
             currencyY.returnCurrency().currencyString == currencyString
         }) {
             return selectedCurrencyFromUserDefaults

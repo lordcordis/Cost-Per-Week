@@ -27,7 +27,7 @@ class SettingsViewModel: ObservableObject {
     weak var delegate: ChangeWeekOrDayInItemsTableViewDelegate?
     
     let currencyAllCases = Currency.allCases
-    @Published var weekOrDayBool: Item.pricePerWeekOrDay = .week
+    @Published var weekOrDayBool: Item.PriceTimePeriod = .week
     @Published var selectedCurrency = Currency.dollar
 //    @Published var simpleOrDetailedViewType: ViewType = .simple
     

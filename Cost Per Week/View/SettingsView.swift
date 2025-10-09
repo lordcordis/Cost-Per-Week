@@ -20,8 +20,7 @@ struct SettingsView: View {
             Form {
                 
                 Picker("Choose time period:", selection: $viewModel.weekOrDayBool) {
-                    ForEach(Item.pricePerWeekOrDay.allCases) {
-                        result in
+                    ForEach(Item.PriceTimePeriod.allCases) { result in
                         Text(result.localizedLabel)
                     }
                 }.pickerStyle(.inline)

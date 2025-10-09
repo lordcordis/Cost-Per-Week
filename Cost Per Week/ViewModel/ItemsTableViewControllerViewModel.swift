@@ -45,8 +45,6 @@ struct ItemsTableViewControllerViewModel {
         }
     }
     
-    
-    
     mutating func removeItem(item: Item) {
         guard let index = items.firstIndex(of: item) else {return}
         items.remove(at: index)
@@ -61,8 +59,7 @@ struct ItemsTableViewControllerViewModel {
         items.map { item in
             print(item.id)
         }
-        
-        
+
         for (ind, itemInside) in items.enumerated() {
             if itemInside.id == item.id {
                 print("items[ind] = item")

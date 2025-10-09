@@ -75,7 +75,6 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
         }
     }
 
-    
     func description() -> String {
         switch self {
         case .tv:
@@ -154,10 +153,8 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
             
         ]
         
-        for (key, value) in categories {
-            if productNameStringLowercased.contains(key) {
-                return value
-            }
+        for (key, value) in categories where productNameStringLowercased.contains(key) {
+            return value
         }
         
         let categorizedLists: [ItemType: [String]] = [
@@ -177,46 +174,9 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
             .musicInstrument: ["gibson", "fender", "yamaha", "ibanez", "roland", "korg", "casio", "steinway", "pearl", "dw drums"]
         ]
 
-        
-//        let categorizedLists: [ItemType: [String]] = [
-//            .phone: ["Samsung", "Huawei", "Xiaomi", "OnePlus", "Google", "LG", "Motorola", "Nokia"],
-//            .laptop: ["Acer", "Microsoft", "MSI", "Samsung", "Sony vaio", "Lenovo", "Dell", "HP", "Asus"],
-//            .headphones: ["Sony MDR", "Sony WH", "Bose", "Sennheiser", "Beats", "JBL", "Audio-Technica", "AKG", "Skullcandy", "Beyerdynamic", "Jabra"],
-//            .tv: ["TCL", "Vizio", "Philips", "Hisense", "Sharp", "Sony Bravia", "Samsung", "LG", "Panasonic"],
-//            .monitor: ["HP", "ASUS", "Samsung", "LG", "Acer", "BenQ", "ViewSonic", "Lenovo", "Dell"],
-//            .console: ["xbox", "switch", "playstation", "nintendo"],
-//            .car: ["Toyota", "Honda", "Ford", "Chevrolet", "Volkswagen", "BMW", "Mercedes-Benz", "Audi", "Tesla", "Nissan"],
-//            .tablet: ["iPad", "Galaxy Tab", "Surface", "Amazon Fire", "Lenovo Tab"],
-//            .smartwatch: ["Apple Watch", "Galaxy Watch", "Fitbit", "Garmin", "Huawei Watch"],
-//            .camera: ["Canon", "Nikon", "Sony Alpha", "Fujifilm", "Panasonic Lumix", "GoPro", "Leica"],
-//            .speaker: ["Sonos", "Bose", "JBL", "Sony", "Harman Kardon", "Marshall", "Klipsch"],
-//            .router: ["Netgear", "TP-Link", "Asus", "Linksys", "Google Nest", "Eero"],
-//            .appliance: ["Whirlpool", "Samsung", "LG", "Bosch", "GE", "Frigidaire", "KitchenAid"],
-//            .musicInstrument: ["Gibson", "Fender", "Yamaha", "Ibanez", "Roland", "Korg", "Casio", "Steinway", "Pearl", "DW Drums"]
-//        ]
-
-        
-//        let categorizedLists: [ItemType: [String]] = [
-//            .phone: ["Samsung", "Huawei", "Xiaomi", "OnePlus", "Google", "LG", "Motorola", "Nokia"],
-//            .laptop: ["Acer", "Microsoft", "MSI", "Samsung", "Sony vaio", "Lenovo", "Dell", "HP", "Asus"],
-//            .headphones: ["Sony MDR", "Sony WH", "Bose", "Sennheiser", "Beats", "JBL", "Audio-Technica", "AKG", "Skullcandy", "Beyerdynamic", "Jabra"],
-//            .tv: ["TCL", "Vizio", "Philips", "Hisense", "Sharp", "Sony Bravia", "Samsung", "LG", "Panasonic"],
-//            .monitor: ["HP", "ASUS", "Samsung", "LG", "Acer", "BenQ", "ViewSonic", "Lenovo", "Dell"],
-//            .console: ["xbox", "switch", "playstation", "nintendo"],
-//            .car: ["Toyota", "Honda", "Ford", "Chevrolet", "Volkswagen", "BMW", "Mercedes-Benz", "Audi", "Tesla", "Nissan"],
-//            .tablet: ["iPad", "Galaxy Tab", "Surface", "Amazon Fire", "Lenovo Tab"],
-//            .smartwatch: ["Apple Watch", "Galaxy Watch", "Fitbit", "Garmin", "Huawei Watch"],
-//            .camera: ["Canon", "Nikon", "Sony Alpha", "Fujifilm", "Panasonic Lumix", "GoPro", "Leica"],
-//            .speaker: ["Sonos", "Bose", "JBL", "Sony", "Harman Kardon", "Marshall", "Klipsch"],
-//            .router: ["Netgear", "TP-Link", "Asus", "Linksys", "Google Nest", "Eero"],
-//            .appliance: ["Whirlpool", "Samsung", "LG", "Bosch", "GE", "Frigidaire", "KitchenAid"]
-//        ]
-        
         for (itemType, list) in categorizedLists {
-            for item in list {
-                if productNameStringLowercased.contains(item) {
-                    return itemType
-                }
+            for item in list where productNameStringLowercased.contains(item) {
+                return itemType
             }
         }
         return .undefined

@@ -10,7 +10,7 @@ import SwiftUI
 
 final class DetailViewModel: ObservableObject {
     
-    enum newAddonToggle {
+    enum NewAddonToggle {
         case newAddon, addNewButton
     }
     
@@ -119,7 +119,7 @@ final class DetailViewModel: ObservableObject {
     @Published var additionalExpensesEnabled: Bool = false
     @Published var addonsArrayIsChanged: Bool = false
     
-    @Published var newAddonToggle: newAddonToggle = .addNewButton
+    @Published var newAddonToggle: NewAddonToggle = .addNewButton
     
 //    @Published var itemIsChangedAndNeedsToSave: Bool = false
     
