@@ -20,7 +20,6 @@ enum ItemType: String, CaseIterable, Codable, Identifiable {
     }
     
     var id: Self { self }
-    //    case phone, laptop, headphones, tv, monitor, console, computer, macbook, iphone, airpods, ipad, car, undefined
     
     case macbook, iphone, airpods, ipad, appleWatch
     case phone, laptop, computer, headphones, tv, monitor, console, car

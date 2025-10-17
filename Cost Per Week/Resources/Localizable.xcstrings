@@ -440,6 +440,12 @@
             "value" : "Haushaltsgerät"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appliance"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -508,6 +514,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Saldo"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balance"
           }
         },
         "es" : {
@@ -580,6 +592,12 @@
             "value" : "Kamera"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camera"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -648,6 +666,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abbrechen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
           }
         },
         "es" : {
@@ -720,6 +744,12 @@
             "value" : "Auto"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Car"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -790,6 +820,12 @@
             "value" : "Zeitraum wählen:"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose time period:"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -855,6 +891,12 @@
     "Computer" : {
       "localizations" : {
         "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Computer"
+          }
+        },
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Computer"
@@ -930,6 +972,12 @@
             "value" : "Date of purchase"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date of purchase"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1000,6 +1048,12 @@
             "value" : "Date sold"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date sold"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1063,6 +1117,7 @@
       }
     },
     "day" : {
+      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1146,6 +1201,12 @@
             "value" : "Delete"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1211,6 +1272,12 @@
     "Delete all data..." : {
       "localizations" : {
         "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete all data..."
+          }
+        },
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Delete all data..."
@@ -1438,6 +1505,12 @@
             "value" : "Gaming console"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gaming console"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1503,6 +1576,12 @@
     "Headphones" : {
       "localizations" : {
         "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Headphones"
+          }
+        },
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Headphones"
@@ -1578,6 +1657,12 @@
             "value" : "iPad"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1648,6 +1733,12 @@
             "value" : "iPhone"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1713,6 +1804,12 @@
     "Laptop" : {
       "localizations" : {
         "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laptop"
+          }
+        },
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Laptop"
@@ -2016,6 +2113,12 @@
             "value" : "Monitor"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monitor"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2081,6 +2184,12 @@
     "Music Instrument" : {
       "localizations" : {
         "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Music Instrument"
+          }
+        },
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Music Instrument"
@@ -3719,12 +3828,14 @@
       }
     },
     "value 1" : {
-      "shouldTranslate" : false
+
     },
     "value 2" : {
-      "shouldTranslate" : false
+      "comment" : "A bar chart with two values for each item.",
+      "isCommentAutoGenerated" : true
     },
     "week" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3947,5 +4058,5 @@
       }
     }
   },
-  "version" : "1.0"
+  "version" : "1.1"
 }

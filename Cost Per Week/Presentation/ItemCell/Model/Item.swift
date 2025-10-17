@@ -143,13 +143,12 @@ struct Item: Codable, Hashable, Identifiable {
         
         case week, day
         
-        var localizedLabel: LocalizedStringKey {
+        var localizedLabel: String {
             switch self {
-                
             case .week:
-                return "week"
+                    .local(.week)
             case .day:
-                return "day"
+                    .local(.day)
             }
         }
     }

@@ -114,7 +114,6 @@ class ItemCellViewModel {
         formatter.locale = locale
         formatter.numberStyle = .currency
         
-        
         switch currency {
         case .ruble:
             formatter.currencyCode = "RUR"

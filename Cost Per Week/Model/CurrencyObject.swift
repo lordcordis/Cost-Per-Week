@@ -87,4 +87,25 @@ enum Currency: String, CaseIterable, Hashable, Identifiable {
             "rupee"
         }
     }
+    
+    var title: String {
+        switch self {
+        case .dollar:
+                .currency(.dollar)
+        case .euro:
+                .currency(.euro)
+        case .ruble:
+                .currency(.ruble)
+        case .lari:
+                .currency(.lari)
+        case .yen:
+                .currency(.yen)
+        case .sterling:
+                .currency(.sterling)
+        case .lira:
+                .currency(.lira)
+        case .rupee:
+                .currency(.rupee)
+        }
+    }
 }
