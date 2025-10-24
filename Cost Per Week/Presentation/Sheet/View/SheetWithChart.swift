@@ -1,67 +1,14 @@
 //
-//  SheetView.swift
-//  Cost Per Week
+//  SheetWithChartView.swift
+//  CostPerWeek
 //
-//  Created by Роман Коренев on 06.07.2023.
+//  Created by Роман Коренев on 18.10.25.
 //
 
 import SwiftUI
 import Charts
 
-extension ItemsTableViewController: ChangeWeekOrDayInItemsTableViewDelegate {
-    
-    func refreshCurrency(currencyString: String) {
-        let currency = Currency.stringIntoCurrencyObject(currencyString: currencyString)
-        viewModel.setCurrency(currency)
-    }
-    
-    func refreshTitleAndReloadTableView() {
-        title = viewModel.viewTitle()
-        tableView.reloadData()
-    }
-    
-    func showSettingsView() {
-        
-        let viewModel = SettingsViewModel(weekOrDay: viewModel.weekOrDayBool, delegate: self)
-        let viewToPresent = SettingsView(viewModel: viewModel)
-        //        viewToPresent.delegate = self
-        
-        let sheetController = UIHostingController(rootView: viewToPresent)
-        
-        let viewControllerToPresent = sheetController
-        if let sheet = viewControllerToPresent.sheetPresentationController {
-            sheet.detents = [.large()]
-            sheet.largestUndimmedDetentIdentifier = .none
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.prefersEdgeAttachedInCompactHeight = true
-            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-            //            sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 20
-        }
-        //        self.addChild(viewControllerToPresent)
-        present(viewControllerToPresent, animated: true, completion: nil)
-    }
-    
-    func showSheetView(message: String, message2: String) {
-        
-        let sheetController = UIHostingController(rootView: SheetView(message: message, message2: message2))
-        sheetController.view.backgroundColor = UIColor.clear
-        
-        let viewControllerToPresent = sheetController
-        if let sheet = viewControllerToPresent.sheetPresentationController {
-            sheet.detents = [.medium()]
-            sheet.largestUndimmedDetentIdentifier = .none
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.prefersEdgeAttachedInCompactHeight = true
-            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-            sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 20
-        }
-        present(viewControllerToPresent, animated: true, completion: nil)
-    }
-}
-
-struct SheetView: View {
+struct SheetWithChartView: View {
     
     init(message: String, message2: String) {
         self.message = message
@@ -73,7 +20,7 @@ struct SheetView: View {
             items = []
         }
         
-        weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+        weekOrDayBool = UserDefaults.standard.bool(forKey: PersistenceManager.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
         
         var outputTotal = 0
         
@@ -98,14 +45,14 @@ struct SheetView: View {
     let soldLabel: LocalizedStringKey = "Sold"
     let balanceLabel: LocalizedStringKey = "Balance"
 
-    let currencyString = CurrencyObject.currencyString()
+    let currencyString = Currency.currencyString()
     
     @State var messageTotal: String
     @State var messageSold: String
     @State var messageBalance: String
     
     let weekOrDayBool: Bool
-    let persistency = Persistency()
+    let persistency = PersistenceManager()
     
     var items: [Item]
     
@@ -129,7 +76,7 @@ struct SheetView: View {
     }
 }
 
-extension SheetView {
+extension SheetWithChartView {
     
     var secondTabAlt: some View {
         VStack(alignment: .center) {
@@ -142,7 +89,7 @@ extension SheetView {
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.pink)
-                Text(currencyString)
+                Text(currencyString ?? "")
                     .font(.headline)
                     .foregroundColor(.primary)
             }.padding(.top)
@@ -156,7 +103,7 @@ extension SheetView {
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.pink)
-                Text(currencyString)
+                Text(currencyString ?? "")
                     .font(.headline)
                     .foregroundColor(.primary)
             }
@@ -170,7 +117,7 @@ extension SheetView {
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.pink)
-                Text(currencyString)
+                Text(currencyString ?? "")
                     .font(.headline)
                     .foregroundColor(.primary)
             }
@@ -185,36 +132,29 @@ extension SheetView {
                 HStack {
                     Text(priceTotalLabel)
                     Text(messageTotal)
-                    Text(currencyString)
+                    Text(currencyString ?? "")
                 }
                 
                 HStack {
                     Text(soldLabel)
                     Text(messageSold)
-                    Text(currencyString)
+                    Text(currencyString ?? "")
                 }
                 
                 HStack {
                     Text(balanceLabel)
                     Text(messageBalance)
-                    Text(currencyString)
+                    Text(currencyString ?? "")
                 }
             }.font(.headline)
                 .padding()
-            
-//            Text(message2)
-//                .font(.title2)
-//                .padding(.all)
-//                .multilineTextAlignment(.center)
-//                .fontWeight(.semibold)
-//                .padding()
             
             chartView
         }
     }
 }
 
-extension SheetView {
+extension SheetWithChartView {
     
     var chartView: some View {
         Chart {

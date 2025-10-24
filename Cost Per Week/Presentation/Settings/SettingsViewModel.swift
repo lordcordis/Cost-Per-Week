@@ -20,8 +20,8 @@ class SettingsViewModel: ObservableObject {
             weekOrDayBool = .day
         }
         
-        let currencyString = CurrencyObject.currencyString()
-        selectedCurrency = Currency.stringIntoCurrencyObject(currencyString: currencyString)
+
+        selectedCurrency = Currency.selectedCurrency() ?? .dollar
     }
     
     weak var delegate: ChangeWeekOrDayInItemsTableViewDelegate?
@@ -32,8 +32,8 @@ class SettingsViewModel: ObservableObject {
 //    @Published var simpleOrDetailedViewType: ViewType = .simple
     
     func saveCurrency() {
-        CurrencyObject.saveCurrencyAsDefault(currency: selectedCurrency.returnCurrency())
-        delegate?.refreshCurrency(currencyString: selectedCurrency.returnCurrency().currencyString)
+        Currency.saveCurrencyAsDefault(currency: selectedCurrency)
+        delegate?.refreshCurrency(currencyString: selectedCurrency.title)
         delegate?.refreshTitleAndReloadTableView()
     }
     
@@ -41,10 +41,10 @@ class SettingsViewModel: ObservableObject {
         
         switch weekOrDayBool {
         case .week:
-            UserDefaults.standard.set(true, forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+            UserDefaults.standard.set(true, forKey: PersistenceManager.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
             delegate?.refreshTitleAndReloadTableView()
         case .day:
-            UserDefaults.standard.set(false, forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+            UserDefaults.standard.set(false, forKey: PersistenceManager.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
             delegate?.refreshTitleAndReloadTableView()
         }
     }

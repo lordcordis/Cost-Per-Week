@@ -20,8 +20,11 @@ class ItemCellViewModel {
         self.delegate = delegate
         self.weekOrDayBool = weekOrDay
         
-        let currencyString = CurrencyObject.currencyString()
-        currency = Currency.stringIntoCurrencyObject(currencyString: currencyString)
+        if let currencyString = Currency.currencyString(), let currency = Currency(rawValue: currencyString) {
+            self.currency = currency
+        } else {
+            currency = .dollar
+        }
     }
     
     func dateString() -> String {
@@ -180,17 +183,5 @@ class ItemCellViewModel {
 //        }
 //
 //        return "\(rubleWord)"
-//    }
-    
-    func deleteCurrentItem() {
-        delegate?.deleteItem(item: item)
-    }
-    
-//    func rubleStringPerDay() -> String {
-//        rubleString(for: item.pricePerDay)
-//    }
-    
-//    func rubleStringPerWeek() -> String {
-//        rubleString(for: item.pricePerWeek)
 //    }
 }

@@ -10,11 +10,11 @@ import UIKit
 extension ItemsTableViewController {
     
     @objc func showSettings() {
-        showSettingsView()
+        showSettings()
     }
     
     @objc func countItemsAlertController() {
-        showSheetView(message: viewModel.pricePerWeekOrDayStringOutput(), message2: viewModel.totalPriceStringOutput())
+        showSheetAsHosted(message: viewModel.pricePerWeekOrDayStringOutput(), message2: viewModel.totalPriceStringOutput())
     }
     
     func configureNavigationController() {
@@ -37,5 +37,6 @@ extension ItemsTableViewController {
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = plusItem
         navigationController?.navigationBar.topItem?.leftBarButtonItems = [settingsItem, computeAllCostsItem]
+        
     }
 }

@@ -43,7 +43,7 @@ extension ItemsTableViewController {
     }
 }
 
-extension ItemsTableViewControllerViewModel {
+extension HomeViewModel {
     
     // MARK: - Generating view in case of absence of items
         

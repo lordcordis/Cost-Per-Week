@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @StateObject var viewModel: SettingsViewModel
+    @Binding var sheetIsPresented: Bool
     
     let deleteAllDataButtonVisible = false
     let alertDeleteText = "Are you sure you want to delete all data?"
@@ -31,9 +32,9 @@ struct SettingsView: View {
                 Picker("Select currency:", selection: $viewModel.selectedCurrency) {
                     ForEach(Currency.allCases, id: \.self) { currency in
                         Label {
-                            Text(currency.localized)
+                            Text(currency.title)
                         } icon: {
-                            Image(systemName: currency.returnCurrency().imageSystemName)
+                            Image(systemName: currency.iconName)
                         }.tag(currency)
                     }
                 }
@@ -53,12 +54,19 @@ struct SettingsView: View {
                             
                         }
                     }
-
                 }
-                
                 
             }.navigationTitle("Settings")
                 .navigationBarTitleDisplayMode(.inline)
+                .toolbar(content: {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            sheetIsPresented = false
+                        } label: {
+                            Image(systemName: "xmark")
+                        }
+                    }
+                })
         }
     }
 }

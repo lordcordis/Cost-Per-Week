@@ -1,54 +1,145 @@
 //
-//  AddonItem.swift
-//  Cost Per Week
+//  ItemAddonViewAlt.swift
+//  CostPerWeek
 //
-//  Created by Роман Коренев on 26.07.2023.
+//  Created by lordcordis on 15.10.2024.
 //
 
 import SwiftUI
+import Combine
 
 struct ItemAddonView: View {
     
-    @StateObject var viewModel: ItemAddonViewModel
+    enum ButtonVisible {
+        case nothing
+        case save
+        case cancel
+    }
+    
+    let initialAddon: ItemAddon
+    @Binding var itemAddons: [ItemAddon]
+    @Binding var newAddonToggle: DetailViewModel.NewAddonToggle
+    
+    @State var buttonVisibleToggle: ButtonVisible = .nothing
+    
+    init(addon: ItemAddon?, itemAddons: Binding<[ItemAddon]>, newAddonToggle: Binding<DetailViewModel.NewAddonToggle>) {
+        
+        if let addon = addon {
+            self.initialAddon = addon
+            self.name = addon.description
+            self.price = String(addon.price)
+            
+        } else {
+            self.name = ""
+            self.price = ""
+            self.initialAddon = ItemAddon(description: "", price: 0, id: UUID().uuidString)
+        }
+
+        self._itemAddons = itemAddons
+        self._newAddonToggle = newAddonToggle
+    }
+    
+    @State var name: String
+    @State var price: String
+    
+    func save() {
+        guard let priceInt = Int(price) else {return}
+        let exportedAddon = ItemAddon(description: name, price: priceInt, id: initialAddon.id)
+        
+        var isExportedSuccessfully = false
+        
+        for (index, itemAddon) in itemAddons.enumerated() {
+            if itemAddon.id == exportedAddon.id {
+                itemAddons[index] = exportedAddon
+                isExportedSuccessfully = true
+                showAddNewButton()
+            }
+        }
+        
+        if isExportedSuccessfully == false {
+            itemAddons.append(exportedAddon)
+                    name = ""
+                    price = ""
+            showAddNewButton()
+        }
+        
+        buttonVisibleToggle = .nothing
+    }
+    
+    func showAddNewButton() {
+        newAddonToggle = .addNewButton
+    }
+    
+    func textFieldChanged() {
+        checkIfSaveButtonShouldBeShown()
+    }
+    
+    func priceFieldChanged() {
+        checkIfSaveButtonShouldBeShown()
+    }
+    
+    func checkIfSaveButtonShouldBeShown() {
+        
+        withAnimation {
+            switch (name.isEmpty, price.isEmpty) {
+            case (true, true):
+                buttonVisibleToggle = .nothing
+                
+            case (false, false):
+                buttonVisibleToggle = .save
+                
+            default:
+                buttonVisibleToggle = .cancel
+            }
+        }
+    }
     
     var body: some View {
-//        VStack {
-            HStack {
+        
+        HStack {
+            
+            TextField("name", text: $name)
+                .onChange(of: name) {
+                    textFieldChanged()
+                }
+            
+            TextField("price", text: $price)
+                .onChange(of: price) { _, newValue in
+                    let filtered = newValue.filter { $0.isNumber }
+                    if filtered != newValue { price = filtered }
+                    priceFieldChanged()
+                }
+                .keyboardType(.asciiCapableNumberPad)
+            
+        }.overlay {
+            
+            switch buttonVisibleToggle {
                 
-                TextField("name", text: $viewModel.name)
-                    .onChange(of: viewModel.name) {
-                    viewModel.checkIfAddonShouldBeSaved()
-                }
-                TextField("price", text: $viewModel.price)
-                    .onChange(of: viewModel.price) {
-                    viewModel.checkIfAddonShouldBeSaved()
-                }.keyboardType(.asciiCapableNumberPad)
-            }
-            
-            //            Showing save button in an overlay if addon needs to be saved
-            
-            .overlay {
-                HStack{
-                    if viewModel.saveToggleIsActiveForThisAddon == true && viewModel.saved != true {
-                        Spacer()
-                        Button("Save") {
-                            viewModel.saveToggleIsActiveForThisAddon = false
-                            viewModel.saveAddon()
-                            viewModel.isAddNewRepairViewVisible = true
-                            viewModel.name = ""
-                            viewModel.price = ""
-                        }
-                        .buttonStyle(.borderedProminent)
-                    } else if viewModel.saveToggleIsActiveForThisAddon == false && viewModel.isAddNewRepairViewVisible == true {
-                        Spacer()
-                        Button("Cancel") {
-                            viewModel.dismissNewAddonCreation()
-                        }
-                        .buttonStyle(.bordered)
-                        .foregroundStyle(Color.secondary)
+            case .nothing:
+                EmptyView()
+                
+            case .save:
+                HStack {
+                    Spacer()
+                    Button("Save") {
+                        save()
                     }
+                    .buttonStyle(.borderedProminent)
+                    .tint(ColorManager.tintColor)
+                    
+                }
+                
+            case .cancel:
+                HStack {
+                    Spacer()
+                    Button("Cancel") {
+                        showAddNewButton()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundStyle(Color.secondary)
                 }
             }
-//        }
+        }
     }
 }
+

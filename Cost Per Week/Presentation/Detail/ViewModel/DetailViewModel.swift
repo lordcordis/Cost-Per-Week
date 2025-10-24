@@ -10,18 +10,20 @@ import SwiftUI
 
 final class DetailViewModel: ObservableObject {
     
+    let persistence: PersistenceManager
+    
     enum NewAddonToggle {
         case newAddon, addNewButton
     }
     
-    init(item: Item? = nil, delegate: ItemTableViewDelegate, dismissDelegate: DismissDelegate, systemCurrencyString: String) {
+    init(item: Item? = nil) {
+        
+        self.persistence = PersistenceManager()
         
         //        initial setup
         
         tintColor = Color(uiColor: UIColor.systemPink)
-        systemCurrencyIconString = systemCurrencyString
-        self.dismissDelegate = dismissDelegate
-        self.delegate = delegate
+        systemCurrencyIconString = Currency.selectedCurrency()?.rawValue ?? "USD"
         
         //        Init is checking if item is new or imported
         
@@ -30,7 +32,6 @@ final class DetailViewModel: ObservableObject {
             //        item is imported
             
             isNewItem = false
-            print("imported item: \(item)")
             
             if item.price == 0 {
                 itemPurchasePrice = ""
@@ -59,10 +60,9 @@ final class DetailViewModel: ObservableObject {
             itemAddons = item.addons
             itemID = item.id
             
-            
             soldDatesRange = {
                 return item.date
-                    ...
+                ...
                 Date()
             }()
             
@@ -121,7 +121,7 @@ final class DetailViewModel: ObservableObject {
     
     @Published var newAddonToggle: NewAddonToggle = .addNewButton
     
-//    @Published var itemIsChangedAndNeedsToSave: Bool = false
+    //    @Published var itemIsChangedAndNeedsToSave: Bool = false
     
     var delegate: ItemTableViewDelegate?
     var dismissDelegate: DismissDelegate?
@@ -140,8 +140,7 @@ final class DetailViewModel: ObservableObject {
         return Int(price) != nil
     }
     
-    
-    //    MARK: -- Product Info Methods
+    // MARK: -- Product Info Methods
     
     func itemNameToType() {
         withAnimation {
@@ -240,26 +239,17 @@ extension DetailViewModel {
         
         guard let itemToExport = generateItemForExport() else {
             print("item for export can not be generated")
-            return}
+            return
+        }
         
         print("itemToExport \(itemToExport)")
         print("isNewItem \(isNewItem)")
         
         switch isNewItem {
-            
         case true:
-            guard !itemToExport.name.isEmpty, itemToExport.price != 0 else {
-                return
-            }
-            delegate?.addItemToList(item: itemToExport)
-            
+            persistence.addItem(itemToExport)
         case false:
-            delegate?.editItem(item: itemToExport)
+            persistence.updateItem(itemToExport)
         }
-        
-        if dismiss {
-            dismissDelegate?.dismiss()
-        }
-        
     }
 }

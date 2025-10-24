@@ -12,7 +12,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     
     //    Initialisation
     
-    init(model: ItemsTableViewControllerViewModel) {
+    init(model: HomeViewModel) {
         self.viewModel = model
         self.isErrorViewShown = viewModel.isEmpty()
         self.tableViewIsEmptyView = viewModel.generateEmptyListView()
@@ -27,7 +27,7 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     
     private var dataSource: UITableViewDiffableDataSource <Int, Item>!
     
-    var viewModel: ItemsTableViewControllerViewModel
+    var viewModel: HomeViewModel
     
     var alertController: UIAlertController?
     
@@ -42,15 +42,12 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-//    var currency: String = CurrencyObject.currencyString()
-    
     // Setting up diffable data source and cells
     
     func setupDataSource() {
         
         dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { [self] tableView, indexPath, item in
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemCellView.id)
-            
             // creating cell contents with SwiftUI
             
             let viewModel = ItemCellViewModel(item: item, delegate: self, weekOrDay: viewModel.weekOrDayBool)
@@ -69,6 +66,13 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         dataSource.apply(snapshot)
     }
     
+    func checkIfShouldShowStatsSheet() {
+        
+        let sheetViewShouldBeEnabled: Bool = !viewModel.isEmpty()
+        
+        navigationController?.navigationBar.topItem?.leftBarButtonItems?[1].isEnabled = sheetViewShouldBeEnabled
+    }
+    
     @objc func createNewItem () {
         showDetailView(indexPath: nil)
     }
@@ -78,17 +82,26 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         checkIfItemsListIsEmpty()
         title = viewModel.viewTitle()
         tableView.reloadData()
+        checkIfShouldShowStatsSheet()
+        configureNavigationController()
+        print(#function)
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: ItemCell.id)
         tableView.delegate = self
+        
         setupDataSource()
         updateDataSource()
-        view.backgroundColor = .systemGray6
         configureNavigationController()
-
+        
+        tableView.separatorStyle = .none
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
+        tableView.contentInset = .zero
+        tableView.sectionHeaderTopPadding = 0 // iOS 15+
     }
     
     // MARK: - Providing swiftUI Detail View in a UIHostingController
@@ -99,21 +112,21 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
     
-//    showing empty or filled detail view (if indexPath is present)
+    //    showing empty or filled detail view (if indexPath is present)
     
     func showDetailView(indexPath: IndexPath?) {
         
         if let indexPath = indexPath, let item = dataSource.itemIdentifier(for: indexPath) {
             
-            let viewModel = DetailViewModel(item: item, delegate: self, dismissDelegate: self, systemCurrencyString: viewModel.currencyStringIntoSystemImageName())
+            let viewModel = DetailViewModel(item: item)
             let rootView = DetailView(viewModel: viewModel)
-
+            
             let detailVC = UIHostingController(rootView: rootView)
             self.navigationController?.pushViewController(detailVC, animated: true)
             tableView.deselectRow(at: indexPath, animated: true)
         } else {
-      
-            let viewModel = DetailViewModel(item: nil, delegate: self, dismissDelegate: self, systemCurrencyString: viewModel.currencyStringIntoSystemImageName())
+            
+            let viewModel = DetailViewModel(item: nil)
             let rootView = DetailView(viewModel: viewModel)
             
             let detailVC = UIHostingController(rootView: rootView)
@@ -127,11 +140,12 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
 extension ItemsTableViewController: ItemTableViewDelegate {
     
     func deleteItem(item: Item) {
-        viewModel.removeItem(item: item)
+        viewModel.deleteItem(item: item)
         var snapshot = dataSource.snapshot()
         snapshot.deleteItems([item])
         dataSource.apply(snapshot)
         checkIfItemsListIsEmpty()
+        checkIfShouldShowStatsSheet()
     }
     
     func editItem(item: Item) {
@@ -142,9 +156,9 @@ extension ItemsTableViewController: ItemTableViewDelegate {
         snapshot.appendItems(viewModel.allItems())
         dataSource.apply(snapshot)
         checkIfItemsListIsEmpty()
+        checkIfShouldShowStatsSheet()
         
     }
-    
     
     func addItemToList(item: Item) {
         viewModel.appendItem(item: item)
@@ -152,6 +166,8 @@ extension ItemsTableViewController: ItemTableViewDelegate {
         snapshot.appendItems([item])
         dataSource.apply(snapshot)
         checkIfItemsListIsEmpty()
+        checkIfShouldShowStatsSheet()
+        configureNavigationController()
     }
 }
 

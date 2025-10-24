@@ -68,15 +68,7 @@ struct ItemCellView: View {
         .padding()
         .background(Color(.systemGray6)) // Light gray background for the cell
         .cornerRadius(12)
-        .shadow(radius: 2)
-        .swipeActions {
-            Button {
-                viewModel.deleteCurrentItem()
-            } label: {
-                Label("Delete", systemImage: "trash")
-            }
-            .tint(.red)
-        }
+        .shadow(radius: 1)
     }
 }
 
@@ -120,14 +112,6 @@ struct ItemCell: View {
                 }
             }
         }
-        .swipeActions {
-            Button {
-                viewModel.deleteCurrentItem()
-            } label: {
-                Label("Delete", systemImage: "trash")
-            }
-            .tint(.red)
-        }
     }
 }
 
@@ -167,4 +151,8 @@ struct ProductTitleView: View {
             Spacer()
         }
     }
+}
+
+#Preview {
+    ItemCellView(viewModel: ItemCellViewModel(item: Item(name: "Test", date: Date(), addonsActive: false, addons: [], itemType: .airpods, id: "22", isSold: false, dateSold: Date(), priceSold: Int(200.0)), delegate: nil, weekOrDay: false))
 }

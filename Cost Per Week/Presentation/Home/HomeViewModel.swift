@@ -7,14 +7,16 @@
 
 import UIKit
 
-struct ItemsTableViewControllerViewModel {
+final class HomeViewModel: ObservableObject {
     
-    let persistency = Persistency()
+    let persistency: PersistenceManager
     
     var weekOrDayBool: Bool
     
-    init() {
-        weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+    init(persistency: PersistenceManager) {
+        self.persistency = persistency
+        
+        weekOrDayBool = UserDefaults.standard.bool(forKey: PersistenceManager.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
 
         if let itemsRetrieved = persistency.retreveData() {
             items = itemsRetrieved
@@ -22,46 +24,45 @@ struct ItemsTableViewControllerViewModel {
             items = []
         }
         
-        let currencyString = CurrencyObject.currencyString()
-        currency = Currency.stringIntoCurrencyObject(currencyString: currencyString)
-    }
-    
-    private var items: [Item] {
-        didSet {
-            persistency.saveData(items: items)
+        if let currencyString = Currency.currencyString(), let currency = Currency(rawValue: currencyString) {
+            self.currency = currency
+        } else {
+            currency = .dollar
         }
     }
     
-    mutating func viewTitle() -> String {
+    @Published var items: [Item] = []
+    
+    @Published var settingsSheetPresented: Bool = false
+    
+    func viewTitle() -> String {
         
-        weekOrDayBool = UserDefaults.standard.bool(forKey: Persistency.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+        weekOrDayBool = UserDefaults.standard.bool(forKey: PersistenceManager.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
         
         switch weekOrDayBool {
             
         case true:
-            return "Cost per week"
+            return .home(.costPerWeek)
         case false:
-            return "Cost per day"
+            return .home(.costPerDay)
         }
     }
     
-    mutating func removeItem(item: Item) {
+    func deleteItem(item: Item) {
         guard let index = items.firstIndex(of: item) else {return}
         items.remove(at: index)
+        persistency.saveData(items: items)
     }
     
-    mutating func updateItem (item: Item) {
+    func updateItem (item: Item) {
         
-        for (ind, itemInside) in items.enumerated() {
-            if itemInside.id == item.id {
+        for (ind, itemInside) in items.enumerated() where itemInside.id == item.id {
                 print("items[ind] = item")
                 items[ind] = item
-            }
         }
     }
     
-    
-    mutating func appendItem (item: Item) {
+    func appendItem (item: Item) {
         items.append(item)
     }
     
@@ -92,25 +93,15 @@ struct ItemsTableViewControllerViewModel {
         case false:
             return "Per day: " + "\(totalCostForSingleDay())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
         }
-        
-        
     }
     
     func currencyString() -> String {
-        return CurrencyObject.currencyString()
+        return Currency.currencyString() ?? Currency.dollar.rawValue
     }
     
     var totalPriceString: String {
         return "All items: " + "\(calculateTotalCost())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
     }
-    
-//    func resultString() -> String {
-//        guard !items.isEmpty else {return "there are no items"}
-//        return String("""
-//        \(pricePerWeekOrDayString)\n
-//        \(totalPriceString)
-//        """)
-//    }
     
     func pricePerWeekOrDayStringOutput() -> String {
         return pricePerWeekOrDayString
@@ -127,12 +118,10 @@ struct ItemsTableViewControllerViewModel {
     func isEmpty() -> Bool {
         return items.isEmpty
     }
-    
 
-    
     private var currency: Currency
     
-    mutating func setCurrency(_ currency: Currency) {
+    func setCurrency(_ currency: Currency) {
         self.currency = currency
     }
     
@@ -141,25 +130,24 @@ struct ItemsTableViewControllerViewModel {
     }
     
     func shouldPresentEmptyListView() -> Bool {
-        if items.isEmpty {return true}
-        else {return false}
+        return items.isEmpty
     }
     
     func currencyStringIntoSystemImageName() -> String {
-        
-        var output = ""
-        
-        let currencyString = CurrencyObject.currencyString()
-        if let selectedCurrencyFromUserDefaults = Currency.allCases.first(where: {
-            currencyY
-            in
-            currencyY.returnCurrency().currencyString == currencyString
-        }) {
-            output = selectedCurrencyFromUserDefaults.returnCurrency().imageSystemName
+        return currency.iconName
+    }
+    
+    func fetchData() {
+        if let itemsRetrieved = persistency.retreveData() {
+            items = itemsRetrieved
+        } else {
+            items = []
         }
         
-        return output
+        if let currencyString = Currency.currencyString(), let currency = Currency(rawValue: currencyString) {
+            self.currency = currency
+        } else {
+            currency = .dollar
+        }
     }
 }
-
-

@@ -1346,6 +1346,7 @@
       }
     },
     "dollar" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1422,6 +1423,7 @@
       }
     },
     "euro" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1878,6 +1880,7 @@
       }
     },
     "lari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1954,6 +1957,7 @@
       }
     },
     "lira" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2894,6 +2898,7 @@
       }
     },
     "ruble" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2970,6 +2975,7 @@
       }
     },
     "rupee" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3536,6 +3542,7 @@
       }
     },
     "sterling" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3912,6 +3919,7 @@
       }
     },
     "yen" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
