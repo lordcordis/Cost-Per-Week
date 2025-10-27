@@ -44,20 +44,20 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
     
     // Setting up diffable data source and cells
     
-    func setupDataSource() {
-        
-        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { [self] tableView, indexPath, item in
-            let cell = tableView.dequeueReusableCell(withIdentifier: ItemCellView.id)
-            // creating cell contents with SwiftUI
-            
-            let viewModel = ItemCellViewModel(item: item, delegate: self, weekOrDay: viewModel.weekOrDayBool)
-            
-            cell?.contentConfiguration = UIHostingConfiguration {
-                ItemCellView(viewModel: viewModel)
-            }
-            return cell
-        })
-    }
+//    func setupDataSource() {
+//        
+//        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { [self] tableView, indexPath, item in
+//            let cell = tableView.dequeueReusableCell(withIdentifier: ItemCellView.id)
+//            // creating cell contents with SwiftUI
+//            
+//            let viewModel = ItemCellViewModel(item: item, delegate: self, weekOrDay: viewModel.weekOrDayBool)
+//            
+//            cell?.contentConfiguration = UIHostingConfiguration {
+//                ItemCellView(viewModel: viewModel)
+//            }
+//            return cell
+//        })
+//    }
     
     func updateDataSource() {
         var snapshot = NSDiffableDataSourceSnapshot <Int, Item>()
@@ -87,22 +87,22 @@ class ItemsTableViewController: UITableViewController, UITextFieldDelegate {
         print(#function)
     }
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: ItemCell.id)
-        tableView.delegate = self
-        
-        setupDataSource()
-        updateDataSource()
-        configureNavigationController()
-        
-        tableView.separatorStyle = .none
-        tableView.sectionHeaderHeight = 0
-        tableView.sectionFooterHeight = 0
-        tableView.contentInset = .zero
-        tableView.sectionHeaderTopPadding = 0 // iOS 15+
-    }
+//    override func viewDidLoad() {
+//        
+//        super.viewDidLoad()
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: ItemCell.id)
+//        tableView.delegate = self
+//        
+//        setupDataSource()
+//        updateDataSource()
+//        configureNavigationController()
+//        
+//        tableView.separatorStyle = .none
+//        tableView.sectionHeaderHeight = 0
+//        tableView.sectionFooterHeight = 0
+//        tableView.contentInset = .zero
+//        tableView.sectionHeaderTopPadding = 0 // iOS 15+
+//    }
     
     // MARK: - Providing swiftUI Detail View in a UIHostingController
     

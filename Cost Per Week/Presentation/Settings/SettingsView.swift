@@ -10,7 +10,8 @@ import SwiftUI
 struct SettingsView: View {
     
     @StateObject var viewModel: SettingsViewModel
-    @Binding var sheetIsPresented: Bool
+    
+    var onClose: () -> Void
     
     let deleteAllDataButtonVisible = false
     let alertDeleteText = "Are you sure you want to delete all data?"
@@ -21,8 +22,8 @@ struct SettingsView: View {
             Form {
                 
                 Picker("Choose time period:", selection: $viewModel.weekOrDayBool) {
-                    ForEach(Item.PriceTimePeriod.allCases) { result in
-                        Text(result.localizedLabel)
+                    ForEach(TimePeriod.allCases) { result in
+                        Text(result.title)
                     }
                 }.pickerStyle(.inline)
                     .onChange(of: viewModel.weekOrDayBool) {
@@ -61,7 +62,7 @@ struct SettingsView: View {
                 .toolbar(content: {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            sheetIsPresented = false
+                            onClose()
                         } label: {
                             Image(systemName: "xmark")
                         }

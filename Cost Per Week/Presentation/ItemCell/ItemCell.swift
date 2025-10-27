@@ -44,7 +44,8 @@ struct ItemCellView: View {
             
             VStack {
                 
-                if viewModel.weekOrDay() {
+                switch viewModel.weekOrDay() {
+                case .week:
                     Text(viewModel.pricePerWeek())
                         .font(.title3)
                         .fontWeight(.bold)
@@ -53,7 +54,7 @@ struct ItemCellView: View {
                     Text("\(viewModel.currencyString()) per week")
                         .font(.footnote)
                         .foregroundColor(.secondary)
-                } else {
+                case .day:
                     Text(viewModel.pricePerDay())
                         .font(.title3)
                         .fontWeight(.bold)
@@ -122,13 +123,14 @@ struct ProductPriceView: View {
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             
-            if viewModel.weekOrDay() {
+            switch viewModel.weekOrDay() {
+            case .week:
                 Text(viewModel.pricePerWeek())
                     .font(.system(.title, weight: .semibold))
                 Text("\(viewModel.currencyString()) per week")
                     .foregroundStyle(.secondary)
                     .font(.system(.subheadline, weight: .bold))
-            } else {
+            case .day:
                 Text(viewModel.pricePerDay())
                     .font(.system(.title, weight: .semibold))
                 Text("\(viewModel.currencyString()) per day")

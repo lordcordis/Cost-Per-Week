@@ -7,7 +7,10 @@
 
 import Foundation
 
-enum TimePeriod {
+enum TimePeriod: Identifiable, CaseIterable {
+    
+    var id: Self { self }
+    
     case week, day
     
     var title: String {

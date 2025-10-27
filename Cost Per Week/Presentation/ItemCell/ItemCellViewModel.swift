@@ -13,12 +13,12 @@ class ItemCellViewModel {
     private let item: Item
     private let currency: Currency
     weak var delegate: ItemTableViewDelegate?
-    private let weekOrDayBool: Bool
+    private let weekOrDayBool: TimePeriod
     
     init(item: Item, delegate: ItemTableViewDelegate?, weekOrDay: Bool) {
         self.item = item
         self.delegate = delegate
-        self.weekOrDayBool = weekOrDay
+        self.weekOrDayBool = TimePeriod.current()
         
         if let currencyString = Currency.currencyString(), let currency = Currency(rawValue: currencyString) {
             self.currency = currency
@@ -75,7 +75,7 @@ class ItemCellViewModel {
         }
     }
     
-    func weekOrDay() -> Bool {
+    func weekOrDay() -> TimePeriod {
         return weekOrDayBool
     }
     

@@ -40,7 +40,7 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        viewModel.settingsSheetPresented = true
+                        viewModel.sheetType = .settings
                     } label: {
                         Image(systemName: "slider.horizontal.3")
                     }
@@ -48,10 +48,11 @@ struct HomeView: View {
                 
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        
+                        viewModel.sheetType = .graphs
                     } label: {
                         Image(systemName: "tray")
                     }
+                    .disabled(viewModel.items.isEmpty)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -63,9 +64,16 @@ struct HomeView: View {
                     }
                 }
             }
-            .sheet(isPresented: $viewModel.settingsSheetPresented, content: {
-                ViewAssembly.buildSettingsView(sheetIsPresented: $viewModel.settingsSheetPresented)
+            .sheet(item: $viewModel.sheetType, content: { sheetType in
+                switch sheetType {
+                case .settings:
+                    ViewAssembly.buildSettingsView(onClose: {
+                        viewModel.sheetType = nil
+                    })
                     .presentationDetents([.large])
+                case .graphs:
+                    SheetWithChartView(message: viewModel.pricePerWeekOrDayStringOutput(), message2: viewModel.totalPriceStringOutput())
+                }
             })
             .navigationDestination(for: Destination.self) { destination in
                 switch destination {

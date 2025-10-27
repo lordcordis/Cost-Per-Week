@@ -12,6 +12,8 @@ struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
     var showSaveButton = false
     
+    @Environment(\.dismiss) var dismiss
+    
     // MARK: -- Product info section
     
     var body: some View {
@@ -24,12 +26,12 @@ struct DetailView: View {
             isSoldSection
             
             if showSaveButton{
-                SaveButton
+                saveButton
             }
         }
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing) {
-                SaveButton
+                saveButton
             }
         })
         .scrollDismissesKeyboard(.immediately)
@@ -146,13 +148,13 @@ extension DetailView {
         }
     }
     
-    var SaveButton: some View {
+    var saveButton: some View {
         Button(action: {
             viewModel.save(dismiss: true)
+            dismiss()
         }) {
             Text("Save")
         }
-        .buttonStyle(.bordered)
     }
     
     var addNewAddonButton: some View {

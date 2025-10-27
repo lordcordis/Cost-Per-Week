@@ -11,25 +11,16 @@ class SettingsViewModel: ObservableObject {
     
     init(weekOrDay: Bool, delegate: ChangeWeekOrDayInItemsTableViewDelegate?) {
         
-        self.delegate = delegate
+        weekOrDayBool = TimePeriod.current()
         
-        switch weekOrDay {
-        case true:
-            weekOrDayBool = .week
-        case false:
-            weekOrDayBool = .day
-        }
-        
-
         selectedCurrency = Currency.selectedCurrency() ?? .dollar
     }
     
     weak var delegate: ChangeWeekOrDayInItemsTableViewDelegate?
     
     let currencyAllCases = Currency.allCases
-    @Published var weekOrDayBool: Item.PriceTimePeriod = .week
+    @Published var weekOrDayBool: TimePeriod
     @Published var selectedCurrency = Currency.dollar
-//    @Published var simpleOrDetailedViewType: ViewType = .simple
     
     func saveCurrency() {
         Currency.saveCurrencyAsDefault(currency: selectedCurrency)
@@ -41,11 +32,9 @@ class SettingsViewModel: ObservableObject {
         
         switch weekOrDayBool {
         case .week:
-            UserDefaults.standard.set(true, forKey: PersistenceManager.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
-            delegate?.refreshTitleAndReloadTableView()
+            TimePeriod.saveCurrent(.week)
         case .day:
-            UserDefaults.standard.set(false, forKey: PersistenceManager.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
-            delegate?.refreshTitleAndReloadTableView()
+            TimePeriod.saveCurrent(.day)
         }
     }
     

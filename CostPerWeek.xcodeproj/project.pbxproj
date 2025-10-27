@@ -75,6 +75,7 @@
 		3061BF292EA348B8005199BB /* ViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssembly.swift; sourceTree = "<group>"; };
 		3061BFF12EA43864005199BB /* WeekDayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayManager.swift; sourceTree = "<group>"; };
 		3061BFF62EA438A1005199BB /* home.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = home.xcstrings; sourceTree = "<group>"; };
+		3090B9282EAB31D000B2E29D /* CostPerWeek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CostPerWeek.entitlements; sourceTree = "<group>"; };
 		30A5F3F92EA5B4F200074227 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +93,7 @@
 		0045144827298F5A00CB523A = {
 			isa = PBXGroup;
 			children = (
+				3090B9282EAB31D000B2E29D /* CostPerWeek.entitlements */,
 				3048ECD02E9165CE0034179B /* .swiftlint.yml */,
 				0045145327298F5A00CB523A /* Cost Per Week */,
 				0045145227298F5A00CB523A /* Products */,
@@ -606,6 +608,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CostPerWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -640,6 +643,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CostPerWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;

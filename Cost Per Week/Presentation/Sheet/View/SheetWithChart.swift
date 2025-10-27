@@ -44,7 +44,7 @@ struct SheetWithChartView: View {
     let priceTotalLabel: LocalizedStringKey = "Price of all items"
     let soldLabel: LocalizedStringKey = "Sold"
     let balanceLabel: LocalizedStringKey = "Balance"
-
+    
     let currencyString = Currency.currencyString()
     
     @State var messageTotal: String
@@ -56,23 +56,23 @@ struct SheetWithChartView: View {
     
     var items: [Item]
     
+    @Environment(\.dismiss) var dismiss
+    
     let message: String
     var message2: String
     var body: some View {
-        
-        ZStack {
-            Color.clear
-            VStack {
-                
-                TabView {
-                    
-//                    firstTab
-//                    secondTab
-                    secondTabAlt
-
-                }.tabViewStyle(.page)
-            }
-        }.background(.ultraThinMaterial)
+        NavigationStack {
+            secondTabAlt
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "xmark")
+                        }
+                    }
+                }
+        }
     }
 }
 
@@ -85,10 +85,13 @@ extension SheetWithChartView {
                 Text(priceTotalLabel)
                     .font(.headline)
                     .foregroundColor(.primary)
+                
+                Spacer()
+                
                 Text(messageTotal)
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .foregroundColor(.primary)
                 Text(currencyString ?? "")
                     .font(.headline)
                     .foregroundColor(.primary)
@@ -99,10 +102,13 @@ extension SheetWithChartView {
                 Text(soldLabel)
                     .font(.headline)
                     .foregroundColor(.primary)
+                
+                Spacer()
+                
                 Text(messageSold)
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .foregroundColor(.primary)
                 Text(currencyString ?? "")
                     .font(.headline)
                     .foregroundColor(.primary)
@@ -113,10 +119,13 @@ extension SheetWithChartView {
                 Text(balanceLabel)
                     .font(.headline)
                     .foregroundColor(.primary)
+                
+                Spacer()
+                
                 Text(messageBalance)
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .foregroundColor(.primary)
                 Text(currencyString ?? "")
                     .font(.headline)
                     .foregroundColor(.primary)
@@ -124,6 +133,7 @@ extension SheetWithChartView {
             
             chartView
         }
+        .padding()
     }
     
     var secondTab: some View {

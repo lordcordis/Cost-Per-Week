@@ -138,18 +138,18 @@ struct Item: Codable, Hashable, Identifiable {
         }
     }
     
-    enum PriceTimePeriod: String, Identifiable, Codable, CaseIterable {
-        var id: Self { self }
-        
-        case week, day
-        
-        var localizedLabel: String {
-            switch self {
-            case .week:
-                    .local(.week)
-            case .day:
-                    .local(.day)
-            }
-        }
-    }
+//    enum PriceTimePeriod: String, Identifiable, Codable, CaseIterable {
+//        var id: Self { self }
+//        
+//        case week, day
+//        
+//        var localizedLabel: String {
+//            switch self {
+//            case .week:
+//                    .local(.week)
+//            case .day:
+//                    .local(.day)
+//            }
+//        }
+//    }
 }

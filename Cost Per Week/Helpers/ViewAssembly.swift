@@ -58,8 +58,8 @@ final class ViewAssembly {
         return SettingsViewModel(weekOrDay: true, delegate: nil)
     }
     
-    static func buildSettingsView(sheetIsPresented: Binding<Bool>) -> SettingsView {
-        return SettingsView(viewModel: buildSettingsViewModel(), sheetIsPresented: sheetIsPresented)
+    static func buildSettingsView(onClose: @escaping () -> Void) -> SettingsView {
+        return SettingsView(viewModel: buildSettingsViewModel(), onClose: onClose)
     }
     
 }

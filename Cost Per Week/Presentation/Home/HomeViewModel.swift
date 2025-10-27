@@ -7,16 +7,22 @@
 
 import UIKit
 
+enum SheetType: Identifiable {
+    case settings, graphs
+    
+    var id: Self {self}
+}
+
 final class HomeViewModel: ObservableObject {
     
     let persistency: PersistenceManager
     
-    var weekOrDayBool: Bool
+    var weekOrDayBool: TimePeriod
     
     init(persistency: PersistenceManager) {
         self.persistency = persistency
         
-        weekOrDayBool = UserDefaults.standard.bool(forKey: PersistenceManager.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+        weekOrDayBool = TimePeriod.current()
 
         if let itemsRetrieved = persistency.retreveData() {
             items = itemsRetrieved
@@ -33,17 +39,18 @@ final class HomeViewModel: ObservableObject {
     
     @Published var items: [Item] = []
     
-    @Published var settingsSheetPresented: Bool = false
+//    @Published var settingsSheetPresented: Bool = false
+    @Published var sheetType: SheetType?
     
     func viewTitle() -> String {
         
-        weekOrDayBool = UserDefaults.standard.bool(forKey: PersistenceManager.KeysForUserDefaults.pricePerWeekIfTrue.rawValue)
+        weekOrDayBool = TimePeriod.current()
         
         switch weekOrDayBool {
             
-        case true:
+        case .week:
             return .home(.costPerWeek)
-        case false:
+        case .day:
             return .home(.costPerDay)
         }
     }
@@ -88,9 +95,9 @@ final class HomeViewModel: ObservableObject {
         
         switch weekOrDayBool {
             
-        case true:
+        case .week:
             return "Per week: " + "\(totalCostForSingleWeek())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
-        case false:
+        case .day:
             return "Per day: " + "\(totalCostForSingleDay())" + " " + "\(UserDefaults.standard.value(forKey: "currency") ?? "RUB")"
         }
     }
