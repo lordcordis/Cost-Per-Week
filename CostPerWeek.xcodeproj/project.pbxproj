@@ -13,7 +13,6 @@
 		002FE3662A5F2906002BB472 /* ItemAddon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FE3652A5F2906002BB472 /* ItemAddon.swift */; };
 		002FE3682A5F2B22002BB472 /* CurrencyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FE3672A5F2B22002BB472 /* CurrencyObject.swift */; };
 		0045145E27298F5C00CB523A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0045145D27298F5C00CB523A /* Assets.xcassets */; };
-		0045146127298F5C00CB523A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0045145F27298F5C00CB523A /* LaunchScreen.storyboard */; };
 		0045146927298F9800CB523A /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146827298F9800CB523A /* PersistenceManager.swift */; };
 		0045146B27298FEE00CB523A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0045146A27298FEE00CB523A /* Item.swift */; };
 		0049977A2A6EC3670075540A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004997792A6EC3670075540A /* DetailViewModel.swift */; };
@@ -30,6 +29,7 @@
 		2517F6F52CBEBFD900FFD9A2 /* ItemAddonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2517F6F42CBEBFD900FFD9A2 /* ItemAddonView.swift */; };
 		25FB24442C889F7400B39E32 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 25FB24432C889F7400B39E32 /* Localizable.xcstrings */; };
 		30222E512F3082CF00244D12 /* AppLaunchChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30222E502F3082CF00244D12 /* AppLaunchChecker.swift */; };
+		30222EBE2F30888200244D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0045145F27298F5C00CB523A /* LaunchScreen.storyboard */; };
 		303534F42EA2D8790011DB14 /* local.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 303534F32EA2D8790011DB14 /* local.xcstrings */; };
 		303535292EA2E6EE0011DB14 /* currency.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 303535282EA2E6EE0011DB14 /* currency.xcstrings */; };
 		3048ECD12E9165CE0034179B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3048ECD02E9165CE0034179B /* .swiftlint.yml */; };
@@ -391,7 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0045146127298F5C00CB523A /* LaunchScreen.storyboard in Resources */,
+				30222EBE2F30888200244D12 /* LaunchScreen.storyboard in Resources */,
 				3048ECD12E9165CE0034179B /* .swiftlint.yml in Resources */,
 				303534F42EA2D8790011DB14 /* local.xcstrings in Resources */,
 				25FB24442C889F7400B39E32 /* Localizable.xcstrings in Resources */,
@@ -612,6 +612,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CostPerWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -624,6 +625,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -647,6 +649,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CostPerWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -659,6 +662,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
