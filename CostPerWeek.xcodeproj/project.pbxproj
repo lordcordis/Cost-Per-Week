@@ -99,6 +99,7 @@
 				3048ECD02E9165CE0034179B /* .swiftlint.yml */,
 				0045145327298F5A00CB523A /* Cost Per Week */,
 				0045145227298F5A00CB523A /* Products */,
+				0045145F27298F5C00CB523A /* LaunchScreen.storyboard */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,7 +269,6 @@
 			children = (
 				25FB24432C889F7400B39E32 /* Localizable.xcstrings */,
 				0045145D27298F5C00CB523A /* Assets.xcassets */,
-				0045145F27298F5C00CB523A /* LaunchScreen.storyboard */,
 				303534F32EA2D8790011DB14 /* local.xcstrings */,
 				303535282EA2E6EE0011DB14 /* currency.xcstrings */,
 			);
@@ -640,7 +640,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -677,7 +677,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
