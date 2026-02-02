@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 enum SheetType: Identifiable {
     case settings, graphs
@@ -34,6 +35,14 @@ final class HomeViewModel: ObservableObject {
             self.currency = currency
         } else {
             currency = .dollar
+        }
+        
+        AppLaunchChecker.incrementLaunchCount()
+        
+        if AppLaunchChecker.launchCount() == 3 {
+            Task {
+                await requestRating()
+            }
         }
     }
     
@@ -155,6 +164,13 @@ final class HomeViewModel: ObservableObject {
             self.currency = currency
         } else {
             currency = .dollar
+        }
+    }
+    
+    @MainActor
+    func requestRating() {
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            AppStore.requestReview(in: scene)
         }
     }
 }

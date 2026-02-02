@@ -29,6 +29,7 @@
 		00CA40822A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */; };
 		2517F6F52CBEBFD900FFD9A2 /* ItemAddonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2517F6F42CBEBFD900FFD9A2 /* ItemAddonView.swift */; };
 		25FB24442C889F7400B39E32 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 25FB24432C889F7400B39E32 /* Localizable.xcstrings */; };
+		30222E512F3082CF00244D12 /* AppLaunchChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30222E502F3082CF00244D12 /* AppLaunchChecker.swift */; };
 		303534F42EA2D8790011DB14 /* local.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 303534F32EA2D8790011DB14 /* local.xcstrings */; };
 		303535292EA2E6EE0011DB14 /* currency.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 303535282EA2E6EE0011DB14 /* currency.xcstrings */; };
 		3048ECD12E9165CE0034179B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3048ECD02E9165CE0034179B /* .swiftlint.yml */; };
@@ -66,6 +67,7 @@
 		00CA40812A30AF8800845AC7 /* ItemsTableViewController + EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsTableViewController + EmptyView.swift"; sourceTree = "<group>"; };
 		2517F6F42CBEBFD900FFD9A2 /* ItemAddonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddonView.swift; sourceTree = "<group>"; };
 		25FB24432C889F7400B39E32 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		30222E502F3082CF00244D12 /* AppLaunchChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchChecker.swift; sourceTree = "<group>"; };
 		303534F32EA2D8790011DB14 /* local.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = local.xcstrings; sourceTree = "<group>"; };
 		303535282EA2E6EE0011DB14 /* currency.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = currency.xcstrings; sourceTree = "<group>"; };
 		3048ECD02E9165CE0034179B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				30A5F3F92EA5B4F200074227 /* ColorManager.swift */,
 				3061BF292EA348B8005199BB /* ViewAssembly.swift */,
 				3061BFF12EA43864005199BB /* WeekDayManager.swift */,
+				30222E502F3082CF00244D12 /* AppLaunchChecker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30222E512F3082CF00244D12 /* AppLaunchChecker.swift in Sources */,
 				3061BFF22EA43864005199BB /* WeekDayManager.swift in Sources */,
 				002FE3682A5F2B22002BB472 /* CurrencyObject.swift in Sources */,
 				00A9E8F82A8EEB2E00067280 /* SettingsViewModel.swift in Sources */,
@@ -625,7 +629,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.21;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "lc.Cost-Per-Week";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -660,7 +664,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.21;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "lc.Cost-Per-Week";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
