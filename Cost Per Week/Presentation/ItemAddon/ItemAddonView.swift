@@ -48,12 +48,10 @@ struct ItemAddonView: View {
         
         var isExportedSuccessfully = false
         
-        for (index, itemAddon) in itemAddons.enumerated() {
-            if itemAddon.id == exportedAddon.id {
-                itemAddons[index] = exportedAddon
-                isExportedSuccessfully = true
-                showAddNewButton()
-            }
+        for (index, itemAddon) in itemAddons.enumerated() where itemAddon.id == exportedAddon.id {
+            itemAddons[index] = exportedAddon
+            isExportedSuccessfully = true
+            showAddNewButton()
         }
         
         if isExportedSuccessfully == false {
@@ -142,4 +140,3 @@ struct ItemAddonView: View {
         }
     }
 }
-

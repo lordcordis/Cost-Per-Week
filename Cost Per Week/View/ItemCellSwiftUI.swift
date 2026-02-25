@@ -31,7 +31,6 @@ struct ItemCell: View {
     }
 }
 
-
 struct HeartRateBPMView: View {
     var item: Item
     var currency: String

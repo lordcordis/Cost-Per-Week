@@ -164,7 +164,7 @@ final class DetailViewModel: ObservableObject {
         
     }
     
-    //      MARK: Additional Expenses Methods
+    // MARK: - Additional Expenses Methods
     
     func removeAddon(at indexSet: IndexSet) {
         itemAddons.remove(atOffsets: indexSet)
@@ -174,9 +174,7 @@ final class DetailViewModel: ObservableObject {
         
     }
     
-    
-    //    MARK: Item Sold Methods
-    
+    // MARK: Item Sold Methods
     
     func soldItemPriceChanged() {
         
@@ -226,7 +224,16 @@ extension DetailViewModel {
             priceSoldIntOutput = 0
         }
         
-        let itemToExport = Item(name: itemName, price: priceIntOutput, date: itemDateOfPurchase, addonsActive: additionalExpensesEnabled, addons: itemAddons, itemType: itemType, id: itemID, isSold: itemIsSold, dateSold: dateSold, priceSold: priceSoldIntOutput)
+        let itemToExport = Item(name: itemName,
+                                price: priceIntOutput,
+                                date: itemDateOfPurchase,
+                                addonsActive: additionalExpensesEnabled,
+                                addons: itemAddons,
+                                itemType: itemType,
+                                id: itemID,
+                                isSold: itemIsSold,
+                                dateSold: dateSold,
+                                priceSold: priceSoldIntOutput)
         
         return itemToExport
     }

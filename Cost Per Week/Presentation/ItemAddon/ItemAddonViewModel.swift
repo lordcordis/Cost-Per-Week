@@ -89,8 +89,6 @@ final class ItemAddonViewModel: ObservableObject {
             isAddNewRepairButtonVisible = true
             addonsArrayIsChanged = true
         }
-        
-
     }
 }
 
@@ -102,5 +100,3 @@ extension ItemAddonViewModel {
         }
     }
 }
-
-

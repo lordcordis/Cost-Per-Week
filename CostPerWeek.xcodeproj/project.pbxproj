@@ -29,7 +29,7 @@
 		2517F6F52CBEBFD900FFD9A2 /* ItemAddonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2517F6F42CBEBFD900FFD9A2 /* ItemAddonView.swift */; };
 		25FB24442C889F7400B39E32 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 25FB24432C889F7400B39E32 /* Localizable.xcstrings */; };
 		30222E512F3082CF00244D12 /* AppLaunchChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30222E502F3082CF00244D12 /* AppLaunchChecker.swift */; };
-		30222EBE2F30888200244D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0045145F27298F5C00CB523A /* LaunchScreen.storyboard */; };
+		30222EBE2F30888200244D12 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0045145F27298F5C00CB523A /* Launch Screen.storyboard */; };
 		303534F42EA2D8790011DB14 /* local.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 303534F32EA2D8790011DB14 /* local.xcstrings */; };
 		303535292EA2E6EE0011DB14 /* currency.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 303535282EA2E6EE0011DB14 /* currency.xcstrings */; };
 		3048ECD12E9165CE0034179B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3048ECD02E9165CE0034179B /* .swiftlint.yml */; };
@@ -50,7 +50,7 @@
 		002FE3672A5F2B22002BB472 /* CurrencyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyObject.swift; sourceTree = "<group>"; };
 		0045145127298F5A00CB523A /* CostPerWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CostPerWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0045145D27298F5C00CB523A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0045146027298F5C00CB523A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0045146027298F5C00CB523A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0045146227298F5C00CB523A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0045146827298F9800CB523A /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		0045146A27298FEE00CB523A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 				3048ECD02E9165CE0034179B /* .swiftlint.yml */,
 				0045145327298F5A00CB523A /* Cost Per Week */,
 				0045145227298F5A00CB523A /* Products */,
-				0045145F27298F5C00CB523A /* LaunchScreen.storyboard */,
+				0045145F27298F5C00CB523A /* Launch Screen.storyboard */,
 			);
 			sourceTree = "<group>";
 		};
@@ -391,7 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30222EBE2F30888200244D12 /* LaunchScreen.storyboard in Resources */,
+				30222EBE2F30888200244D12 /* Launch Screen.storyboard in Resources */,
 				3048ECD12E9165CE0034179B /* .swiftlint.yml in Resources */,
 				303534F42EA2D8790011DB14 /* local.xcstrings in Resources */,
 				25FB24442C889F7400B39E32 /* Localizable.xcstrings in Resources */,
@@ -468,12 +468,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0045145F27298F5C00CB523A /* LaunchScreen.storyboard */ = {
+		0045145F27298F5C00CB523A /* Launch Screen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0045146027298F5C00CB523A /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = "Launch Screen.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -622,7 +622,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Cost Per Week";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -659,7 +659,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Cost Per Week";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

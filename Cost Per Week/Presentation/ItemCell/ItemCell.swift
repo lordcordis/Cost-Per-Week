@@ -156,5 +156,21 @@ struct ProductTitleView: View {
 }
 
 #Preview {
-    ItemCellView(viewModel: ItemCellViewModel(item: Item(name: "Test", date: Date(), addonsActive: false, addons: [], itemType: .airpods, id: "22", isSold: false, dateSold: Date(), priceSold: Int(200.0)), delegate: nil, weekOrDay: false))
+    ItemCellView(
+        viewModel: ItemCellViewModel(
+            item: Item(
+                name: "Test",
+                date: Date(),
+                addonsActive: false,
+                addons: [],
+                itemType: .airpods,
+                id: "22",
+                isSold: false,
+                dateSold: Date(),
+                priceSold: Int(200.0)
+            ),
+            delegate: nil,
+            weekOrDay: false
+        )
+    )
 }
